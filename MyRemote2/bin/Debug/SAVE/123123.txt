@@ -1,0 +1,37 @@
+[
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "x": 500,
+    "y": 5000,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "x": 500,
+    "y": 5000,
+    "waitdelay": 0
+  }
+]

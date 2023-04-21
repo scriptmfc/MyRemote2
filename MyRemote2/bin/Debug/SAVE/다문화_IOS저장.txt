@@ -1,0 +1,65 @@
+[
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "x": 21776,
+    "y": 27973,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "x": 34986,
+    "y": 16505,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "x": 24336,
+    "y": 34709,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "x": 31470,
+    "y": 20995,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0
+  }
+]
