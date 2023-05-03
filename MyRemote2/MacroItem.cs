@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 //using System.Windows.Forms
 
@@ -14,7 +15,11 @@ public class MacroItem
 	//단위 : ms
 	public int waitdelay;
 
-	public MacroItem()
+    public string str;
+
+	public List<Keys> shortKey = new List<Keys>();
+
+    public MacroItem()
 	{
 		macroEnum = MacroEnum.None;
 	}
@@ -28,5 +33,8 @@ public enum MacroEnum
 	MouseMove,
 	MouseClick,
 	Wait,
+	WriteText,
+
+
 	None
 }

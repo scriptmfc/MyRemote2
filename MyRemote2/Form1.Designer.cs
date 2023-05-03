@@ -31,60 +31,65 @@ namespace MyRemote2
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.MacroItemCreate = new System.Windows.Forms.Button();
+            this.MacroItemEdit = new System.Windows.Forms.Button();
+            this.MacroItemDeleteBtn = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Macro_MouseMoveBtn = new System.Windows.Forms.Button();
             this.MouseXPos = new System.Windows.Forms.TextBox();
             this.MouseYPos = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.Macro_KeyPressBtn = new System.Windows.Forms.Button();
+            this.Macro_KeyPressLabel = new System.Windows.Forms.Label();
+            this.Macro_MouseClickBtn = new System.Windows.Forms.Button();
+            this.Macro_WaitBtn = new System.Windows.Forms.Button();
+            this.CustomWaitInput = new System.Windows.Forms.TextBox();
+            this.BaseDelayInput = new System.Windows.Forms.TextBox();
+            this.StartBtn = new System.Windows.Forms.Button();
+            this.StopBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SAVEBtn = new System.Windows.Forms.Button();
             this.LOADBtn = new System.Windows.Forms.Button();
             this.SAVELOADNAME_INPUT = new System.Windows.Forms.TextBox();
+            this.WriteTextBtn = new System.Windows.Forms.Button();
+            this.WriteTextContentInput = new System.Windows.Forms.TextBox();
+            this.SaveLoadLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.WriteTextWindowOpenBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // MacroItemCreate
             // 
-            this.button1.Location = new System.Drawing.Point(208, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "추가";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.MacroItemCreate.Location = new System.Drawing.Point(208, 93);
+            this.MacroItemCreate.Name = "MacroItemCreate";
+            this.MacroItemCreate.Size = new System.Drawing.Size(75, 23);
+            this.MacroItemCreate.TabIndex = 0;
+            this.MacroItemCreate.Text = "추가";
+            this.MacroItemCreate.UseVisualStyleBackColor = true;
+            this.MacroItemCreate.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // MacroItemEdit
             // 
-            this.button2.Location = new System.Drawing.Point(208, 122);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "수정";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.MacroItemEdit.Location = new System.Drawing.Point(208, 122);
+            this.MacroItemEdit.Name = "MacroItemEdit";
+            this.MacroItemEdit.Size = new System.Drawing.Size(75, 23);
+            this.MacroItemEdit.TabIndex = 2;
+            this.MacroItemEdit.Text = "수정";
+            this.MacroItemEdit.UseVisualStyleBackColor = true;
+            this.MacroItemEdit.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // MacroItemDeleteBtn
             // 
-            this.button3.Location = new System.Drawing.Point(208, 151);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "삭제";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.MacroItemDeleteBtn.Location = new System.Drawing.Point(208, 151);
+            this.MacroItemDeleteBtn.Name = "MacroItemDeleteBtn";
+            this.MacroItemDeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.MacroItemDeleteBtn.TabIndex = 3;
+            this.MacroItemDeleteBtn.Text = "삭제";
+            this.MacroItemDeleteBtn.UseVisualStyleBackColor = true;
+            this.MacroItemDeleteBtn.Click += new System.EventHandler(this.button3_Click);
             // 
             // listBox1
             // 
@@ -104,15 +109,15 @@ namespace MyRemote2
             this.panel1.Size = new System.Drawing.Size(359, 276);
             this.panel1.TabIndex = 1;
             // 
-            // button4
+            // Macro_MouseMoveBtn
             // 
-            this.button4.Location = new System.Drawing.Point(59, 211);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 28);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "마우스 이동";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Macro_MouseMoveBtn.Location = new System.Drawing.Point(59, 211);
+            this.Macro_MouseMoveBtn.Name = "Macro_MouseMoveBtn";
+            this.Macro_MouseMoveBtn.Size = new System.Drawing.Size(82, 28);
+            this.Macro_MouseMoveBtn.TabIndex = 4;
+            this.Macro_MouseMoveBtn.Text = "마우스 이동";
+            this.Macro_MouseMoveBtn.UseVisualStyleBackColor = true;
+            this.Macro_MouseMoveBtn.Click += new System.EventHandler(this.button4_Click);
             // 
             // MouseXPos
             // 
@@ -128,82 +133,80 @@ namespace MyRemote2
             this.MouseYPos.Name = "MouseYPos";
             this.MouseYPos.Size = new System.Drawing.Size(36, 21);
             this.MouseYPos.TabIndex = 6;
-            this.MouseYPos.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // button5
+            // Macro_KeyPressBtn
             // 
-            this.button5.Location = new System.Drawing.Point(59, 245);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(82, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "키 입력";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.Macro_KeyPressBtn.Location = new System.Drawing.Point(59, 245);
+            this.Macro_KeyPressBtn.Name = "Macro_KeyPressBtn";
+            this.Macro_KeyPressBtn.Size = new System.Drawing.Size(82, 23);
+            this.Macro_KeyPressBtn.TabIndex = 7;
+            this.Macro_KeyPressBtn.Text = "키 입력";
+            this.Macro_KeyPressBtn.UseVisualStyleBackColor = true;
+            this.Macro_KeyPressBtn.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label1
+            // Macro_KeyPressLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(146, 250);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 12);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.Macro_KeyPressLabel.AutoSize = true;
+            this.Macro_KeyPressLabel.Location = new System.Drawing.Point(146, 250);
+            this.Macro_KeyPressLabel.Name = "Macro_KeyPressLabel";
+            this.Macro_KeyPressLabel.Size = new System.Drawing.Size(38, 12);
+            this.Macro_KeyPressLabel.TabIndex = 8;
+            this.Macro_KeyPressLabel.Text = "label1";
+            this.Macro_KeyPressLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button6
+            // Macro_MouseClickBtn
             // 
-            this.button6.Location = new System.Drawing.Point(59, 177);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(82, 28);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "마우스 클릭";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.Macro_MouseClickBtn.Location = new System.Drawing.Point(59, 177);
+            this.Macro_MouseClickBtn.Name = "Macro_MouseClickBtn";
+            this.Macro_MouseClickBtn.Size = new System.Drawing.Size(82, 28);
+            this.Macro_MouseClickBtn.TabIndex = 9;
+            this.Macro_MouseClickBtn.Text = "마우스 클릭";
+            this.Macro_MouseClickBtn.UseVisualStyleBackColor = true;
+            this.Macro_MouseClickBtn.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // Macro_WaitBtn
             // 
-            this.button7.Location = new System.Drawing.Point(59, 274);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(82, 23);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "대기";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.Macro_WaitBtn.Location = new System.Drawing.Point(59, 274);
+            this.Macro_WaitBtn.Name = "Macro_WaitBtn";
+            this.Macro_WaitBtn.Size = new System.Drawing.Size(82, 23);
+            this.Macro_WaitBtn.TabIndex = 10;
+            this.Macro_WaitBtn.Text = "대기";
+            this.Macro_WaitBtn.UseVisualStyleBackColor = true;
+            this.Macro_WaitBtn.Click += new System.EventHandler(this.button7_Click);
             // 
-            // textBox3
+            // CustomWaitInput
             // 
-            this.textBox3.Location = new System.Drawing.Point(148, 274);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(36, 21);
-            this.textBox3.TabIndex = 11;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.CustomWaitInput.Location = new System.Drawing.Point(148, 274);
+            this.CustomWaitInput.Name = "CustomWaitInput";
+            this.CustomWaitInput.Size = new System.Drawing.Size(36, 21);
+            this.CustomWaitInput.TabIndex = 11;
             // 
-            // textBox4
+            // BaseDelayInput
             // 
-            this.textBox4.Location = new System.Drawing.Point(457, 81);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(36, 21);
-            this.textBox4.TabIndex = 12;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.BaseDelayInput.Location = new System.Drawing.Point(457, 81);
+            this.BaseDelayInput.Name = "BaseDelayInput";
+            this.BaseDelayInput.Size = new System.Drawing.Size(36, 21);
+            this.BaseDelayInput.TabIndex = 12;
+            this.BaseDelayInput.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // button8
+            // StartBtn
             // 
-            this.button8.Location = new System.Drawing.Point(59, 332);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(82, 23);
-            this.button8.TabIndex = 13;
-            this.button8.Text = "시작 : F7";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.StartBtn.Location = new System.Drawing.Point(59, 332);
+            this.StartBtn.Name = "StartBtn";
+            this.StartBtn.Size = new System.Drawing.Size(82, 23);
+            this.StartBtn.TabIndex = 13;
+            this.StartBtn.Text = "시작 : F7";
+            this.StartBtn.UseVisualStyleBackColor = true;
+            this.StartBtn.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button9
+            // StopBtn
             // 
-            this.button9.Location = new System.Drawing.Point(59, 361);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(82, 23);
-            this.button9.TabIndex = 14;
-            this.button9.Text = "정지 : F8";
-            this.button9.UseVisualStyleBackColor = true;
+            this.StopBtn.Location = new System.Drawing.Point(59, 361);
+            this.StopBtn.Name = "StopBtn";
+            this.StopBtn.Size = new System.Drawing.Size(82, 23);
+            this.StopBtn.TabIndex = 14;
+            this.StopBtn.Text = "정지 : F8";
+            this.StopBtn.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -223,7 +226,6 @@ namespace MyRemote2
             this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 16;
             this.label3.Text = "ms";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -233,11 +235,10 @@ namespace MyRemote2
             this.label4.Size = new System.Drawing.Size(94, 12);
             this.label4.TabIndex = 17;
             this.label4.Text = "현재 위치로 : F6";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // SAVEBtn
             // 
-            this.SAVEBtn.Location = new System.Drawing.Point(208, 332);
+            this.SAVEBtn.Location = new System.Drawing.Point(233, 332);
             this.SAVEBtn.Name = "SAVEBtn";
             this.SAVEBtn.Size = new System.Drawing.Size(82, 23);
             this.SAVEBtn.TabIndex = 18;
@@ -247,7 +248,7 @@ namespace MyRemote2
             // 
             // LOADBtn
             // 
-            this.LOADBtn.Location = new System.Drawing.Point(208, 361);
+            this.LOADBtn.Location = new System.Drawing.Point(233, 361);
             this.LOADBtn.Name = "LOADBtn";
             this.LOADBtn.Size = new System.Drawing.Size(82, 23);
             this.LOADBtn.TabIndex = 19;
@@ -257,37 +258,88 @@ namespace MyRemote2
             // 
             // SAVELOADNAME_INPUT
             // 
-            this.SAVELOADNAME_INPUT.Location = new System.Drawing.Point(209, 303);
+            this.SAVELOADNAME_INPUT.Location = new System.Drawing.Point(234, 303);
             this.SAVELOADNAME_INPUT.Name = "SAVELOADNAME_INPUT";
             this.SAVELOADNAME_INPUT.Size = new System.Drawing.Size(116, 21);
             this.SAVELOADNAME_INPUT.TabIndex = 20;
+            // 
+            // WriteTextBtn
+            // 
+            this.WriteTextBtn.Location = new System.Drawing.Point(59, 148);
+            this.WriteTextBtn.Name = "WriteTextBtn";
+            this.WriteTextBtn.Size = new System.Drawing.Size(82, 23);
+            this.WriteTextBtn.TabIndex = 21;
+            this.WriteTextBtn.Text = "문자 타이핑";
+            this.WriteTextBtn.UseVisualStyleBackColor = true;
+            // 
+            // WriteTextContentInput
+            // 
+            this.WriteTextContentInput.Location = new System.Drawing.Point(18, 66);
+            this.WriteTextContentInput.Multiline = true;
+            this.WriteTextContentInput.Name = "WriteTextContentInput";
+            this.WriteTextContentInput.Size = new System.Drawing.Size(172, 79);
+            this.WriteTextContentInput.TabIndex = 22;
+            this.WriteTextContentInput.TextChanged += new System.EventHandler(this.WriteTextContentInput_TextChanged);
+            // 
+            // SaveLoadLabel
+            // 
+            this.SaveLoadLabel.AutoSize = true;
+            this.SaveLoadLabel.Location = new System.Drawing.Point(232, 285);
+            this.SaveLoadLabel.Name = "SaveLoadLabel";
+            this.SaveLoadLabel.Size = new System.Drawing.Size(121, 12);
+            this.SaveLoadLabel.TabIndex = 23;
+            this.SaveLoadLabel.Text = "▽SaveLoad파일이름";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(190, 279);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 12);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "ms";
+            // 
+            // WriteTextWindowOpenBtn
+            // 
+            this.WriteTextWindowOpenBtn.Location = new System.Drawing.Point(658, 35);
+            this.WriteTextWindowOpenBtn.Name = "WriteTextWindowOpenBtn";
+            this.WriteTextWindowOpenBtn.Size = new System.Drawing.Size(82, 23);
+            this.WriteTextWindowOpenBtn.TabIndex = 25;
+            this.WriteTextWindowOpenBtn.Text = "타이핑 창";
+            this.WriteTextWindowOpenBtn.UseVisualStyleBackColor = true;
+            this.WriteTextWindowOpenBtn.Click += new System.EventHandler(this.WriteTextWindowOpenBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.WriteTextWindowOpenBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SaveLoadLabel);
+            this.Controls.Add(this.WriteTextContentInput);
+            this.Controls.Add(this.WriteTextBtn);
             this.Controls.Add(this.SAVELOADNAME_INPUT);
             this.Controls.Add(this.LOADBtn);
             this.Controls.Add(this.SAVEBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.StopBtn);
+            this.Controls.Add(this.StartBtn);
+            this.Controls.Add(this.BaseDelayInput);
+            this.Controls.Add(this.CustomWaitInput);
+            this.Controls.Add(this.Macro_WaitBtn);
+            this.Controls.Add(this.Macro_MouseClickBtn);
+            this.Controls.Add(this.Macro_KeyPressLabel);
+            this.Controls.Add(this.Macro_KeyPressBtn);
             this.Controls.Add(this.MouseYPos);
             this.Controls.Add(this.MouseXPos);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Macro_MouseMoveBtn);
+            this.Controls.Add(this.MacroItemDeleteBtn);
+            this.Controls.Add(this.MacroItemEdit);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.MacroItemCreate);
             this.HelpButton = true;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -299,28 +351,33 @@ namespace MyRemote2
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button MacroItemCreate;
+        private System.Windows.Forms.Button MacroItemEdit;
+        private System.Windows.Forms.Button MacroItemDeleteBtn;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Macro_MouseMoveBtn;
         private System.Windows.Forms.TextBox MouseXPos;
         private System.Windows.Forms.TextBox MouseYPos;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button Macro_KeyPressBtn;
+        private System.Windows.Forms.Label Macro_KeyPressLabel;
+        private System.Windows.Forms.Button Macro_MouseClickBtn;
+        private System.Windows.Forms.Button Macro_WaitBtn;
+        private System.Windows.Forms.TextBox CustomWaitInput;
+        private System.Windows.Forms.TextBox BaseDelayInput;
+        private System.Windows.Forms.Button StartBtn;
+        private System.Windows.Forms.Button StopBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private Button SAVEBtn;
         private Button LOADBtn;
         private TextBox SAVELOADNAME_INPUT;
+        private Button WriteTextBtn;
+        private TextBox WriteTextContentInput;
+        private Label SaveLoadLabel;
+        private Label label1;
+        private Button WriteTextWindowOpenBtn;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }

@@ -227,7 +227,7 @@ namespace MyRemote2
         /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
-            string itemName = "대기  " + "(" + textBox3.Text + ")";
+            string itemName = "대기  " + "(" + CustomWaitInput.Text + ")";
 
             Form1_Func.SelectItem.macroEnum = MacroEnum.Wait;
 
@@ -242,7 +242,7 @@ namespace MyRemote2
         /// <param name="e"></param>
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            int.TryParse(textBox4.Text, out Form1_Func.BASE_Wait_Delay);
+            int.TryParse(BaseDelayInput.Text, out Form1_Func.BASE_Wait_Delay);
             Console.WriteLine("기본 대기 시간이 바뀌었습니다.");
             
         }
@@ -267,24 +267,6 @@ namespace MyRemote2
             Form1_Func.StopMacro();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// 마우스 y위치
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
         /// <summary>
@@ -303,11 +285,6 @@ namespace MyRemote2
         }
 
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button10_Click(object sender, EventArgs e)
         {
             SaveLoad.SaveData(SAVELOADNAME_INPUT.Text);
@@ -316,6 +293,17 @@ namespace MyRemote2
         private void button11_Click(object sender, EventArgs e)
         {
             SaveLoad.LoadData(SAVELOADNAME_INPUT.Text);
+        }
+
+        private void WriteTextContentInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WriteTextWindowOpenBtn_Click(object sender, EventArgs e)
+        {
+            Extend.WriteText.WriteTextWindow window = new Extend.WriteText.WriteTextWindow();
+            window.Show();
         }
     }
 }

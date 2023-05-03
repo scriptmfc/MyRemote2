@@ -1,0 +1,200 @@
+[
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker build -t springtest1 .",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker exec -it my-app /bin/sh",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker exec -it my-mongo mongosh --eval",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker-compose --env-file \"D:\\Web\\BackEnd\\SpringBootWork\\springtest_license\\.env\" up ",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker cp my-app:/app/test1 C:\\Users\\TGRAM_04",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "ps aux | grep mongo",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "wget http://localhost:8080/member/findTest",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "wget http://localhost:8080/test1",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker run -ditp 27017:27017 --name my-mongo2 mongo",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker exec -it my-mongo2 mongosh --eval",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "db.user.insert({name:\"adaf\",age:206})",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker exec -it my-mongo mongosh --eval",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "db.user.insert({name: \"Adale Lovelace\", age: 205})",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "db.auth(\"root\",\"root\")",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "db.user.findOne()",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "db.user.count()",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker tag springtest1:spr scriptmfc/tgram-license-springboot:spr",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 4,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": "docker push scriptmfc/tgram-license-springboot:spr",
+    "shortKey": []
+  },
+  {
+    "macroEnum": 5,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 5,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 5,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 5,
+    "key": 0,
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "shortKey": []
+  }
+]
