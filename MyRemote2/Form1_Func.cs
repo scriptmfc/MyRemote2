@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Windows.Input;
 using MyRemote2;
 
 public static class Form1_Func
@@ -47,8 +48,8 @@ public static class Form1_Func
     public static int BASE_Wait_Delay=100;
 
     public static Keys CurrentMousePositionSettingKey = Keys.F6;
-    public static Keys StartKey= Keys.F7;
-    public static Keys StopKey= Keys.F8;
+    public static Key StartKey= Key.Scroll;
+    public static Key StopKey= Key.Pause;
 
     /*
     private static void Form1_KeyDown(object sender, KeyEventArgs e)

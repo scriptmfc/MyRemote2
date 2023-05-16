@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace MyRemote2
 {
@@ -40,10 +42,15 @@ namespace MyRemote2
             Instance = this;
             this.KeyDown += Form1_KeyDown;
             this.KeyPreview = true;
-            
+            this.Load += BackGroundKeyListenStart;
             //this.KeyDown += (sender, e) =>  Console.WriteLine("134");
             Console.WriteLine(Instance + ":...");
             
+        }
+
+        void BackGroundKeyListenStart(object sender, EventArgs e)
+        {
+            Extend.WriteText.BackGroundKeyListener.ListenStart(sender, e);
         }
 
         public void ItemToListNameWhenLoad()
@@ -72,6 +79,24 @@ namespace MyRemote2
             }
         }
 
+        public  void BackGroundKeyExe(Key key)
+        {
+
+            //Console.WriteLine(e + ":?? WriteTextWindow 키 확인");
+            //  키가 눌렸는지 확인
+            if (key == Form1_Func.StartKey)
+            {
+                // 특정 메서드 호출
+                Console.WriteLine("ddd");
+                Form1_Func.StartMacro();
+            }
+            else if (key == Form1_Func.StopKey)
+            {
+                Form1_Func.StopMacro();
+            }
+            
+        }
+
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -82,7 +107,7 @@ namespace MyRemote2
                 // 특정 메서드 호출
                 Console.WriteLine("ddd");
             }
-
+            /*
             if (e.KeyCode == Form1_Func.StartKey)
             {
                 // 특정 메서드 호출
@@ -92,7 +117,7 @@ namespace MyRemote2
             {
                 // 특정 메서드 호출
                 Form1_Func.StopMacro();
-            }
+            }*/
 
             if (e.KeyCode == Form1_Func.CurrentMousePositionSettingKey)
             {

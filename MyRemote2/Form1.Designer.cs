@@ -19,6 +19,7 @@ namespace MyRemote2
             if (disposing && (components != null))
             {
                 components.Dispose();
+                
             }
             base.Dispose(disposing);
         }
@@ -58,6 +59,7 @@ namespace MyRemote2
             this.SaveLoadLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.WriteTextWindowOpenBtn = new System.Windows.Forms.Button();
+            this.StartKeyChangeBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,10 +105,12 @@ namespace MyRemote2
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.StartKeyChangeBtn);
             this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.StartBtn);
             this.panel1.Location = new System.Drawing.Point(381, 108);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(359, 276);
+            this.panel1.Size = new System.Drawing.Size(391, 306);
             this.panel1.TabIndex = 1;
             // 
             // Macro_MouseMoveBtn
@@ -191,11 +195,11 @@ namespace MyRemote2
             // 
             // StartBtn
             // 
-            this.StartBtn.Location = new System.Drawing.Point(59, 332);
+            this.StartBtn.Location = new System.Drawing.Point(7, 268);
             this.StartBtn.Name = "StartBtn";
-            this.StartBtn.Size = new System.Drawing.Size(82, 23);
+            this.StartBtn.Size = new System.Drawing.Size(131, 23);
             this.StartBtn.TabIndex = 13;
-            this.StartBtn.Text = "시작 : F7";
+            this.StartBtn.Text = "시작 : Scroll-Lock";
             this.StartBtn.UseVisualStyleBackColor = true;
             this.StartBtn.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -203,9 +207,9 @@ namespace MyRemote2
             // 
             this.StopBtn.Location = new System.Drawing.Point(59, 361);
             this.StopBtn.Name = "StopBtn";
-            this.StopBtn.Size = new System.Drawing.Size(82, 23);
+            this.StopBtn.Size = new System.Drawing.Size(131, 23);
             this.StopBtn.TabIndex = 14;
-            this.StopBtn.Text = "정지 : F8";
+            this.StopBtn.Text = "정지 : Pause";
             this.StopBtn.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -309,11 +313,20 @@ namespace MyRemote2
             this.WriteTextWindowOpenBtn.UseVisualStyleBackColor = true;
             this.WriteTextWindowOpenBtn.Click += new System.EventHandler(this.WriteTextWindowOpenBtn_Click);
             // 
+            // StartKeyChangeBtn
+            // 
+            this.StartKeyChangeBtn.Location = new System.Drawing.Point(144, 268);
+            this.StartKeyChangeBtn.Name = "StartKeyChangeBtn";
+            this.StartKeyChangeBtn.Size = new System.Drawing.Size(60, 23);
+            this.StartKeyChangeBtn.TabIndex = 14;
+            this.StartKeyChangeBtn.Text = "키 변경";
+            this.StartKeyChangeBtn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 450);
             this.Controls.Add(this.WriteTextWindowOpenBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SaveLoadLabel);
@@ -326,7 +339,6 @@ namespace MyRemote2
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.StopBtn);
-            this.Controls.Add(this.StartBtn);
             this.Controls.Add(this.BaseDelayInput);
             this.Controls.Add(this.CustomWaitInput);
             this.Controls.Add(this.Macro_WaitBtn);
@@ -378,10 +390,13 @@ namespace MyRemote2
         private Label SaveLoadLabel;
         private Label label1;
         private Button WriteTextWindowOpenBtn;
+        private Button StartKeyChangeBtn;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }
         public TextBox MouseYPos1 { get => MouseYPos; set => MouseYPos = value; }
+
+        
     }
 }
 

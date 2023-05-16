@@ -23,7 +23,7 @@ namespace MyRemote2.Extend.WriteText
         }
 
         static Key[] keysToCheck = new Key[] { Key.Return, Key.A, Key.B, Key.C,Key.F9,
-        Key.F3,Key.F7,Key.Scroll}; // 원하는 키들을 배열에 추가
+        Key.F3,Key.F7,Key.Scroll,Key.Pause}; // 원하는 키들을 배열에 추가
 
 
         static void Keyboardd()
@@ -46,14 +46,24 @@ namespace MyRemote2.Extend.WriteText
                         if (InputKeyList.Count == 0)
                         {
                             InputKeyList.Add(key);
+                            if(WriteTextWindow.Instance!=null)
                             WriteTextWindow.Instance.KeyExe(key);
+                            else if (Form1.Instance != null)
+                            {
+                                Form1.Instance.BackGroundKeyExe(key);
+                            }
                             //InputKeyList.Clear();
                             Thread.Sleep(500);
                         }
                         else if (InputKeyList.Count == 1)
                         {
                             InputKeyList[0] = key;
-                            WriteTextWindow.Instance.KeyExe(key);
+                            if (WriteTextWindow.Instance != null)
+                                WriteTextWindow.Instance.KeyExe(key);
+                            else if (Form1.Instance != null)
+                            {
+                                Form1.Instance.BackGroundKeyExe(key);
+                            }
                             //InputKeyList.Clear();
                             Thread.Sleep(500);
 
@@ -69,6 +79,7 @@ namespace MyRemote2.Extend.WriteText
         {
             Console.WriteLine("thread 러닝 false");
             isRunning = false;
+            WriteTextWindow.Instance = null;
         }
     }
 }
