@@ -109,14 +109,15 @@ namespace MyRemote2
             {
                 Console.WriteLine("StartBtnChangeReady가 true");
                 Console.WriteLine(e.KeyData+":e.keydata");
-                Console.WriteLine(Keys.OemBackslash.ToString() + ":Keys.OemBackslash.ToString()");
-                Console.WriteLine(Keys.Oem5.ToString() + ":Keys.Oem5.ToString()");
-                if (e.KeyData==Keys.Oem5)
+                Console.WriteLine(Keys.OemCloseBrackets.ToString() + ":Keys.OemBackslash.ToString()");
+                //Oem5키는 \인것 같다.
+                if (e.KeyData==Keys.OemCloseBrackets)
                 {
-                    MyRemote2.Extend.WriteText.BackGroundKeyListener.InputKeyList.Add(Key.OemBackslash);
-                    Form1_Func.StartKey = Key.OemBackslash;
-                    Console.WriteLine(e.ToString() + ":스타트키가 oembackslash 로 바뀜");
+                    MyRemote2.Extend.WriteText.BackGroundKeyListener.keysToCheckList.Add(Key.OemCloseBrackets);
+                    Form1_Func.StartKey = Key.OemCloseBrackets;
+                    Console.WriteLine(e.ToString() + ":스타트키가 ] 로 바뀜");
                     StartBtnChangeReady = false;
+                    StartBtn.Text = "시작 : ]";
                 }
 
                 
@@ -357,6 +358,7 @@ namespace MyRemote2
         private void StartKeyChangeBtn_Click(object sender, EventArgs e)
         {
             StartBtnChangeReady = true;
+            
         }
     }
 }

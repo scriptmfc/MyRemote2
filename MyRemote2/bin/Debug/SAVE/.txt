@@ -1,6 +1,6 @@
 [
   {
-    "macroEnum": 4,
+    "macroEnum": 2,
     "key": 0,
     "x": 0,
     "y": 0,

@@ -15,12 +15,14 @@ namespace MyRemote2
         public static void LoadData(string filename)
         {
             string filepath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)+"/SAVE/"
-                + filename+".txt";
+                +filename+".txt";
+            Console.WriteLine("수정 SaveLoad.cs test");
             if (File.Exists(filepath))
             {
                 string json = File.ReadAllText(filepath);
                 Form1_Func.MacroItemList = JsonConvert.DeserializeObject<List<MacroItem>>(json);
                 Form1.Instance.ItemToListNameWhenLoad();
+
             }
         }
 

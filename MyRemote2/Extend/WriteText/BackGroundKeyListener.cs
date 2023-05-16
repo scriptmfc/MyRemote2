@@ -16,6 +16,7 @@ namespace MyRemote2.Extend.WriteText
         /// <summary>
         /// Keys 아니고 
         /// System.Window.Input.Key
+        /// 눌린키
         /// </summary>
         public static List<Key> InputKeyList = new List<Key>();
         public static void ListenStart(object sender, EventArgs e)
@@ -26,12 +27,26 @@ namespace MyRemote2.Extend.WriteText
             TH.Start();
         }
 
-        static Key[] keysToCheck = new Key[] { Key.Return, Key.A, Key.B, Key.C,Key.F9,
-        Key.F3,Key.F7,Key.Scroll,Key.Pause}; // 원하는 키들을 배열에 추가
+        /// <summary>
+        /// 눌리는 키 observe. 감시. 
+        /// </summary>
+        public static List<Key> keysToCheckList = new List<Key>();
+        //{ Key.Return, Key.A, Key.B, Key.C,Key.F9,
+        //Key.F3,Key.F7,Key.Scroll,Key.Pause}; // 원하는 키들을 배열에 추가
 
 
         static void Keyboardd()
         {
+            keysToCheckList.Add(Key.Return);
+            keysToCheckList.Add(Key.A);
+            keysToCheckList.Add(Key.B);
+            keysToCheckList.Add(Key.C);
+            keysToCheckList.Add(Key.F9);
+            keysToCheckList.Add(Key.F3);
+            keysToCheckList.Add(Key.F7);
+            keysToCheckList.Add(Key.Scroll);
+            keysToCheckList.Add(Key.Pause);
+
             int a=0;
             while (isRunning)
             {
@@ -43,7 +58,7 @@ namespace MyRemote2.Extend.WriteText
                 }
 
                 // 각 키들을 확인하여 눌린 경우 동작 수행
-                foreach (var key in keysToCheck)
+                foreach (var key in keysToCheckList)
                 {
                     if (Keyboard.GetKeyStates(key).HasFlag(KeyStates.Down))
                     {

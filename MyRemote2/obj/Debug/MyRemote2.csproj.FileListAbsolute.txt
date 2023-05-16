@@ -11,4 +11,21 @@ C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.pdb
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\bin\Debug\Newtonsoft.Json.xml
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.CopyComplete
+<<<<<<< Updated upstream
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.Extend.WriteText.WriteTextWindow.resources
+=======
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\bin\Debug\MyRemote2.exe.config
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\bin\Debug\MyRemote2.exe
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\bin\Debug\MyRemote2.pdb
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\bin\Debug\Newtonsoft.Json.dll
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\bin\Debug\Newtonsoft.Json.xml
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.AssemblyReference.cache
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.Form1.resources
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.Properties.Resources.resources
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.GenerateResource.cache
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.CoreCompileInputs.cache
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.CopyComplete
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.exe
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.pdb
+>>>>>>> Stashed changes
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.Extend.WriteText.WriteTextWindow.resources
