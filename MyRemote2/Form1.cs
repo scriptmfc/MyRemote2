@@ -18,6 +18,7 @@ namespace MyRemote2
         public static Form1 Instance;
 
         private bool StartBtnChangeReady;
+        private bool MacroKeyInputReady;
 
         // 윈도우 API 함수를 사용하기 위한 import
         [DllImport("user32.dll")]
@@ -65,9 +66,21 @@ namespace MyRemote2
                 switch(Form1_Func.MacroItemList[i].macroEnum)
                 {
                     case MacroEnum.KeyPress:
+                        if (Form1_Func.MacroItemList[i].press꾹Key.Count == 0)
+                        {
+                            listBox1.Items[i] = $"키 Press : {Form1_Func.MacroItemList[i].key}";
+                        }
+                        else
+                        {
+                            if(Form1_Func.MacroItemList[i].press꾹Key.Count==1)
+                                listBox1.Items[i] = $"키 Press : {Form1_Func.MacroItemList[i].press꾹Key[0]}+{Form1_Func.MacroItemList[i].key}";
+                        }
                         break;
                     case MacroEnum.None:
                         listBox1.Items[i] = "None";
+                        break;
+                    case MacroEnum.Wait:
+                        listBox1.Items[i] = $"대기 : {Form1_Func.MacroItemList[i].waitdelay}ms";
                         break;
                     case MacroEnum.MouseClick:
                         listBox1.Items[i] = "마우스 왼쪽 클릭";
@@ -113,7 +126,7 @@ namespace MyRemote2
                 //Oem5키는 \인것 같다.
                 if (e.KeyData==Keys.OemCloseBrackets)
                 {
-                    MyRemote2.Extend.WriteText.BackGroundKeyListener.keysToCheckList.Add(Key.OemCloseBrackets);
+                    MyRemote2.Extend.WriteText.BackGroundKeyListener.InputKeyList.Add(Key.OemCloseBrackets);
                     Form1_Func.StartKey = Key.OemCloseBrackets;
                     Console.WriteLine(e.ToString() + ":스타트키가 ] 로 바뀜");
                     StartBtnChangeReady = false;
@@ -122,6 +135,15 @@ namespace MyRemote2
 
                 
 
+                return;
+            }
+
+            if (MacroKeyInputReady)
+            {
+                
+                KeyPressSetting(e.KeyData);
+                Console.WriteLine(e.KeyData+"키 지정");
+                MacroKeyInputReady = false;
                 return;
             }
 
@@ -215,10 +237,6 @@ namespace MyRemote2
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -242,6 +260,50 @@ namespace MyRemote2
             listBox1.Items[listBox1.SelectedIndex] = itemName;
         }
 
+        /// <summary>
+        /// keys 는 System.Window.Forms.Keys
+        /// </summary>
+        /// <param name="key"></param>
+        void KeyPressSetting(Keys keys)
+        {
+            Form1_Func.SelectItem.press꾹Key.Clear();
+
+            if (Form1_Func.KeyPress꾹Control)
+            {
+                Form1_Func.SelectItem.press꾹Key.Add(Keys.Control);
+            }
+            if (Form1_Func.KeyPress꾹Shift)
+            {
+                Form1_Func.SelectItem.press꾹Key.Add(Keys.Shift);
+            }
+            if (Form1_Func.KeyPress꾹Alt)
+            {
+                Form1_Func.SelectItem.press꾹Key.Add(Keys.Alt);
+            }
+
+            string itemName;// = "마우스 이동  " + "(" + MouseXPos.Text + "," + MouseYPos.Text + ")";
+
+            Form1_Func.SelectItem.macroEnum = MacroEnum.KeyPress;
+            Form1_Func.SelectItem.key = keys;
+
+
+            if (Form1_Func.SelectItem.press꾹Key.Count == 0)
+            {
+                itemName = $"키 Press : {Form1_Func.SelectItem.key}";
+            }
+            else if (Form1_Func.SelectItem.press꾹Key.Count == 1)
+            {
+                itemName = $"키 Press : {Form1_Func.SelectItem.press꾹Key[0]}+{Form1_Func.SelectItem.key}";
+            }
+            else
+            {
+                itemName = "ItemName Err";
+            }
+
+
+            listBox1.Items[listBox1.SelectedIndex] = itemName;
+            
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -264,10 +326,6 @@ namespace MyRemote2
             listBox1.Items[listBox1.SelectedIndex] = itemName;
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary> 
         /// 대기 버튼 textBox3
@@ -276,10 +334,10 @@ namespace MyRemote2
         /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
-            string itemName = "대기  " + "(" + CustomWaitInput.Text + ")";
+            string itemName = "대기  " + "(" + CustomWaitInput.Text + ") ms";
 
             Form1_Func.SelectItem.macroEnum = MacroEnum.Wait;
-
+            Form1_Func.SelectItem.waitdelay = int.Parse(CustomWaitInput.Text);
 
             listBox1.Items[listBox1.SelectedIndex] = itemName;
         }
@@ -359,6 +417,23 @@ namespace MyRemote2
         {
             StartBtnChangeReady = true;
             
+        }
+
+        private void Macro_KeyPressBtn_Click(object sender, EventArgs e)
+        {
+            MacroKeyInputReady = true;
+        }
+
+        private void KeyPressCheckBoxCtrl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (KeyPressCheckBoxCtrl.Checked)
+            {
+                Form1_Func.KeyPress꾹Control = true;
+            }
+            else
+            {
+                Form1_Func.KeyPress꾹Control = false;
+            }
         }
     }
 }

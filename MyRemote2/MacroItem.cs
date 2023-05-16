@@ -9,6 +9,11 @@ public class MacroItem
 
 	public Keys key;
 
+	/// <summary>
+	/// 꾹 누른채로 유지하는 키
+	/// </summary>
+	public List<Keys> press꾹Key =new List<Keys>();
+
 	public int x;
 	public int y;
 
@@ -16,6 +21,8 @@ public class MacroItem
 	public int waitdelay;
 
     public string str;
+
+	public string CustomMacroCode;
 
 	public List<Keys> shortKey = new List<Keys>();
 
@@ -34,7 +41,7 @@ public enum MacroEnum
 	MouseClick,
 	Wait,
 	WriteText,
-
+	CustomMacro,
 
 	None
 }

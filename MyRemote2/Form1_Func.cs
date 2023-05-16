@@ -20,6 +20,8 @@ public static class Form1_Func
 
     // Shift 키의 가상 키 코드
     const byte VK_SHIFT = 0x10;
+    // CONTROL 키의 가상 키 코드
+    const byte VK_CONTROL = 0x11;
 
 
     // POINT 구조체 정의
@@ -50,6 +52,10 @@ public static class Form1_Func
     public static Keys CurrentMousePositionSettingKey = Keys.F6;
     public static Key StartKey= Key.Scroll;
     public static Key StopKey= Key.Pause;
+
+    public static bool KeyPress꾹Control;
+    public static bool KeyPress꾹Shift;
+    public static bool KeyPress꾹Alt;
 
     /*
     private static void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -109,7 +115,27 @@ public static class Form1_Func
         switch (item.macroEnum)
         {
             case MacroEnum.KeyPress:
-                KeyPress(item.key);
+                if (item.press꾹Key.Count == 0)
+                {
+                    KeyPress(item.key);
+                }
+                else if (item.press꾹Key.Count == 1)
+                {
+                    //PressContinueKey(item.press꾹Key[0]);
+                    //KeyPress(item.key);
+                    //ReleaseKey(item.press꾹Key[0]);
+                    //=>안되는 듯?
+
+                    if (item.press꾹Key[0] == Keys.Shift)
+                    {
+                        ShiftPressKey(item.key);
+                    }
+                    else if (item.press꾹Key[0] == Keys.Control)
+                    {
+                        ControlPressKey(item.key);
+                    }
+
+                }
                 break;
             case MacroEnum.WriteText:
                 WriteText(item.str);
@@ -121,6 +147,7 @@ public static class Form1_Func
                 MouseLeftClick();
                 break;
             case MacroEnum.Wait:
+                Console.WriteLine("여기는 오면 안됨! Form1_Func.cs (MacroThread에서 직접처리)");
                 break;
             case MacroEnum.None:
                 break;
@@ -135,6 +162,9 @@ public static class Form1_Func
     {
         PressKey(key);
     }
+
+    
+
 
     public static void WriteText(string str)
     {
@@ -196,7 +226,21 @@ public static class Form1_Func
         keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
     }
 
-    // 키 뗄기 함수
+    private static void ControlPressKey(Keys key)
+    {
+        keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+        keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+        keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+    }
+
+    //키 계속 누르고 있기 함수
+    private static void PressContinueKey(Keys key)
+    {
+        keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+    }
+
+    // 키 떼기 함수
     private static void ReleaseKey(Keys key)
     {
         keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);

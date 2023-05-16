@@ -37,6 +37,8 @@ namespace MyRemote2
             this.MacroItemDeleteBtn = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.StartKeyChangeBtn = new System.Windows.Forms.Button();
+            this.StartBtn = new System.Windows.Forms.Button();
             this.Macro_MouseMoveBtn = new System.Windows.Forms.Button();
             this.MouseXPos = new System.Windows.Forms.TextBox();
             this.MouseYPos = new System.Windows.Forms.TextBox();
@@ -46,7 +48,6 @@ namespace MyRemote2
             this.Macro_WaitBtn = new System.Windows.Forms.Button();
             this.CustomWaitInput = new System.Windows.Forms.TextBox();
             this.BaseDelayInput = new System.Windows.Forms.TextBox();
-            this.StartBtn = new System.Windows.Forms.Button();
             this.StopBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,7 +60,8 @@ namespace MyRemote2
             this.SaveLoadLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.WriteTextWindowOpenBtn = new System.Windows.Forms.Button();
-            this.StartKeyChangeBtn = new System.Windows.Forms.Button();
+            this.KeyPressCheckBoxCtrl = new System.Windows.Forms.CheckBox();
+            this.KeyPressCheckBoxShift = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,6 +115,26 @@ namespace MyRemote2
             this.panel1.Size = new System.Drawing.Size(391, 306);
             this.panel1.TabIndex = 1;
             // 
+            // StartKeyChangeBtn
+            // 
+            this.StartKeyChangeBtn.Location = new System.Drawing.Point(144, 268);
+            this.StartKeyChangeBtn.Name = "StartKeyChangeBtn";
+            this.StartKeyChangeBtn.Size = new System.Drawing.Size(60, 23);
+            this.StartKeyChangeBtn.TabIndex = 14;
+            this.StartKeyChangeBtn.Text = "키 변경";
+            this.StartKeyChangeBtn.UseVisualStyleBackColor = true;
+            this.StartKeyChangeBtn.Click += new System.EventHandler(this.StartKeyChangeBtn_Click);
+            // 
+            // StartBtn
+            // 
+            this.StartBtn.Location = new System.Drawing.Point(7, 268);
+            this.StartBtn.Name = "StartBtn";
+            this.StartBtn.Size = new System.Drawing.Size(131, 23);
+            this.StartBtn.TabIndex = 13;
+            this.StartBtn.Text = "시작 : Scroll-Lock";
+            this.StartBtn.UseVisualStyleBackColor = true;
+            this.StartBtn.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Macro_MouseMoveBtn
             // 
             this.Macro_MouseMoveBtn.Location = new System.Drawing.Point(59, 211);
@@ -146,7 +168,7 @@ namespace MyRemote2
             this.Macro_KeyPressBtn.TabIndex = 7;
             this.Macro_KeyPressBtn.Text = "키 입력";
             this.Macro_KeyPressBtn.UseVisualStyleBackColor = true;
-            this.Macro_KeyPressBtn.Click += new System.EventHandler(this.button5_Click);
+            this.Macro_KeyPressBtn.Click += new System.EventHandler(this.Macro_KeyPressBtn_Click);
             // 
             // Macro_KeyPressLabel
             // 
@@ -156,7 +178,6 @@ namespace MyRemote2
             this.Macro_KeyPressLabel.Size = new System.Drawing.Size(38, 12);
             this.Macro_KeyPressLabel.TabIndex = 8;
             this.Macro_KeyPressLabel.Text = "label1";
-            this.Macro_KeyPressLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // Macro_MouseClickBtn
             // 
@@ -170,7 +191,7 @@ namespace MyRemote2
             // 
             // Macro_WaitBtn
             // 
-            this.Macro_WaitBtn.Location = new System.Drawing.Point(59, 274);
+            this.Macro_WaitBtn.Location = new System.Drawing.Point(59, 347);
             this.Macro_WaitBtn.Name = "Macro_WaitBtn";
             this.Macro_WaitBtn.Size = new System.Drawing.Size(82, 23);
             this.Macro_WaitBtn.TabIndex = 10;
@@ -180,7 +201,7 @@ namespace MyRemote2
             // 
             // CustomWaitInput
             // 
-            this.CustomWaitInput.Location = new System.Drawing.Point(148, 274);
+            this.CustomWaitInput.Location = new System.Drawing.Point(148, 347);
             this.CustomWaitInput.Name = "CustomWaitInput";
             this.CustomWaitInput.Size = new System.Drawing.Size(36, 21);
             this.CustomWaitInput.TabIndex = 11;
@@ -193,19 +214,9 @@ namespace MyRemote2
             this.BaseDelayInput.TabIndex = 12;
             this.BaseDelayInput.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // StartBtn
-            // 
-            this.StartBtn.Location = new System.Drawing.Point(7, 268);
-            this.StartBtn.Name = "StartBtn";
-            this.StartBtn.Size = new System.Drawing.Size(131, 23);
-            this.StartBtn.TabIndex = 13;
-            this.StartBtn.Text = "시작 : Scroll-Lock";
-            this.StartBtn.UseVisualStyleBackColor = true;
-            this.StartBtn.Click += new System.EventHandler(this.button8_Click);
-            // 
             // StopBtn
             // 
-            this.StopBtn.Location = new System.Drawing.Point(59, 361);
+            this.StopBtn.Location = new System.Drawing.Point(59, 434);
             this.StopBtn.Name = "StopBtn";
             this.StopBtn.Size = new System.Drawing.Size(131, 23);
             this.StopBtn.TabIndex = 14;
@@ -242,7 +253,7 @@ namespace MyRemote2
             // 
             // SAVEBtn
             // 
-            this.SAVEBtn.Location = new System.Drawing.Point(233, 332);
+            this.SAVEBtn.Location = new System.Drawing.Point(233, 405);
             this.SAVEBtn.Name = "SAVEBtn";
             this.SAVEBtn.Size = new System.Drawing.Size(82, 23);
             this.SAVEBtn.TabIndex = 18;
@@ -252,7 +263,7 @@ namespace MyRemote2
             // 
             // LOADBtn
             // 
-            this.LOADBtn.Location = new System.Drawing.Point(233, 361);
+            this.LOADBtn.Location = new System.Drawing.Point(233, 434);
             this.LOADBtn.Name = "LOADBtn";
             this.LOADBtn.Size = new System.Drawing.Size(82, 23);
             this.LOADBtn.TabIndex = 19;
@@ -262,7 +273,7 @@ namespace MyRemote2
             // 
             // SAVELOADNAME_INPUT
             // 
-            this.SAVELOADNAME_INPUT.Location = new System.Drawing.Point(234, 303);
+            this.SAVELOADNAME_INPUT.Location = new System.Drawing.Point(234, 376);
             this.SAVELOADNAME_INPUT.Name = "SAVELOADNAME_INPUT";
             this.SAVELOADNAME_INPUT.Size = new System.Drawing.Size(116, 21);
             this.SAVELOADNAME_INPUT.TabIndex = 20;
@@ -288,7 +299,7 @@ namespace MyRemote2
             // SaveLoadLabel
             // 
             this.SaveLoadLabel.AutoSize = true;
-            this.SaveLoadLabel.Location = new System.Drawing.Point(232, 285);
+            this.SaveLoadLabel.Location = new System.Drawing.Point(232, 358);
             this.SaveLoadLabel.Name = "SaveLoadLabel";
             this.SaveLoadLabel.Size = new System.Drawing.Size(121, 12);
             this.SaveLoadLabel.TabIndex = 23;
@@ -297,7 +308,7 @@ namespace MyRemote2
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(190, 279);
+            this.label1.Location = new System.Drawing.Point(190, 352);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 24;
@@ -313,21 +324,34 @@ namespace MyRemote2
             this.WriteTextWindowOpenBtn.UseVisualStyleBackColor = true;
             this.WriteTextWindowOpenBtn.Click += new System.EventHandler(this.WriteTextWindowOpenBtn_Click);
             // 
-            // StartKeyChangeBtn
+            // KeyPressCheckBoxCtrl
             // 
-            this.StartKeyChangeBtn.Location = new System.Drawing.Point(144, 268);
-            this.StartKeyChangeBtn.Name = "StartKeyChangeBtn";
-            this.StartKeyChangeBtn.Size = new System.Drawing.Size(60, 23);
-            this.StartKeyChangeBtn.TabIndex = 14;
-            this.StartKeyChangeBtn.Text = "키 변경";
-            this.StartKeyChangeBtn.UseVisualStyleBackColor = true;
-            this.StartKeyChangeBtn.Click += new System.EventHandler(this.StartKeyChangeBtn_Click);
+            this.KeyPressCheckBoxCtrl.AutoSize = true;
+            this.KeyPressCheckBoxCtrl.Location = new System.Drawing.Point(59, 274);
+            this.KeyPressCheckBoxCtrl.Name = "KeyPressCheckBoxCtrl";
+            this.KeyPressCheckBoxCtrl.Size = new System.Drawing.Size(64, 16);
+            this.KeyPressCheckBoxCtrl.TabIndex = 26;
+            this.KeyPressCheckBoxCtrl.Text = "Control";
+            this.KeyPressCheckBoxCtrl.UseVisualStyleBackColor = true;
+            this.KeyPressCheckBoxCtrl.CheckedChanged += new System.EventHandler(this.KeyPressCheckBoxCtrl_CheckedChanged);
+            // 
+            // KeyPressCheckBoxShift
+            // 
+            this.KeyPressCheckBoxShift.AutoSize = true;
+            this.KeyPressCheckBoxShift.Location = new System.Drawing.Point(129, 274);
+            this.KeyPressCheckBoxShift.Name = "KeyPressCheckBoxShift";
+            this.KeyPressCheckBoxShift.Size = new System.Drawing.Size(48, 16);
+            this.KeyPressCheckBoxShift.TabIndex = 27;
+            this.KeyPressCheckBoxShift.Text = "Shift";
+            this.KeyPressCheckBoxShift.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 450);
+            this.ClientSize = new System.Drawing.Size(802, 485);
+            this.Controls.Add(this.KeyPressCheckBoxShift);
+            this.Controls.Add(this.KeyPressCheckBoxCtrl);
             this.Controls.Add(this.WriteTextWindowOpenBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SaveLoadLabel);
@@ -392,6 +416,8 @@ namespace MyRemote2
         private Label label1;
         private Button WriteTextWindowOpenBtn;
         private Button StartKeyChangeBtn;
+        private CheckBox KeyPressCheckBoxCtrl;
+        private CheckBox KeyPressCheckBoxShift;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }

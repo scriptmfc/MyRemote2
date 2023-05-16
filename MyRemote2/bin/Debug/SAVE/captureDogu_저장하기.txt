@@ -1,8 +1,10 @@
 [
   {
     "macroEnum": 0,
-    "key": 70,
-    "press꾹Key": [],
+    "key": 83,
+    "press꾹Key": [
+      131072
+    ],
     "x": 0,
     "y": 0,
     "waitdelay": 0,
@@ -10,12 +12,12 @@
     "shortKey": []
   },
   {
-    "macroEnum": 0,
-    "key": 71,
+    "macroEnum": 3,
+    "key": 0,
     "press꾹Key": [],
     "x": 0,
     "y": 0,
-    "waitdelay": 0,
+    "waitdelay": 500,
     "str": null,
     "shortKey": []
   }

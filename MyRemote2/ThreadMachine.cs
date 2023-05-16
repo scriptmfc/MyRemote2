@@ -16,8 +16,18 @@ namespace MyRemote2
             // BASE_Wait_Delay 값만큼 대기
             for (int i = 0; i < Form1_Func.MacroItemList.Count; i++)
             {
-                Thread.Sleep(Form1_Func.BASE_Wait_Delay);
-                Form1_Func.MacroWork(Form1_Func.MacroItemList[i]);
+
+                if (Form1_Func.MacroItemList[i].macroEnum == MacroEnum.Wait)
+                {
+                    Thread.Sleep(Form1_Func.MacroItemList[i].waitdelay);
+                    
+                }
+                else
+                {
+                    Thread.Sleep(Form1_Func.BASE_Wait_Delay);
+                    Form1_Func.MacroWork(Form1_Func.MacroItemList[i]);
+                }
+                
                 Console.WriteLine(i+"실행");
             }
             Console.WriteLine("종료");
