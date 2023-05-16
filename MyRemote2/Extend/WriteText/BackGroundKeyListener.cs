@@ -13,6 +13,10 @@ namespace MyRemote2.Extend.WriteText
     {
         static bool isRunning = true;
 
+        /// <summary>
+        /// Keys 아니고 
+        /// System.Window.Input.Key
+        /// </summary>
         public static List<Key> InputKeyList = new List<Key>();
         public static void ListenStart(object sender, EventArgs e)
         {

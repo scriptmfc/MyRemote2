@@ -17,6 +17,8 @@ namespace MyRemote2
     {
         public static Form1 Instance;
 
+        private bool StartBtnChangeReady;
+
         // 윈도우 API 함수를 사용하기 위한 import
         [DllImport("user32.dll")]
         public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
@@ -102,6 +104,27 @@ namespace MyRemote2
         {
             Console.WriteLine(e+":??");
             // F7 키가 눌렸는지 확인
+
+            if (StartBtnChangeReady)
+            {
+                Console.WriteLine("StartBtnChangeReady가 true");
+                Console.WriteLine(e.KeyData+":e.keydata");
+                Console.WriteLine(Keys.OemBackslash.ToString() + ":Keys.OemBackslash.ToString()");
+                Console.WriteLine(Keys.Oem5.ToString() + ":Keys.Oem5.ToString()");
+                if (e.KeyData==Keys.Oem5)
+                {
+                    MyRemote2.Extend.WriteText.BackGroundKeyListener.InputKeyList.Add(Key.OemBackslash);
+                    Form1_Func.StartKey = Key.OemBackslash;
+                    Console.WriteLine(e.ToString() + ":스타트키가 oembackslash 로 바뀜");
+                    StartBtnChangeReady = false;
+                }
+
+                
+
+                return;
+            }
+
+
             if (e.KeyData == Keys.A)
             {
                 // 특정 메서드 호출
@@ -329,6 +352,11 @@ namespace MyRemote2
         {
             Extend.WriteText.WriteTextWindow window = new Extend.WriteText.WriteTextWindow();
             window.Show();
+        }
+
+        private void StartKeyChangeBtn_Click(object sender, EventArgs e)
+        {
+            StartBtnChangeReady = true;
         }
     }
 }

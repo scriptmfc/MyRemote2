@@ -321,6 +321,7 @@ namespace MyRemote2
             this.StartKeyChangeBtn.TabIndex = 14;
             this.StartKeyChangeBtn.Text = "키 변경";
             this.StartKeyChangeBtn.UseVisualStyleBackColor = true;
+            this.StartKeyChangeBtn.Click += new System.EventHandler(this.StartKeyChangeBtn_Click);
             // 
             // Form1
             // 
