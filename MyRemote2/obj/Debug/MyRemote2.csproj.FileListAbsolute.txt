@@ -1,7 +1,6 @@
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\bin\Debug\MyRemote2.exe.config
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\bin\Debug\MyRemote2.exe
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\bin\Debug\MyRemote2.pdb
-C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.AssemblyReference.cache
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.Form1.resources
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.Properties.Resources.resources
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.GenerateResource.cache

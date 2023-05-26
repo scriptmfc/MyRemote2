@@ -435,5 +435,15 @@ namespace MyRemote2
                 Form1_Func.KeyPress꾹Control = false;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Disposed(object sender, EventArgs e)
+        {
+            Extend.WriteText.BackGroundKeyListener.isRunning = false;
+        }
     }
 }

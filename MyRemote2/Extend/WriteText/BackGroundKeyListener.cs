@@ -11,7 +11,7 @@ namespace MyRemote2.Extend.WriteText
 {
     public static class BackGroundKeyListener
     {
-        static bool isRunning = true;
+        public static bool isRunning = true;
 
         /// <summary>
         /// Keys 아니고 
@@ -92,6 +92,7 @@ namespace MyRemote2.Extend.WriteText
                     }
                 }
             }
+            Console.WriteLine("Keyboardd Thread는 종료되었습니다.");
         }
         
         public static void Window_FormClosed(object sender, FormClosedEventArgs e)

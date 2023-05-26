@@ -32,6 +32,7 @@ namespace MyRemote2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MacroItemCreate = new System.Windows.Forms.Button();
             this.MacroItemEdit = new System.Windows.Forms.Button();
             this.MacroItemDeleteBtn = new System.Windows.Forms.Button();
@@ -378,8 +379,11 @@ namespace MyRemote2
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MacroItemCreate);
             this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Disposed+=new System.EventHandler(this.Form1_Disposed);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
