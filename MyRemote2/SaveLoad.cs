@@ -10,7 +10,6 @@ namespace MyRemote2
 {
     public static class SaveLoad
     {
-        
 
         public static void LoadData(string filename)
         {

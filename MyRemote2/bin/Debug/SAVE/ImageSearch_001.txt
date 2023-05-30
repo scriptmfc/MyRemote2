@@ -1,0 +1,101 @@
+[
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 28364,
+    "y": 16323,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 34098,
+    "y": 23058,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 27954,
+    "y": 19903,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 6928,
+    "y": 34891,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 24643,
+    "y": 24272,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  }
+]

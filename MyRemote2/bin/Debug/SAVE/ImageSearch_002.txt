@@ -1,0 +1,145 @@
+[
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 28364,
+    "y": 16323,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 34098,
+    "y": 23058,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 27954,
+    "y": 19903,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 6928,
+    "y": 34891,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 34235,
+    "y": 22209,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 28978,
+    "y": 18264,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 27681,
+    "y": 17840,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 2,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 0,
+    "y": 0,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  },
+  {
+    "macroEnum": 1,
+    "key": 0,
+    "press꾹Key": [],
+    "x": 27033,
+    "y": 26031,
+    "waitdelay": 0,
+    "str": null,
+    "CustomMacroCode": null,
+    "shortKey": []
+  }
+]

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -56,6 +58,9 @@ namespace MyRemote2
             Extend.WriteText.BackGroundKeyListener.ListenStart(sender, e);
         }
 
+        /// <summary>
+        /// listBox1 의 Item 들을 Form1_Func.MacroItemList에 맞게 업데이트한다.
+        /// </summary>
         public void ItemToListNameWhenLoad()
         {
             listBox1.Items.Clear();
@@ -444,6 +449,48 @@ namespace MyRemote2
         private void Form1_Disposed(object sender, EventArgs e)
         {
             Extend.WriteText.BackGroundKeyListener.isRunning = false;
+        }
+
+        private void MacroListBoxUpButton_Click(object sender, EventArgs e)
+        {
+            if (Form1_Func.MacroItemList.Count >= 2&& listBox1.SelectedIndex< Form1_Func.MacroItemList.Count
+                && listBox1.SelectedIndex>0)
+            {
+
+                var tmp = Form1_Func.MacroItemList[listBox1.SelectedIndex-1];
+                Form1_Func.MacroItemList[listBox1.SelectedIndex - 1] = Form1_Func.MacroItemList[listBox1.SelectedIndex];
+                Form1_Func.MacroItemList[listBox1.SelectedIndex] = tmp;
+                ItemToListNameWhenLoad();
+            }
+            
+        }
+
+        private void MacroListBoxDownButton_Click(object sender, EventArgs e)
+        {
+            if (Form1_Func.MacroItemList.Count >= 2 && listBox1.SelectedIndex < Form1_Func.MacroItemList.Count
+                && listBox1.SelectedIndex + 1 < Form1_Func.MacroItemList.Count)
+            {
+                //Console.WriteLine(listBox1.SelectedIndex + 1 + ":+1");
+                //Console.WriteLine(listBox1.SelectedIndex + 1 + ":+0");
+                var tmp = Form1_Func.MacroItemList[listBox1.SelectedIndex + 1];
+                Form1_Func.MacroItemList[listBox1.SelectedIndex + 1] = Form1_Func.MacroItemList[listBox1.SelectedIndex];
+                Form1_Func.MacroItemList[listBox1.SelectedIndex] = tmp;
+                ItemToListNameWhenLoad();
+            }
+        }
+
+        private void SaveFoldOpenButton_Click(object sender, EventArgs e)
+        {
+            string folderPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "/SAVE";
+
+            try
+            {
+                Process.Start(folderPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("폴더 열기에 실패했습니다: " + ex.Message);
+            }
         }
     }
 }

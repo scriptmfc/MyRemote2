@@ -57,31 +57,6 @@ public static class Form1_Func
     public static bool KeyPress꾹Shift;
     public static bool KeyPress꾹Alt;
 
-    /*
-    private static void Form1_KeyDown(object sender, KeyEventArgs e)
-    {
-        // F7 키가 눌렸는지 확인
-        if (e.KeyCode == StartKey)
-        {
-            // 특정 메서드 호출
-            StartMacro(); 
-        }
-        if (e.KeyCode == StopKey)
-        {
-            // 특정 메서드 호출
-            StopMacro(); 
-        }
-
-        if(e.KeyCode== CurrentMousePositionSettingKey)
-        {
-            Console.WriteLine("현재위치");
-            Form1.Instance.MouseXPos1.Text = GetMouseCurrentPosition().X.ToString();
-            Form1.Instance.MouseYPos1.Text = GetMouseCurrentPosition().Y.ToString();
-            Form1.Instance.button4_Click();
-            //Form1.Instance.Label4 = "현재 위치로 : "+F6;
-        }
-    }
-    */
     public static POINT GetMouseCurrentPosition()
     {
         POINT currentMousePosition;
@@ -102,7 +77,7 @@ public static class Form1_Func
 
     public static void StartMacro()
     {
-        ThreadMachine.StartThread();
+        ThreadMachine.StartThread("Form1_FuncMacro");
     }
 
     public static void StopMacro()
