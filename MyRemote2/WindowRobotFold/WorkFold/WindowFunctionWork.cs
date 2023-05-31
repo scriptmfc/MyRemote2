@@ -16,20 +16,12 @@ namespace MyRemote2.WindowRobotFold.WorkFold
         private const int WM_PASTE = 0x0302;
         private const int WM_KEYDOWN = 0x0100;
         private const int VK_RETURN = 0x0D;
+
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
 
         [DllImport("user32.dll")]
         private static extern int GetWindowText(IntPtr hWnd, System.Text.StringBuilder text, int count);
-
-        private static string GetWindowText(IntPtr hWnd)
-        {
-            const int maxLength = 512;
-            var builder = new System.Text.StringBuilder(maxLength);
-            GetWindowText(hWnd, builder, maxLength);
-            return builder.ToString();
-        }
-
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
 
@@ -40,15 +32,53 @@ namespace MyRemote2.WindowRobotFold.WorkFold
         private static extern bool SetForegroundWindow(IntPtr hWnd);
 
 
+        private static string GetWindowText(IntPtr hWnd)
+        {
+            const int maxLength = 512;
+            var builder = new System.Text.StringBuilder(maxLength);
+            GetWindowText(hWnd, builder, maxLength);
+            return builder.ToString();
+        }
+
+
+
+
+        /// <summary>
+        /// window창을 활성화 시킵니다.
+        /// </summary>
+        /// <param name="windowName"></param>
+        public static void SetForegroundWindow(string windowName)
+        {
+            IntPtr targetHwnd = FindWindow(null, windowName);
+
+
+
+            if (targetHwnd != IntPtr.Zero)
+            {
+                // 대상 창을 활성화합니다.
+                SetForegroundWindow(targetHwnd);
+
+                Console.WriteLine("Succeed 활성화");
+            }
+            else
+            {
+
+                Console.WriteLine($"ERR_ FindWindow Fail : " +
+                    $"\r\n targetHwnd : {targetHwnd} " +
+                    $"\r\n windowName : {windowName} ");
+            }
+
+        }
+
         public static void ClipboardSetting(string str)
         {
             Thread thread = new Thread(() =>
             {
-            // 클립보드에 문자열 복사
-            Clipboard.SetText(str);
+                // 클립보드에 문자열 복사
+                Clipboard.SetText(str);
 
-            // 복사된 문자열 확인
-            string clipboardText = Clipboard.GetText();
+                // 복사된 문자열 확인
+                string clipboardText = Clipboard.GetText();
 
                 if (clipboardText == str)
                 {
@@ -121,6 +151,34 @@ namespace MyRemote2.WindowRobotFold.WorkFold
             }
         }
 
+        public static void WindowCopy()
+        {
+            // 복사할 대상 창을 활성화합니다.
+            if (!GetActiveWindowHandle().Contains("(실행) - Microsoft Visual Studio"))
+            {
+                Console.WriteLine("GetActiveWindowHandle은 Microsoft visual studio 가 아닙니다. ");
+                return;
+            }
+            else
+            {
+
+            }
+            IntPtr visualStudioHwnd = FindWindow(null, GetActiveWindowHandle());
+
+            if (visualStudioHwnd != IntPtr.Zero)
+            {
+                // 대상 창을 활성화합니다.
+                SetForegroundWindow(visualStudioHwnd);
+
+                // Ctrl+C 키 조합을 시뮬레이트하여 복사를 실행합니다.
+                SendKeys.SendWait("^c");
+                Console.WriteLine("Succeed Copy");
+            }
+            else
+            {
+                Console.WriteLine("ERR_WindowCopy FindWindow Fail");
+            }
+        }
 
 
     }

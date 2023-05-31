@@ -127,12 +127,38 @@ public static class Form1_Func
                 break;
             case MacroEnum.None:
                 break;
+            case MacroEnum.WindowFunction:
+                switch (item.windowFunctionEnum)
+                {
+                    case MacroItem.WindowFunctionEnum.Copy:
+                        WindowFunctionWork.WindowCopy();
+                        break;
+                    case MacroItem.WindowFunctionEnum.Paste:
+                        WindowFunctionWork.ClipboardPaste();
+                        break;
+                    case MacroItem.WindowFunctionEnum.ClipboardSetting:
+                        if (string.IsNullOrEmpty(item.clipboardSettingStr))
+                        {
+                            Console.WriteLine(item.macroEnum + ":MacroEnum 오류_WindowFunction_CopyStr");
+                        }
+                        else
+                        {
+                            WindowFunctionWork.ClipboardSetting(item.clipboardSettingStr);
+                        }
+                        break;
+                    default:
+                        Console.WriteLine(item.macroEnum + ":MacroEnum 오류_WindowFunction_Default");
+                        break;
+                }
+                break;
+                
             case MacroEnum.CustomMacro:
+                
                 //if (item.CustomMacroCode == "testClipboard")
                 {
-                    Console.WriteLine("ffasdasd");
-                    WindowFunctionWork.ClipboardSetting("test333");
-                    WindowFunctionWork.ClipboardPaste();
+                    Console.WriteLine("ffasdasd아직 설정 xxx");
+                    //WindowFunctionWork.ClipboardSetting("test333");
+                    //WindowFunctionWork.ClipboardPaste();
                 }
                 break;
             default:

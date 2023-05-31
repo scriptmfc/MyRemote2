@@ -51,6 +51,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UtilityCenter">
+      <HintPath>..\..\UtilityCenter\UtilityCenter\bin\Debug\UtilityCenter.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +78,8 @@
     <Compile Include="MacroItem.cs" />
     <Compile Include="MacroPlusFold\MacroBox.cs" />
     <Compile Include="MacroPlusFold\MacroPlus.cs" />
+    <Compile Include="MacroPlusFold\ModuleFold\CopyPasteModule.cs" />
+    <Compile Include="MacroPlusFold\ModuleFold\DebugModuleFold\FormFold\SimpleConsoleDebug.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\TestModule_1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ForIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MacroPlusFold\ModuleFold\DebugModuleFold\UnityFold\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

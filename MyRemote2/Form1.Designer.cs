@@ -67,6 +67,8 @@ namespace MyRemote2
             this.KeyPressCheckBoxShift = new System.Windows.Forms.CheckBox();
             this.SaveFoldOpenButton = new System.Windows.Forms.Button();
             this.MacroItemSetting_CustomMacroButton = new System.Windows.Forms.Button();
+            this.DebugMacroMainOptionComboBox = new System.Windows.Forms.ComboBox();
+            this.Label_DebugMacroMainOption = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -393,11 +395,36 @@ namespace MyRemote2
             this.MacroItemSetting_CustomMacroButton.UseVisualStyleBackColor = true;
             this.MacroItemSetting_CustomMacroButton.Click += new System.EventHandler(this.MacroItemSetting_CustomMacroButton_Click);
             // 
+            // DebugMacroMainOptionComboBox
+            // 
+            this.DebugMacroMainOptionComboBox.FormattingEnabled = true;
+            this.DebugMacroMainOptionComboBox.Items.AddRange(new object[] {
+            "Form",
+            "Unity"});
+            this.DebugMacroMainOptionComboBox.Location = new System.Drawing.Point(785, 66);
+            this.DebugMacroMainOptionComboBox.Name = "DebugMacroMainOptionComboBox";
+            this.DebugMacroMainOptionComboBox.Size = new System.Drawing.Size(121, 20);
+            this.DebugMacroMainOptionComboBox.TabIndex = 30;
+            this.DebugMacroMainOptionComboBox.Text = "Form";
+            // 
+            // Label_DebugMacroMainOption
+            // 
+            this.Label_DebugMacroMainOption.AutoSize = true;
+            this.Label_DebugMacroMainOption.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Label_DebugMacroMainOption.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Label_DebugMacroMainOption.Location = new System.Drawing.Point(785, 40);
+            this.Label_DebugMacroMainOption.Name = "Label_DebugMacroMainOption";
+            this.Label_DebugMacroMainOption.Size = new System.Drawing.Size(79, 14);
+            this.Label_DebugMacroMainOption.TabIndex = 31;
+            this.Label_DebugMacroMainOption.Text = "DebugMacro";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 501);
+            this.ClientSize = new System.Drawing.Size(1033, 501);
+            this.Controls.Add(this.Label_DebugMacroMainOption);
+            this.Controls.Add(this.DebugMacroMainOptionComboBox);
             this.Controls.Add(this.MacroItemSetting_CustomMacroButton);
             this.Controls.Add(this.SaveFoldOpenButton);
             this.Controls.Add(this.KeyPressCheckBoxShift);
@@ -475,6 +502,8 @@ namespace MyRemote2
         private Button MacroListBoxUpButton;
         private Button SaveFoldOpenButton;
         private Button MacroItemSetting_CustomMacroButton;
+        private ComboBox DebugMacroMainOptionComboBox;
+        private Label Label_DebugMacroMainOption;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }
