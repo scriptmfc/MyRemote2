@@ -35,6 +35,153 @@ namespace MyRemote2.Extend.WriteText
         //Key.F3,Key.F7,Key.Scroll,Key.Pause}; // 원하는 키들을 배열에 추가
 
 
+        #region TestMode
+        static bool TestMode20230531 = true;
+
+        static void TestMode20230531EXE(Key key)
+        {
+            
+            if (key.Equals(Key.Q)||
+                key.Equals(Key.W) ||
+                key.Equals(Key.E) ||
+                key.Equals(Key.R) ||
+                key.Equals(Key.T) ||
+                key.Equals(Key.Y) ||
+                key.Equals(Key.F) ||
+                key.Equals(Key.G))
+                
+            {
+                SettingTestMode(key);
+                // 특정 메서드 호출
+                Console.WriteLine("dddggTestmode  "+key);
+                Form1_Func.StartMacro();
+            }
+            else if (key == Form1_Func.StopKey)
+            {
+                Form1_Func.StopMacro();
+            }
+        }
+
+        static Random ranTest =new Random();
+        static Random ranTest2 = new Random();
+
+        public static int TestModeRandom1_10()
+        {
+            var rantmp = ranTest.Next(1, 100);
+            var rantmp2 = ranTest2.Next(1, 3);
+
+            if (rantmp > 96 + rantmp2)
+            {
+                return 9;
+            }
+            else if (rantmp > 91 + rantmp2)
+                return 8;
+            else if (rantmp > 85 + rantmp2)
+                return 7;
+            else if (rantmp > 56 + rantmp2)
+                return 6;
+            else if (rantmp > 34 + rantmp2)
+                return 5;
+            else if (rantmp > 21 + rantmp2)
+                return 4;
+            else if (rantmp > 15 + rantmp2)
+                return 3;
+            else if (rantmp > 2 + rantmp2)
+                return 2;
+            else
+                return 1;
+            
+
+        }
+
+        static void SettingTestMode(Key key)
+        {
+            var listTmp = Form1_Func.MacroItemList;
+            listTmp.Clear();
+            var rantmp1 = TestModeRandom1_10();
+            if (true) {
+                Console.WriteLine(rantmp1);
+            }
+            var itemTmp = new MacroItem();
+            if (!(key == Key.Q))
+                return;
+            switch (key)
+            {
+                case Key.Q:
+                    
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "623";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "zRightUp";
+                    listTmp.Add(itemTmp);
+                    break;
+                case Key.W:
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "623";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "a";
+                    listTmp.Add(itemTmp);
+                    break;
+                case Key.E:
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "623";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "a";
+                    listTmp.Add(itemTmp);
+                    break;
+                case Key.R:
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "623";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "a";
+                    listTmp.Add(itemTmp);
+                    break;
+                case Key.T:
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "623";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "a";
+                    listTmp.Add(itemTmp);
+                    break;
+                case Key.F:
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "623";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "a";
+                    listTmp.Add(itemTmp);
+                    break;
+                case Key.G:
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "623";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "a";
+                    listTmp.Add(itemTmp);
+                    break;
+            }
+
+            //Console.WriteLine(e + ":?? WriteTextWindow 키 확인");
+            //  키가 눌렸는지 확인
+
+
+        }
+        #endregion
+
+
+
         static void Keyboardd()
         {
             keysToCheckList.Add(Key.Return);
@@ -46,6 +193,15 @@ namespace MyRemote2.Extend.WriteText
             keysToCheckList.Add(Key.F7);
             keysToCheckList.Add(Key.Scroll);
             keysToCheckList.Add(Key.Pause);
+
+
+
+            keysToCheckList.Add(Key.Q);
+            keysToCheckList.Add(Key.W);
+            keysToCheckList.Add(Key.E);
+            keysToCheckList.Add(Key.R);
+            keysToCheckList.Add(Key.T);
+            keysToCheckList.Add(Key.Y);
 
             int a=0;
             while (isRunning)
@@ -64,6 +220,12 @@ namespace MyRemote2.Extend.WriteText
                     {
                         if (InputKeyList.Count == 0)
                         {
+                            if (TestMode20230531) {
+                                Form1_Func.BASE_Wait_Delay = 20;
+                                TestMode20230531EXE(key);
+                                Thread.Sleep(400);
+                                continue;
+                            }
                             InputKeyList.Add(key);
                             if(WriteTextWindow.Instance!=null)
                             WriteTextWindow.Instance.KeyExe(key);
@@ -72,7 +234,7 @@ namespace MyRemote2.Extend.WriteText
                                 Form1.Instance.BackGroundKeyExe(key);
                             }
                             //InputKeyList.Clear();
-                            Thread.Sleep(500);
+                            Thread.Sleep(400);
                         }
                         else if (InputKeyList.Count == 1)
                         {

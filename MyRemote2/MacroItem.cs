@@ -40,6 +40,11 @@ public class MacroItem
 
 	public WindowFunctionEnum windowFunctionEnum;
 
+	/// <summary>
+	/// TestModeKeyPress에만 쓰임
+	/// </summary>
+	public string TestModeKeyPressCode;
+
 	public enum WindowFunctionEnum
     {
 		ClipboardSetting,
@@ -64,6 +69,6 @@ public enum MacroEnum
 	WriteText,
 	WindowFunction,
 	CustomMacro,
-
+	TestModeKeyPress,
 	None
 }

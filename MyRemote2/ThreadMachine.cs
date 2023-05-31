@@ -30,7 +30,7 @@ namespace MyRemote2
                     Form1_Func.MacroWork(Form1_Func.MacroItemList[i]);
                 }
                 
-                Console.WriteLine(i+"실행");
+                Console.WriteLine(i+ "실행 ThreadWorkForm1_FuncMacro");
             }
             Console.WriteLine("종료");
             
@@ -60,7 +60,7 @@ namespace MyRemote2
                     Form1_Func.MacroWork(MacroBox.MacroItemList[i]);
                 }
 
-                Console.WriteLine(i + "실행");
+                Console.WriteLine(i + "실행 ThreadWork_MacroPlus");
             }
             Console.WriteLine("종료");
 

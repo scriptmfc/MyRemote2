@@ -23,14 +23,14 @@ namespace MyRemote2.WindowRobotFold.WorkFold
         const byte VK_CONTROL = 0x11;
         private const int KEYEVENTF_KEYDOWN = 0x0000;
         private const int KEYEVENTF_KEYUP = 0x0002;
-        #region
+        #endregion
 
 
         public static void OneKeyInput_Press_Release(Keys keys)
         {
             PressReleaseKey(keys);
         }
-        
+
 
         /// <summary>
         /// Shift,Alt,Ctrl + 추가키 하나만 가능
@@ -66,9 +66,9 @@ namespace MyRemote2.WindowRobotFold.WorkFold
 
         private static void AltPressKeyNotYet(Keys key)
         {
-           
+
             return;
-            
+
             //keybd_event(VK_ALT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
             //keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
             //keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
@@ -87,6 +87,8 @@ namespace MyRemote2.WindowRobotFold.WorkFold
             keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
         }
         #endregion
+        
 
     }
+    
 }

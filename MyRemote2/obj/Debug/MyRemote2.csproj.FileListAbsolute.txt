@@ -29,3 +29,5 @@ C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.pdb
 >>>>>>> Stashed changes
 C:\MyFolder\GitFolder\MyRemote2\MyRemote2\obj\Debug\MyRemote2.Extend.WriteText.WriteTextWindow.resources
 C:\Users\TGRAM_04\source\repos\MyRemote2\MyRemote2\obj\Debug\MyRemote2.csproj.AssemblyReference.cache
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\bin\Debug\UtilityCenter.dll
+C:\MyFolder\GitFolder\MyRemote2\MyRemote2\bin\Debug\UtilityCenter.pdb
