@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MyRemote2.MacroPlusFold
 {
@@ -17,10 +18,11 @@ namespace MyRemote2.MacroPlusFold
                 case MacroEnum.KeyPress:
                     if (item.press꾹Key.Count == 0)
                     {
-                        KeyPress(item.key);
+                        KeyWork.OneKeyInput_Press_Release(item.key);
                     }
                     else if (item.press꾹Key.Count == 1)
                     {
+                        Console.WriteLine("아직 안했음-------");
                         //PressContinueKey(item.press꾹Key[0]);
                         //KeyPress(item.key);
                         //ReleaseKey(item.press꾹Key[0]);
@@ -28,26 +30,27 @@ namespace MyRemote2.MacroPlusFold
 
                         if (item.press꾹Key[0] == Keys.Shift)
                         {
-                            ShiftPressKey(item.key);
+                            //KeyWork.MultiKey_Input_Press_Release(item.press꾹Key.a)
+                            //ShiftPressKey(item.key);
                         }
                         else if (item.press꾹Key[0] == Keys.Control)
                         {
-                            ControlPressKey(item.key);
+                            //ControlPressKey(item.key);
                         }
 
                     }
                     break;
                 case MacroEnum.WriteText:
-                    WriteText(item.str);
+                    WriteTextWork.WriteText(item.str);
                     break;
                 case MacroEnum.MouseMove:
-                    MouseMove(item.x, item.y);
+                    MouseWork.MouseMove(item.x, item.y);
                     break;
                 case MacroEnum.MouseClick:
-                    MouseLeftClick();
+                    MouseWork.Click(MouseWork.MouseButtonNormalEnum.Left);
                     break;
                 case MacroEnum.Wait:
-                    Console.WriteLine("ERR_여기는 오면 안됨! Form1_Func.cs (MacroThread에서 직접처리)");
+                    Console.WriteLine("여기는 오면 안됨! Form1_Func.cs (MacroThread에서 직접처리)");
                     break;
                 case MacroEnum.None:
                     break;

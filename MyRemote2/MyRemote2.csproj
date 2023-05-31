@@ -78,6 +78,7 @@
     <Compile Include="MacroItem.cs" />
     <Compile Include="MacroPlusFold\MacroBox.cs" />
     <Compile Include="MacroPlusFold\MacroPlus.cs" />
+    <Compile Include="MacroPlusFold\MacroWorkEXE.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\CopyPasteModule.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\DebugModuleFold\FormFold\SimpleConsoleDebug.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\TestModule_1.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="WindowRobotFold\WorkFold\MouseWork.cs" />
     <Compile Include="WindowRobotFold\WorkFold\WindowFunctionWork.cs" />
     <Compile Include="WindowRobotFold\WorkFold\Work.cs" />
+    <Compile Include="WindowRobotFold\WorkFold\WriteTextWork.cs" />
     <EmbeddedResource Include="Extend\WriteText\WriteTextWindow.resx">
       <DependentUpon>WriteTextWindow.cs</DependentUpon>
     </EmbeddedResource>

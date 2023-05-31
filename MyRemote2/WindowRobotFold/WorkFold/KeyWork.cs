@@ -4,17 +4,18 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace MyRemote2.WindowRobotFold.WorkFold
 {
-    public class KeyWork : Work
+    public static class KeyWork
     {
-        
-        
 
+
+        #region Property
         [DllImport("user32.dll")]
-        public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+        private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
 
         // Shift 키의 가상 키 코드
         const byte VK_SHIFT = 0x10;
@@ -22,13 +23,70 @@ namespace MyRemote2.WindowRobotFold.WorkFold
         const byte VK_CONTROL = 0x11;
         private const int KEYEVENTF_KEYDOWN = 0x0000;
         private const int KEYEVENTF_KEYUP = 0x0002;
-        public void OneKeyInput_Press_Release(Key key)
+        #region
+
+
+        public static void OneKeyInput_Press_Release(Keys keys)
+        {
+            PressReleaseKey(keys);
+        }
+        
+
+        /// <summary>
+        /// Shift,Alt,Ctrl + 추가키 하나만 가능
+        /// </summary>
+        /// <param name="key"></param>
+        public static void MultiKey_Input_Press_Release(Keys[] keysArray)
         {
         }
 
-        public void 다중Key_Input_Press_Release(Key[] key)
+        #region Base
+        // 키 눌렀다 떼기 함수
+        private static void PressReleaseKey(Keys key)
         {
+            keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
         }
+
+        private static void ShiftPressKey(Keys key)
+        {
+            keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+            keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        }
+
+        private static void ControlPressKey(Keys key)
+        {
+            keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+            keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        }
+
+        private static void AltPressKeyNotYet(Keys key)
+        {
+           
+            return;
+            
+            //keybd_event(VK_ALT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            //keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            //keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+            //keybd_event(VK_ALT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        }
+
+        //키 계속 누르고 있기 함수
+        private static void PressContinueKey(Keys key)
+        {
+            keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+        }
+
+        // 키 떼기 함수
+        private static void ReleaseKey(Keys key)
+        {
+            keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        }
+        #endregion
 
     }
 }
