@@ -66,6 +66,7 @@ namespace MyRemote2
             this.KeyPressCheckBoxCtrl = new System.Windows.Forms.CheckBox();
             this.KeyPressCheckBoxShift = new System.Windows.Forms.CheckBox();
             this.SaveFoldOpenButton = new System.Windows.Forms.Button();
+            this.MacroItemSetting_CustomMacroButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -382,11 +383,22 @@ namespace MyRemote2
             this.SaveFoldOpenButton.UseVisualStyleBackColor = true;
             this.SaveFoldOpenButton.Click += new System.EventHandler(this.SaveFoldOpenButton_Click);
             // 
+            // MacroItemSetting_CustomMacroButton
+            // 
+            this.MacroItemSetting_CustomMacroButton.Location = new System.Drawing.Point(388, 443);
+            this.MacroItemSetting_CustomMacroButton.Name = "MacroItemSetting_CustomMacroButton";
+            this.MacroItemSetting_CustomMacroButton.Size = new System.Drawing.Size(105, 23);
+            this.MacroItemSetting_CustomMacroButton.TabIndex = 29;
+            this.MacroItemSetting_CustomMacroButton.Text = "CustomMacro";
+            this.MacroItemSetting_CustomMacroButton.UseVisualStyleBackColor = true;
+            this.MacroItemSetting_CustomMacroButton.Click += new System.EventHandler(this.MacroItemSetting_CustomMacroButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 501);
+            this.Controls.Add(this.MacroItemSetting_CustomMacroButton);
             this.Controls.Add(this.SaveFoldOpenButton);
             this.Controls.Add(this.KeyPressCheckBoxShift);
             this.Controls.Add(this.KeyPressCheckBoxCtrl);
@@ -462,6 +474,7 @@ namespace MyRemote2
         private Button MacroListBoxDownButton;
         private Button MacroListBoxUpButton;
         private Button SaveFoldOpenButton;
+        private Button MacroItemSetting_CustomMacroButton;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }

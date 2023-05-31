@@ -80,6 +80,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveLoad.cs" />
     <Compile Include="ThreadMachine.cs" />
+    <Compile Include="WindowRobotFold\Robot.cs" />
+    <Compile Include="WindowRobotFold\WorkFold\KeyWork.cs" />
+    <Compile Include="WindowRobotFold\WorkFold\MouseWork.cs" />
+    <Compile Include="WindowRobotFold\WorkFold\WindowFunctionWork.cs" />
+    <Compile Include="WindowRobotFold\WorkFold\Work.cs" />
     <EmbeddedResource Include="Extend\WriteText\WriteTextWindow.resx">
       <DependentUpon>WriteTextWindow.cs</DependentUpon>
     </EmbeddedResource>

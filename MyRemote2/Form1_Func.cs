@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Windows.Input;
 using MyRemote2;
+using MyRemote2.WindowRobotFold.WorkFold;
 
 public static class Form1_Func
 {
@@ -125,6 +126,14 @@ public static class Form1_Func
                 Console.WriteLine("여기는 오면 안됨! Form1_Func.cs (MacroThread에서 직접처리)");
                 break;
             case MacroEnum.None:
+                break;
+            case MacroEnum.CustomMacro:
+                //if (item.CustomMacroCode == "testClipboard")
+                {
+                    Console.WriteLine("ffasdasd");
+                    WindowFunctionWork.ClipboardSetting("test333");
+                    WindowFunctionWork.ClipboardPaste();
+                }
                 break;
             default:
                 Console.WriteLine(item.macroEnum + ":MacroEnum 오류");

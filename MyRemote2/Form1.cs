@@ -90,6 +90,9 @@ namespace MyRemote2
                     case MacroEnum.MouseClick:
                         listBox1.Items[i] = "마우스 왼쪽 클릭";
                         break;
+                    case MacroEnum.CustomMacro:
+                        listBox1.Items[i] = $"CustomMacro : + [{Form1_Func.MacroItemList[i].CustomMacroCode}]";
+                        break;
                     case MacroEnum.MouseMove:
                         listBox1.Items[i] =
                             "마우스 이동  " + "(" + Form1_Func.MacroItemList[i].x + "," + Form1_Func.MacroItemList[i].y + ")"; ;
@@ -491,6 +494,17 @@ namespace MyRemote2
             {
                 MessageBox.Show("폴더 열기에 실패했습니다: " + ex.Message);
             }
+        }
+
+        private void MacroItemSetting_CustomMacroButton_Click(object sender, EventArgs e)
+        {
+            string itemName = "CustomItem : ";
+
+            Form1_Func.SelectItem.macroEnum = MacroEnum.CustomMacro;
+
+
+
+            listBox1.Items[listBox1.SelectedIndex] = itemName;
         }
     }
 }
