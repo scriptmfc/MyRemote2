@@ -57,7 +57,7 @@ namespace MyRemote2
                 else
                 {
                     Thread.Sleep(MacroBox.BASE_Wait_Delay);
-                    Form1_Func.MacroWork(MacroBox.MacroItemList[i]);
+                    MacroPlusFold.MacroWorkEXE.Process(MacroBox.MacroItemList[i]);
                 }
 
                 Console.WriteLine(i + "실행 ThreadWork_MacroPlus");

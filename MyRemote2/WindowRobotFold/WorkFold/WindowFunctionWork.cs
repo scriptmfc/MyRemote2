@@ -151,6 +151,11 @@ namespace MyRemote2.WindowRobotFold.WorkFold
             }
         }
 
+        public static string GetClipboardGetText()
+        {
+            return Clipboard.GetText();
+        }
+
         public static void WindowCopy()
         {
             // 복사할 대상 창을 활성화합니다.

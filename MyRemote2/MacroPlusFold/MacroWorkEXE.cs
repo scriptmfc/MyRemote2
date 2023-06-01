@@ -64,14 +64,18 @@ namespace MyRemote2.MacroPlusFold
                             WindowFunctionWork.ClipboardPaste();
                             break;
                         case MacroItem.WindowFunctionEnum.ClipboardSetting:
-                            if (string.IsNullOrEmpty(item.clipboardSettingStr))
+                            if (string.IsNullOrEmpty(item.ClipboardSettingStr))
                             {
                                 Console.WriteLine(item.macroEnum + ":MacroEnum 오류_WindowFunction_CopyStr");
                             }
                             else
                             {
-                                WindowFunctionWork.ClipboardSetting(item.clipboardSettingStr);
+                                WindowFunctionWork.ClipboardSetting(item.ClipboardSettingStr);
                             }
+                            break;
+                        case MacroItem.WindowFunctionEnum.GetClipboardText:
+                            item.SetStr_FromClipboardGetText(
+                                WindowFunctionWork.GetClipboardGetText());
                             break;
                         default:
                             Console.WriteLine(item.macroEnum + ":MacroEnum 오류_WindowFunction_Default");

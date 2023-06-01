@@ -36,8 +36,24 @@ public class MacroItem
 	/// <summary>
 	/// WindowFunctionEnum.ClipboardSetting 에만 사용!
 	/// </summary>
-	public string clipboardSettingStr;
+	private string clipboardSettingStr;
 
+	/// <summary>
+	/// WindowFunctionEnum.GetClipboardText에서 가져온 거를 저장한 string
+	/// </summary>
+	private string str_FromClipboardGetText;
+
+	public void SetStr_FromClipboardGetText(string str)
+    {
+		str_FromClipboardGetText = str;
+
+	}
+
+	public void SetClipboardSettingStr(string str)
+    {
+		clipboardSettingStr = str;
+
+	}
 	public WindowFunctionEnum windowFunctionEnum;
 
 	/// <summary>
@@ -45,11 +61,15 @@ public class MacroItem
 	/// </summary>
 	public string TestModeKeyPressCode;
 
-	public enum WindowFunctionEnum
+    public string ClipboardSettingStr { get => clipboardSettingStr;}
+    public string Str_FromClipboardGetText { get => str_FromClipboardGetText;}
+
+    public enum WindowFunctionEnum
     {
 		ClipboardSetting,
 		Copy,
-		Paste
+		Paste,
+		GetClipboardText
     }
 
     public MacroItem()
