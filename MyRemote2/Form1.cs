@@ -342,6 +342,8 @@ namespace MyRemote2
         /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(CustomWaitInput.Text))
+                return;
             string itemName = "대기  " + "(" + CustomWaitInput.Text + ") ms";
 
             Form1_Func.SelectItem.macroEnum = MacroEnum.Wait;
@@ -446,7 +448,31 @@ namespace MyRemote2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Init();
+            Form1_Func.Init();
+        }
 
+        void Init()
+        {
+            this.MouseMove += MainWindowMouseMove;
+        }
+        private void MainWindowMouseMove(object sender, EventArgs e)
+        {
+            string ReverseStr;
+
+            if (Extend.WriteText.BackGroundKeyListener.ReverseMode)
+                ReverseStr = "Right";
+            else
+            {
+                ReverseStr = "Left";
+            }
+
+            if (Extend.WriteText.BackGroundKeyListener.TestMode20230531)
+                Label_TestModeOnOFF.Text = "ON"+" "+ ReverseStr;
+            else
+            {
+                Label_TestModeOnOFF.Text = "OFF" + " " + ReverseStr;
+            }
         }
 
         private void Form1_Disposed(object sender, EventArgs e)
@@ -505,6 +531,11 @@ namespace MyRemote2
 
 
             listBox1.Items[listBox1.SelectedIndex] = itemName;
+        }
+
+        private void Label_TestModeOnOFF_Click(object sender, EventArgs e)
+        {
+            UTIL.ConfirmUtil_NoFunction.NoFunction(Label_TestModeOnOFF);
         }
     }
 }

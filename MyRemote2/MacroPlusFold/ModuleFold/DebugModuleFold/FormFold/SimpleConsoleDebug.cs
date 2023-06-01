@@ -12,6 +12,8 @@ namespace MyRemote2.MacroPlusFold.ModuleFold.DebugModuleFold.FormFold
         public static void SimpleDebugSetting()
         {
             //NotYet
+            Console.WriteLine("NotYet");
+            return;
             MacroPlusFold.MacroBox macrobox = new MacroBox();
 
             MacroItem item;
@@ -34,7 +36,7 @@ namespace MyRemote2.MacroPlusFold.ModuleFold.DebugModuleFold.FormFold
             item = new MacroItem();
             item.macroEnum = MacroEnum.WindowFunction;
             item.windowFunctionEnum = MacroItem.WindowFunctionEnum.ClipboardSetting;
-            item.SetClipboardSettingStr();
+            //item.SetClipboardSettingStr();
             macrobox.MacroItemList.Add(item);
 
 #if false

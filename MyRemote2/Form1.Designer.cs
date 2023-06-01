@@ -69,6 +69,7 @@ namespace MyRemote2
             this.MacroItemSetting_CustomMacroButton = new System.Windows.Forms.Button();
             this.DebugMacroMainOptionComboBox = new System.Windows.Forms.ComboBox();
             this.Label_DebugMacroMainOption = new System.Windows.Forms.Label();
+            this.Label_TestModeOnOFF = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -418,11 +419,22 @@ namespace MyRemote2
             this.Label_DebugMacroMainOption.TabIndex = 31;
             this.Label_DebugMacroMainOption.Text = "DebugMacro";
             // 
+            // Label_TestModeOnOFF
+            // 
+            this.Label_TestModeOnOFF.AutoSize = true;
+            this.Label_TestModeOnOFF.Location = new System.Drawing.Point(16, 474);
+            this.Label_TestModeOnOFF.Name = "Label_TestModeOnOFF";
+            this.Label_TestModeOnOFF.Size = new System.Drawing.Size(23, 12);
+            this.Label_TestModeOnOFF.TabIndex = 32;
+            this.Label_TestModeOnOFF.Text = "ON";
+            this.Label_TestModeOnOFF.Click += new System.EventHandler(this.Label_TestModeOnOFF_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 501);
+            this.Controls.Add(this.Label_TestModeOnOFF);
             this.Controls.Add(this.Label_DebugMacroMainOption);
             this.Controls.Add(this.DebugMacroMainOptionComboBox);
             this.Controls.Add(this.MacroItemSetting_CustomMacroButton);
@@ -504,6 +516,7 @@ namespace MyRemote2
         private Button MacroItemSetting_CustomMacroButton;
         private ComboBox DebugMacroMainOptionComboBox;
         private Label Label_DebugMacroMainOption;
+        private Label Label_TestModeOnOFF;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }

@@ -106,6 +106,8 @@ namespace MyRemote2
                 case "Form1_FuncMacro":
 
                     thread = new Thread(new ThreadStart(ThreadWorkForm1_FuncMacro));
+                    if(Extend.WriteText.BackGroundKeyListener.TestMode20230531)
+                        thread.SetApartmentState(ApartmentState.STA);
                     break;
                 case "MacroPlus_MacroTest1":
                     thread = new Thread(new ThreadStart(ThreadWork_MacroPlus));

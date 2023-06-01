@@ -11,6 +11,8 @@ namespace MyRemote2.Extend.WriteText
 {
     public static class BackGroundKeyListener
     {
+        public static string scriptname = "BackGroundKeyListener";
+
         public static bool isRunning = true;
 
         /// <summary>
@@ -36,11 +38,13 @@ namespace MyRemote2.Extend.WriteText
 
 
         #region TestMode
-        static bool TestMode20230531 = true;
+        public static bool TestMode20230531 = true;
+        public static bool ReverseMode = false;
 
         static void TestMode20230531EXE(Key key)
         {
-            
+
+
             if (key.Equals(Key.Q)||
                 key.Equals(Key.W) ||
                 key.Equals(Key.E) ||
@@ -48,12 +52,14 @@ namespace MyRemote2.Extend.WriteText
                 key.Equals(Key.T) ||
                 key.Equals(Key.Y) ||
                 key.Equals(Key.F) ||
-                key.Equals(Key.G))
+                key.Equals(Key.G)||
+                key.Equals(Key.D0))
                 
             {
                 SettingTestMode(key);
                 // 특정 메서드 호출
                 Console.WriteLine("dddggTestmode  "+key);
+                KeyReleaseIfDownTestMode();
                 Form1_Func.StartMacro();
             }
             else if (key == Form1_Func.StopKey)
@@ -93,6 +99,65 @@ namespace MyRemote2.Extend.WriteText
             
 
         }
+        static void KeyReleaseIfDownTestMode()
+        {
+
+                if (Keyboard.GetKeyStates(Key.Down).HasFlag(KeyStates.Down))
+                {
+
+                Form1_Func.ReleaseKey_Public(Keys.Down);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+
+            if (Keyboard.GetKeyStates(Key.Up).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.Up);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+            if (Keyboard.GetKeyStates(Key.Left).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.Left);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+
+            if (Keyboard.GetKeyStates(Key.Right).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.Right);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+                Console.WriteLine("Right키 누르@#$" + Keyboard.GetKeyStates(Key.Right));
+            }
+            else
+            {
+                Console.WriteLine("Right키 누르고 있지 않음@#$" + Keyboard.GetKeyStates(Key.Right));
+            }
+
+
+            if (Keyboard.GetKeyStates(Key.Z).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.Z);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+            if (Keyboard.GetKeyStates(Key.X).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.X);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+            if (Keyboard.GetKeyStates(Key.C).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.C);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+            if (Keyboard.GetKeyStates(Key.D1).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.D1);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+            if (Keyboard.GetKeyStates(Key.D3).HasFlag(KeyStates.Down))
+            {
+                Form1_Func.ReleaseKey_Public(Keys.D3);
+                Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
+            }
+        }
 
         static void SettingTestMode(Key key)
         {
@@ -103,8 +168,8 @@ namespace MyRemote2.Extend.WriteText
                 Console.WriteLine(rantmp1);
             }
             var itemTmp = new MacroItem();
-            if (!(key == Key.Q))
-                return;
+            //if (!(key == Key.Q))
+            //    return;
             switch (key)
             {
                 case Key.Q:
@@ -114,43 +179,43 @@ namespace MyRemote2.Extend.WriteText
                     listTmp.Add(itemTmp);
                     itemTmp = new MacroItem();
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "zRightUp";
+                    itemTmp.TestModeKeyPressCode = "zRightUpDownUp";
                     listTmp.Add(itemTmp);
                     break;
                 case Key.W:
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "623";
+                    itemTmp.TestModeKeyPressCode = "236";
                     listTmp.Add(itemTmp);
                     itemTmp = new MacroItem();
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "a";
+                    itemTmp.TestModeKeyPressCode = "zRightUp";
                     listTmp.Add(itemTmp);
                     break;
                 case Key.E:
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "623";
+                    itemTmp.TestModeKeyPressCode = "214";
                     listTmp.Add(itemTmp);
                     itemTmp = new MacroItem();
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "a";
+                    itemTmp.TestModeKeyPressCode = "zLeftUp";
                     listTmp.Add(itemTmp);
                     break;
                 case Key.R:
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "623";
+                    itemTmp.TestModeKeyPressCode = "22";
                     listTmp.Add(itemTmp);
                     itemTmp = new MacroItem();
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "a";
+                    itemTmp.TestModeKeyPressCode = "zDownUp";
                     listTmp.Add(itemTmp);
                     break;
                 case Key.T:
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "623";
+                    itemTmp.TestModeKeyPressCode = "22";
                     listTmp.Add(itemTmp);
                     itemTmp = new MacroItem();
                     itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                    itemTmp.TestModeKeyPressCode = "a";
+                    itemTmp.TestModeKeyPressCode = "z";
                     listTmp.Add(itemTmp);
                     break;
                 case Key.F:
@@ -171,6 +236,26 @@ namespace MyRemote2.Extend.WriteText
                     itemTmp.TestModeKeyPressCode = "a";
                     listTmp.Add(itemTmp);
                     break;
+                case Key.Y:
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "236";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "236";
+                    listTmp.Add(itemTmp);
+                    itemTmp = new MacroItem();
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "cRightUpDownUp";
+                    listTmp.Add(itemTmp);
+                    break;
+                case Key.D0:
+
+                    itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                    itemTmp.TestModeKeyPressCode = "AllUp";
+                    listTmp.Add(itemTmp);
+                    
+                    break;
             }
 
             //Console.WriteLine(e + ":?? WriteTextWindow 키 확인");
@@ -180,7 +265,7 @@ namespace MyRemote2.Extend.WriteText
         }
         #endregion
 
-
+        
 
         static void Keyboardd()
         {
@@ -194,6 +279,10 @@ namespace MyRemote2.Extend.WriteText
             keysToCheckList.Add(Key.Scroll);
             keysToCheckList.Add(Key.Pause);
 
+            keysToCheckList.Add(Key.F20);
+            keysToCheckList.Add(Key.D4);
+            keysToCheckList.Add(Key.D5);
+
 
 
             keysToCheckList.Add(Key.Q);
@@ -202,6 +291,9 @@ namespace MyRemote2.Extend.WriteText
             keysToCheckList.Add(Key.R);
             keysToCheckList.Add(Key.T);
             keysToCheckList.Add(Key.Y);
+            keysToCheckList.Add(Key.F);
+            keysToCheckList.Add(Key.G);
+            keysToCheckList.Add(Key.D0);
 
             int a=0;
             while (isRunning)
@@ -213,14 +305,70 @@ namespace MyRemote2.Extend.WriteText
                     //Console.WriteLine("돌고있음-_"+(a/30).ToString());
                 }
 
-                // 각 키들을 확인하여 눌린 경우 동작 수행
+#if false
+                if (Keyboard.GetKeyStates(Key.Right).HasFlag(KeyStates.Down))
+                {
+                    consoleUtil.ConsoleW("right중 ", scriptname);
+                }
+                else
+                {
+                    consoleUtil.ConsoleW("right중 no ", scriptname);
+                }
+#endif
+                //KeyReleaseIfDownTestMode();
+
+                    // 각 키들을 확인하여 눌린 경우 동작 수행
                 foreach (var key in keysToCheckList)
                 {
                     if (Keyboard.GetKeyStates(key).HasFlag(KeyStates.Down))
                     {
                         if (InputKeyList.Count == 0)
                         {
+                            if (key.Equals(Key.F20) ||
+                                   key.Equals(Key.D4)||
+                                    key.Equals(Key.D5))
+
+                            {
+
+                                Console.Beep();
+                                if (key.Equals(Key.F20))
+                                {
+                                    TestMode20230531 = !TestMode20230531;
+                                }
+                                else if (key.Equals(Key.D4))
+                                {
+                                    ReverseMode = false;
+                                }
+                                else if (key.Equals(Key.D5))
+                                {
+                                    ReverseMode = true;
+                                }
+
+
+                            }
                             if (TestMode20230531) {
+
+                                if (key.Equals(Key.Left)||
+                                    key.Equals(Key.Right) ||
+                                    key.Equals(Key.Down) ||
+                                    key.Equals(Key.Up) ||
+                                    key.Equals(Key.Left) ||
+                                    key.Equals(Key.A) ||
+                                    key.Equals(Key.S) ||
+                                    key.Equals(Key.D) ||
+                                    key.Equals(Key.Z) ||
+                                    key.Equals(Key.X) ||
+                                    key.Equals(Key.C) ||
+                                    key.Equals(Key.D1) ||
+                                    key.Equals(Key.D3))
+                                {
+                                    InputKeyList.Clear();
+                                    //RelaseKey
+                                    //TestMode20230531EXE(Key.D0);
+                                    Thread.Sleep(30);
+                                    continue;
+                                }
+
                                 Form1_Func.BASE_Wait_Delay = 20;
                                 TestMode20230531EXE(key);
                                 Thread.Sleep(400);
@@ -238,6 +386,30 @@ namespace MyRemote2.Extend.WriteText
                         }
                         else if (InputKeyList.Count == 1)
                         {
+
+                            if (key.Equals(Key.F20) ||
+                                   key.Equals(Key.D4) ||
+                                    key.Equals(Key.D5))
+                            {
+                                
+                                Console.Beep();
+                                if (key.Equals(Key.F20))
+                                {
+                                    TestMode20230531 = !TestMode20230531;
+                                }
+                                else if (key.Equals(Key.D4))
+                                {
+                                    ReverseMode = false;
+                                }
+                                else if (key.Equals(Key.D5))
+                                {
+                                    ReverseMode = true;
+                                }
+
+                                InputKeyList.Clear();
+                                Thread.Sleep(500);
+                                continue;
+                            }
                             InputKeyList[0] = key;
                             if (WriteTextWindow.Instance != null)
                                 WriteTextWindow.Instance.KeyExe(key);
