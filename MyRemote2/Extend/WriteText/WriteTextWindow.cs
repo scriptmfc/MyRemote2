@@ -25,13 +25,13 @@ namespace MyRemote2.Extend.WriteText
 
         public void KeyExe(Key key)
         {
-            //Console.WriteLine(e + ":?? WriteTextWindow 키 확인");
+            Console.WriteLine(" WriteTextWindow 키 확인Whjatthe");
             //  키가 눌렸는지 확인
             if (key == Key.Scroll)
             {
                 // 특정 메서드 호출
-                Console.WriteLine("ddd");
-                WriteTextExe();
+                Console.WriteLine("ddd^$*@&*#$");
+                //WriteTextExe();
             }
         }
 

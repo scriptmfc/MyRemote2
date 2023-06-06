@@ -164,9 +164,10 @@ public static class Form1_Func
                 break;
             case MacroEnum.TestModeKeyPress:
                 Console.WriteLine(item.TestModeKeyPressCode + "TestModeKeyPress진입");
-                KeyPressTestMode(Keys.None, item.TestModeKeyPressCode);
-                if(false)
+                //KeyPressTestMode(Keys.None, item.TestModeKeyPressCode);
+               
                 switch (item.TestModeKeyPressCode) {
+                    
                     case "623":
                         KeyPressTestMode(Keys.None, item.TestModeKeyPressCode);
                         break;
@@ -212,13 +213,85 @@ public static class Form1_Func
                         break;
 
 
+
                 }
+
                 break;
             case MacroEnum.CustomMacro:
-                
+
+                //if (item.CustomMacroCode == "test_Champion")
+                    if(true)
+                {
+                    //ShiftPressKey(Keys.Down);
+                    //ShiftPressKey(Keys.Down);
+                    //ShiftPressKey(Keys.Down);
+                    //PressKey(Keys.Oemcomma);
+                    //PressKey(Keys.Down);
+                    //PressKey(Keys.End);
+
+                    PressKey(Keys.End);
+                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    Thread.Sleep(300);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    Thread.Sleep(150);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                    Thread.Sleep(200);
+
+                    PressKey(Keys.Oemcomma);
+                    PressKey(Keys.Down);
+                    PressKey(Keys.Down);
+                    PressKey(Keys.Down);
+                    /*
+                    PressKey(Keys.End);
+                    Thread.Sleep(70);
+                    PressKey(Keys.Oemcomma);
+                    Thread.Sleep(70);
+                    PressKey(Keys.Down);
+                    Thread.Sleep(70);
+                    PressKey(Keys.Down); 
+                    Thread.Sleep(70);
+                    PressKey(Keys.Home);
+                    Thread.Sleep(70);
+                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    Thread.Sleep(150);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                    Thread.Sleep(200);
+                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                    Thread.Sleep(70);
+                    PressKey(Keys.Delete); Thread.Sleep(70);
+
+                    PressKey(Keys.Delete); Thread.Sleep(70);
+
+                    Thread.Sleep(70);
+                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    Thread.Sleep(150);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                    Thread.Sleep(200);
+                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+
+                    PressKey(Keys.Delete); Thread.Sleep(70);
+
+                    PressKey(Keys.Delete); Thread.Sleep(70);
+
+                    Thread.Sleep(70);
+                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    Thread.Sleep(150);
+                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                    Thread.Sleep(200);
+                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+
+                    PressKey(Keys.Delete); Thread.Sleep(70);
+
+                    PressKey(Keys.Delete); Thread.Sleep(70);
+                    */
+                }
+
                 //if (item.CustomMacroCode == "testClipboard")
                 {
-                    Console.WriteLine("ffasdasd아직 설정 xxx");
+                    Console.WriteLine("ffasda123123sd아직 설정 xxx");
                     //WindowFunctionWork.ClipboardSetting("test333");
                     //WindowFunctionWork.ClipboardPaste();
                 }
@@ -246,6 +319,7 @@ public static class Form1_Func
             LEFTKEY = (byte)Keys.Right;
         }
         switch (testcode) {
+#region 623 214 236 22
             case "623":
                 keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
                 Thread.Sleep(4 + BackGroundKeyListener.TestModeRandom1_10());
@@ -310,6 +384,49 @@ public static class Form1_Func
 
                 break;
 
+#endregion
+
+    
+#region KeysRightUpDownUp.....
+            case "Keys_RightUpDownUp":
+                Console.WriteLine("Keys_rightup 진입");
+                keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero) ;
+                Thread.Sleep(66 + BackGroundKeyListener.TestModeRandom1_10()/2);
+                keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(140 + 7*BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(37 + 2*BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                break;
+            case "Keys_RightUp":
+                Console.WriteLine("Keys_rightup진입");
+                keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(47 + 4*BackGroundKeyListener.TestModeRandom1_10());
+                Thread.Sleep(136 + 7 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(43 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                break;
+            case "Keys_LeftUp":
+                
+                Console.WriteLine("Keys_LeftUp 진입");
+                keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(61 + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event(LEFTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(138 + 5 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                break;
+            case "Keys_DownUp":
+                Console.WriteLine("Keys_DownUp 진입");
+                keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(43 + 3 * BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(125 + 5 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                break;
+#endregion
+
+
             case "a":
                 keybd_event((byte)Keys.A, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
                 Thread.Sleep(34 + BackGroundKeyListener.TestModeRandom1_10());
@@ -328,42 +445,6 @@ public static class Form1_Func
             case "z":
                 keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
                 Thread.Sleep(37 + BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                break;
-            case "zRightUpDownUp":
-                Console.WriteLine("zrightup진입");
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero) ;
-                Thread.Sleep(66 + BackGroundKeyListener.TestModeRandom1_10()/2);
-                keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                Thread.Sleep(140 + 7*BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                Thread.Sleep(37 + 2*BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                break;
-            case "zRightUp":
-                Console.WriteLine("zrightup진입");
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                Thread.Sleep(47 + 4*BackGroundKeyListener.TestModeRandom1_10());
-                Thread.Sleep(136 + 7 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                Thread.Sleep(43 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                break;
-            case "zLeftUp":
-                
-                Console.WriteLine("zLeftUp 진입");
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                Thread.Sleep(61 + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event(LEFTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                Thread.Sleep(138 + 5 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                break;
-            case "zDownUp":
-                Console.WriteLine("zDownUp 진입");
-                keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                Thread.Sleep(43 + 3 * BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                Thread.Sleep(125 + 5 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
                 keybd_event((byte)Keys.Z, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                 break;
 
@@ -394,12 +475,12 @@ public static class Form1_Func
                 keybd_event((byte)Keys.C, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                 break;
             case "AllUp":
-                #region AllUp
+#region AllUp
                 Console.WriteLine("AllUp 진입");
 
                 Console.Beep();
 
-
+#if false
                 if (Keyboard.IsKeyDown(Key.Down))
                 {
 
@@ -454,7 +535,7 @@ public static class Form1_Func
                     keybd_event((byte)Keys.D3, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                     Thread.Sleep(5 + 2 * BackGroundKeyListener.TestModeRandom1_10() / 3);
                 }
-
+#endif
 
                 keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                 Thread.Sleep(10+ BackGroundKeyListener.TestModeRandom1_10());
@@ -474,6 +555,8 @@ public static class Form1_Func
                 Thread.Sleep(10 + BackGroundKeyListener.TestModeRandom1_10());
                 keybd_event((byte)Keys.S, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                 Thread.Sleep(10 + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)Keys.D, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(10 + BackGroundKeyListener.TestModeRandom1_10());
                 keybd_event((byte)Keys.F, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                 Thread.Sleep(10 + BackGroundKeyListener.TestModeRandom1_10());
                 keybd_event((byte)Keys.D1, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
@@ -490,9 +573,9 @@ public static class Form1_Func
 
     public static void WriteText(string str)
     {
-        if (str == null)
+        if (string.IsNullOrEmpty(str))
         {
-            Console.WriteLine("WriteText str이 null임");
+            Console.WriteLine("WriteText str이 null이거나 empty");
             return;
         }
 
@@ -545,6 +628,16 @@ public static class Form1_Func
         keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
         keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
         keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+    }
+
+    private static void TmpShiftPressKey(Keys key)
+    {
+        keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+        keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+        Thread.Sleep(150);
+        keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        Thread.Sleep(200);
         keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
     }
 

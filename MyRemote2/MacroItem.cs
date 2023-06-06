@@ -60,8 +60,10 @@ public class MacroItem
 	/// TestModeKeyPress에만 쓰임
 	/// </summary>
 	public string TestModeKeyPressCode;
+	public Keys TestModeKeyPressCode_Sub;
 
-    public string ClipboardSettingStr { get => clipboardSettingStr;}
+
+	public string ClipboardSettingStr { get => clipboardSettingStr;}
     public string Str_FromClipboardGetText { get => str_FromClipboardGetText;}
 
     public enum WindowFunctionEnum

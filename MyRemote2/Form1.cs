@@ -110,7 +110,7 @@ namespace MyRemote2
             if (key == Form1_Func.StartKey)
             {
                 // 특정 메서드 호출
-                Console.WriteLine("ddd");
+                Console.WriteLine("ddd777");
                 Form1_Func.StartMacro();
             }
             else if (key == Form1_Func.StopKey)
