@@ -44,6 +44,12 @@ namespace MyRemote2.Extend.WriteText
         public static string TestModeCode = "GGS_M";
         //public static string TestModeCode = "GBV_YE";
         public static string TestModeCodeSub = "";
+        public static string TestModeCodeSub2 = "";
+        public static double TestModeTimeSpanValue = 0;//= new TimeSpan();
+
+        public static List<Key> SkillKeyList = new List<Key>();
+        public static List<Key> BaseKeyList = new List<Key>();
+        public static List<Key> FunctionKeyList = new List<Key>();
         static void TestMode20230531EXE(Key key)
         {
 
@@ -62,7 +68,23 @@ namespace MyRemote2.Extend.WriteText
                 SettingTestMode(key);
                 // 특정 메서드 호출
                 Console.WriteLine("dddgg Testmode  " + key);
-                KeyReleaseIfDownTestMode();
+                if (TestModeCode == "GGS_M")
+                {
+                    if(key.Equals(Key.E) ||
+                        key.Equals(Key.W) ||
+                        key.Equals(Key.G))
+                    {
+
+                    }
+                    else
+                    {
+                        KeyReleaseIfDownTestMode();
+                    }
+                }
+                else
+                {
+                    KeyReleaseIfDownTestMode();
+                }
                 if (TestModeCodeSub == "MD")
                 {
                     TestModeCodeSub = "";
@@ -325,12 +347,8 @@ namespace MyRemote2.Extend.WriteText
                         break;
                     case Key.W:
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "236";
-                        listTmp.Add(itemTmp);
-                        itemTmp = new MacroItem();
-                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "Keys_RightUp";
-                        itemTmp.TestModeKeyPressCode_Sub = Keys.C;
+                        itemTmp.TestModeKeyPressCode = "(4)Dash_4모으기6_Key";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.D;
                         listTmp.Add(itemTmp);
                         break;
                     case Key.E:
@@ -340,19 +358,12 @@ namespace MyRemote2.Extend.WriteText
                         //}
 
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "4모으기6_Key";
+                        itemTmp.TestModeKeyPressCode = "(4)모으기6_Key";
                         itemTmp.TestModeKeyPressCode_Sub = Keys.D;
                         listTmp.Add(itemTmp);
                         break;
                     case Key.R:
-                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "22";
-                        listTmp.Add(itemTmp);
-                        itemTmp = new MacroItem();
-                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "Keys_DownUp";
-                        itemTmp.TestModeKeyPressCode_Sub = Keys.C;
-                        listTmp.Add(itemTmp);
+                        
                         break;
                     case Key.T:
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
@@ -365,13 +376,9 @@ namespace MyRemote2.Extend.WriteText
                         listTmp.Add(itemTmp);
                         break;
                     case Key.G:
-                        break;
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "623";
-                        listTmp.Add(itemTmp);
-                        itemTmp = new MacroItem();
-                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "a";
+                        itemTmp.TestModeKeyPressCode = "(2)모으기8_Key";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.D;
                         listTmp.Add(itemTmp);
                         break;
                     case Key.H:
@@ -414,25 +421,53 @@ namespace MyRemote2.Extend.WriteText
     
             #endregion
 
-
+        static bool CheckKeyDown(Key key)
+        {
+            if (Keyboard.GetKeyStates(key).HasFlag(KeyStates.Down))
+                return true;
+            else
+                return false;
+        }
 
             static void Keyboardd()
         {
             keysToCheckList.Add(Key.Return);
+            #region Base
             keysToCheckList.Add(Key.A);
-            keysToCheckList.Add(Key.B);
+            keysToCheckList.Add(Key.S);
+            keysToCheckList.Add(Key.D);
+            keysToCheckList.Add(Key.F);
+
+            keysToCheckList.Add(Key.Z);
+            keysToCheckList.Add(Key.X);
             keysToCheckList.Add(Key.C);
+            keysToCheckList.Add(Key.V);
+
+            keysToCheckList.Add(Key.Left);
+            keysToCheckList.Add(Key.Right);
+            keysToCheckList.Add(Key.Up);
+            keysToCheckList.Add(Key.Down);
+
+            keysToCheckList.Add(Key.D1);
+            keysToCheckList.Add(Key.D3);
+            #endregion
             keysToCheckList.Add(Key.F9);
             keysToCheckList.Add(Key.F3);
             keysToCheckList.Add(Key.F7);
             keysToCheckList.Add(Key.Scroll);
             keysToCheckList.Add(Key.Pause);
 
-            keysToCheckList.Add(Key.F20);
-            keysToCheckList.Add(Key.D4);
-            keysToCheckList.Add(Key.D5);
+            #region 기능
+            keysToCheckList.Add(Key.F20);//ONOFF
+            keysToCheckList.Add(Key.D4);//Left
+            keysToCheckList.Add(Key.D5);//Right
+            keysToCheckList.Add(Key.D0);//Allup
+            #endregion
 
 
+
+
+            #region Skill
 
             keysToCheckList.Add(Key.Q);
             keysToCheckList.Add(Key.W);
@@ -442,9 +477,50 @@ namespace MyRemote2.Extend.WriteText
             keysToCheckList.Add(Key.Y);
             keysToCheckList.Add(Key.G);
             keysToCheckList.Add(Key.H);
-            keysToCheckList.Add(Key.D0);
+            
+            #endregion
+            #region Setting Sort
+            SkillKeyList.Add(Key.Q);
+            SkillKeyList.Add(Key.W);
+            SkillKeyList.Add(Key.E);
+            SkillKeyList.Add(Key.R);
+            SkillKeyList.Add(Key.T);
+            SkillKeyList.Add(Key.Y);
+            SkillKeyList.Add(Key.G);
+            SkillKeyList.Add(Key.H);
 
-            int a=0;
+
+
+            BaseKeyList.Add(Key.A);
+            BaseKeyList.Add(Key.S);
+            BaseKeyList.Add(Key.D);
+            BaseKeyList.Add(Key.F);
+
+            BaseKeyList.Add(Key.Z);
+            BaseKeyList.Add(Key.X);
+            BaseKeyList.Add(Key.C);
+            BaseKeyList.Add(Key.V);
+
+            BaseKeyList.Add(Key.Left);
+            BaseKeyList.Add(Key.Down);
+            BaseKeyList.Add(Key.Up);
+            BaseKeyList.Add(Key.Right);
+
+            BaseKeyList.Add(Key.D1);
+            BaseKeyList.Add(Key.D3);
+
+
+
+
+            FunctionKeyList.Add(Key.F20);
+            FunctionKeyList.Add(Key.D0);
+            FunctionKeyList.Add(Key.D4);
+            FunctionKeyList.Add(Key.D5);
+
+            #endregion
+
+
+            int a =0;
             while (isRunning)
             {
                 Thread.Sleep(40); //minimum CPU usage
@@ -478,7 +554,8 @@ namespace MyRemote2.Extend.WriteText
                                     key.Equals(Key.D5))
 
                             {
-
+                                if(TestModeCodeSub=="MD")
+                                    TestModeCodeSub = "";
                                 Console.Beep();
                                 if (key.Equals(Key.F20))
                                 {
@@ -496,7 +573,36 @@ namespace MyRemote2.Extend.WriteText
 
                             }
                             if (TestMode20230531) {
+                                if (TestModeCodeSub2 == "M4_Ing" ||
+                                    TestModeCodeSub2 == "M24_Ing"||
+                                    TestModeCodeSub2 == "M2_Ing"
+                                    )
+                                {
+                                    if (
+                                        key.Equals(Key.E)||
+                                        key.Equals(Key.W)||
+                                        key.Equals(Key.G)||
+                                        (key.Equals(Key.Left)&&!ReverseMode)||
+                                        (key.Equals(Key.Right) && ReverseMode)||
+                                        key.Equals(Key.Down)
+                                        )
+                                        
+                                    {
 
+                                    }
+                                    else
+                                    {
+                                        TestModeCodeSub2 = "_NONESub2_";
+                                        consoleUtil.ConsoleWCode(key+TestModeCodeSub2 + " Setting#$1",
+                                               scriptname, "$*@#_NONESub2_");
+                                    }
+                                }
+                                else
+                                {
+                                    TestModeCodeSub2 = "_NONESub2_";
+                                    consoleUtil.ConsoleWCode(key + TestModeCodeSub2 + " Setting#$2",
+                                               scriptname, "$*@#_NONESub2_");
+                                }
                                 if (key.Equals(Key.Left)||
                                     key.Equals(Key.Right) ||
                                     key.Equals(Key.Down) ||
@@ -513,10 +619,174 @@ namespace MyRemote2.Extend.WriteText
                                     key.Equals(Key.D3))
                                 {
                                     
+                                    if (key.Equals(Key.Left)&&
+                                        !BackGroundKeyListener.ReverseMode)
+                                    {
+                                        if (!(TestModeCodeSub2 == "M24_Ing" ||
+                                            TestModeCodeSub2 == "M4_Ing"))
+                                        {
+                                            TestModeTimeSpanValue = (double)DateTime.Now.TimeOfDay.TotalMilliseconds;
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " Setting1",
+                                               scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        if (Keyboard.GetKeyStates(Key.Down).HasFlag(KeyStates.Down))
+                                        {
+                                            TestModeCodeSub2 = "M24_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " Check1",
+                                               scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        else
+                                        {
+                                            TestModeCodeSub2 = "M4_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " Check2",
+                                               scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        /*
+                                        if (TestModeCodeSub2 == "M2_Ing")
+                                        {
+                                            
+
+                                                TestModeCodeSub2 = "M24_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " SettingLeft1",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        else if(TestModeCodeSub2 == "M24_Ing")
+                                        {
+                                            TestModeCodeSub2 = "M24_Ing";
+                                        }
+                                        else
+                                        {
+                                            
+                                            TestModeCodeSub2 = "M4_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " SettingLeft2",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        */
+                                        //DateTime currentTime = DateTime.Now;
+                                        //TimeSpan timeSpan = currentTime.TimeOfDay;
+
+                                        //long milliseconds = (long)timeSpan.TotalMilliseconds;
+
+                                        
+                                        
+                                    }
+                                    else if (key.Equals(Key.Right) &&
+                                        BackGroundKeyListener.ReverseMode)
+                                    {
+                                        if (!(TestModeCodeSub2 == "M24_Ing" ||
+                                            TestModeCodeSub2 == "M4_Ing"))
+                                        {
+                                            TestModeTimeSpanValue = (double)DateTime.Now.TimeOfDay.TotalMilliseconds;
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " Setting2",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        if (Keyboard.GetKeyStates(Key.Down).HasFlag(KeyStates.Down))
+                                        {
+                                            TestModeCodeSub2 = "M24_Ing";
+                                        }
+                                        else
+                                        {
+                                            TestModeCodeSub2 = "M4_Ing";
+                                        }
+                                        /*
+                                        if (TestModeCodeSub2 == "M2_Ing")
+                                        {
+                                            
+                                            TestModeCodeSub2 = "M24_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " SettingRight1",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        else if (TestModeCodeSub2 == "M24_Ing")
+                                        {
+                                            TestModeCodeSub2 = "M24_Ing";
+                                        }
+                                        else
+                                        {
+                                            TestModeCodeSub2 = "M4_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " SettingRight2",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        */
+                                        
+                                    }
+                                    else if (key.Equals(Key.Down))
+                                    {
+                                        if (!(TestModeCodeSub2 == "M24_Ing" ||
+                                            TestModeCodeSub2 == "M4_Ing"))
+                                        {
+                                            TestModeTimeSpanValue = (double)DateTime.Now.TimeOfDay.TotalMilliseconds;
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " SettingDown1",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        if (Keyboard.GetKeyStates(Key.Left).HasFlag(KeyStates.Down)&&
+                                             !BackGroundKeyListener.ReverseMode)
+                                        {
+                                            TestModeCodeSub2 = "M24_Ing";
+                                        }
+                                        else if (Keyboard.GetKeyStates(Key.Right).HasFlag(KeyStates.Down) &&
+                                             BackGroundKeyListener.ReverseMode)
+                                        {
+                                            TestModeCodeSub2 = "M24_Ing";
+                                        }
+                                        else
+                                        {
+                                            TestModeCodeSub2 = "M2_Ing";
+                                        }
+
+
+                                        /*
+                                        if (TestModeCodeSub2 == "M4_Ing")
+                                        {
+                                            
+                                            TestModeCodeSub2 = "M24_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " SettingDown1",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        else if (TestModeCodeSub2 == "M24_Ing")
+                                        {
+                                            TestModeCodeSub2 = "M24_Ing";
+                                        }
+                                        else
+                                        {
+                                            TestModeCodeSub2 = "M2_Ing";
+                                            consoleUtil.ConsoleWCode(TestModeCodeSub2 + " SettingDown2",
+                                                scriptname, "$*@#TestModeCodeSub2");
+                                        }
+                                        */
+                                        
+
+                                    }
+                                    
                                     //RelaseKey
                                     //TestMode20230531EXE(Key.D0);
-                                    Thread.Sleep(30);
-                                    continue;
+                                    InputKeyList.Clear();
+                                    
+                                    bool continuecondition=true;
+                                    foreach (var item in FunctionKeyList) {
+                                        if (CheckKeyDown(item))
+                                        {
+                                            
+                                            continuecondition = false;
+                                            
+                                        }       
+                                    }
+                                    foreach (var item in SkillKeyList)
+                                    {
+                                        if (CheckKeyDown(item))
+                                        {
+                                            consoleUtil.ConsoleWCode(item.ToString(), scriptname,
+                                                "ChekKeyDown ContinueCondtion#@");
+                                            //continuecondition = false;
+                                            TestMode20230531EXE(item);
+                                            InputKeyList.Clear();
+                                            Thread.Sleep(400);
+                                            continue;
+                                        }
+                                            
+                                    }
+                                    Thread.Sleep(10);
+                                    if (continuecondition)
+                                        continue;
                                 }
 
                                 Form1_Func.BASE_Wait_Delay = 20;
@@ -543,7 +813,8 @@ namespace MyRemote2.Extend.WriteText
                                    key.Equals(Key.D4) ||
                                     key.Equals(Key.D5))
                             {
-                                
+                                if (TestModeCodeSub == "MD")
+                                    TestModeCodeSub = "";
                                 Console.Beep();
                                 if (key.Equals(Key.F20))
                                 {

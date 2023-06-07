@@ -11,7 +11,7 @@ using MyRemote2.WindowRobotFold.WorkFold;
 
 public static class Form1_Func
 {
-
+    public static string scriptname = "Form1_Func";
 
     [DllImport("user32.dll")]
     private static extern bool GetCursorPos(out POINT lpPoint);
@@ -309,6 +309,32 @@ public static class Form1_Func
         PressKey(key);
     }
 
+    static int TestModeLockTime()
+    {
+
+        var tmpThisTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
+        var LockTime = tmpThisTime -
+           BackGroundKeyListener.TestModeTimeSpanValue;
+        int tmpdelay = 460;
+        tmpdelay -= (int)LockTime;
+        consoleUtil.ConsoleWCode(tmpThisTime.ToString(),
+      scriptname, "4_6모으기 tmpThisTime");
+        consoleUtil.ConsoleWCode(BackGroundKeyListener.TestModeTimeSpanValue.ToString(),
+      scriptname, "4_6모으기 BackGroundKeyListener.TestModeTimeSpanValue");
+
+        consoleUtil.ConsoleWCode(((int)LockTime).ToString(),
+      scriptname, "4_6모으기 LockTime");
+        if (tmpdelay < 0)
+        {
+            tmpdelay = 2;
+        }
+        consoleUtil.ConsoleWCode(tmpdelay.ToString(),
+       scriptname, "4_6모으기 tmpdelay");
+
+        return tmpdelay;
+        
+    }
+
     static void KeyPressTestMode(Keys key, string testcode)
     {
         var RIGHTKEY = (byte)Keys.Right;
@@ -401,9 +427,18 @@ public static class Form1_Func
                 Thread.Sleep(3 + BackGroundKeyListener.TestModeRandom1_10() / 4);
 
                 break;
-            case "4모으기6_Key":
+            #region 모으기
+            case "(4)모으기6_Key":
 
-                if (false)
+                consoleUtil.ConsoleWCode(BackGroundKeyListener.TestModeCodeSub2,
+                    scriptname, "4_6모으기 TestModeCodeSub2*(*(*");
+                if (BackGroundKeyListener.TestModeCodeSub2== "M24_Ing"||
+                    BackGroundKeyListener.TestModeCodeSub2 == "M4_Ing")
+                {
+                    Thread.Sleep( TestModeLockTime() + 2 * BackGroundKeyListener.TestModeRandom1_10() +
+            1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                }
+                else if (false)
                 {
                     
                     Thread.Sleep(320 + 4 * BackGroundKeyListener.TestModeRandom1_10() +
@@ -429,13 +464,31 @@ public static class Form1_Func
                 Thread.Sleep(13 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
                 keybd_event(LEFTKEY, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
 
-               
-                
+                int tmpCount=0;
+                int tmpCountLimit = 0;
+                int tmpran = BackGroundKeyListener.TestModeRandom1_10();
+                if (tmpran>5)
+                {
+                    tmpCountLimit = 0;
+                }
+                else if (tmpran > 2)
+                {
                     
-                    while (BackGroundKeyListener.TestModeCodeSub == "MD")
+                        tmpCountLimit = 1;
+                    
+                }
+                else 
+                {
+                    tmpCountLimit = 2;
+                }
+
+
+                    while (BackGroundKeyListener.TestModeCodeSub == "MD"&&
+                    tmpCount<tmpCountLimit)
                     {
+                    tmpCount++;
                         //Form1_Func.ReleaseKey_Public(Keys.E);
-                        Thread.Sleep(490 + 4 * BackGroundKeyListener.TestModeRandom1_10() +
+                        Thread.Sleep(460 + 4 * BackGroundKeyListener.TestModeRandom1_10() +
                        1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
                         keybd_event(LEFTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                         Thread.Sleep(3 + BackGroundKeyListener.TestModeRandom1_10());
@@ -455,22 +508,95 @@ public static class Form1_Func
                 keybd_event(LEFTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                 BackGroundKeyListener.TestModeCodeSub = "";
                 break;
-            case "2모으기8":
-                keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                Thread.Sleep(23 + BackGroundKeyListener.TestModeRandom1_10());
-                Console.WriteLine(23 + BackGroundKeyListener.TestModeRandom1_10() + " TTr");
+            case "(2)모으기8_Key":
+
+                if (BackGroundKeyListener.TestModeCodeSub2 == "M24_Ing" ||
+                    BackGroundKeyListener.TestModeCodeSub2 == "M2_Ing")
+                {
+                    if(BackGroundKeyListener.TestModeCodeSub2 == "M24_Ing")
+                    {
+                        keybd_event(LEFTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                        Thread.Sleep(3 + BackGroundKeyListener.TestModeRandom1_10());
+                    }
+                    Thread.Sleep(TestModeLockTime() + 2 * BackGroundKeyListener.TestModeRandom1_10() +
+            1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                }
+                else if (false)
+                {
+
+                    Thread.Sleep(320 + 4 * BackGroundKeyListener.TestModeRandom1_10() +
+                        1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                }
+                else
+                {
+                    keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    Thread.Sleep(490 + 2 * BackGroundKeyListener.TestModeRandom1_10() +
+                    1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                }
+                //Thread.Sleep(320 + 3 * BackGroundKeyListener.TestModeRandom1_10() +
+                    //1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                
                 keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                Thread.Sleep(24 + BackGroundKeyListener.TestModeRandom1_10());
-                keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(3 + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)Keys.Up, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(2+BackGroundKeyListener.TestModeRandom1_10() / 4);
+                keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(47 + 4 * BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(23 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)Keys.Up, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(13 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
 
-
-                Thread.Sleep(2 + BackGroundKeyListener.TestModeRandom1_10() / 3);
-                if (BackGroundKeyListener.TestModeRandom1_10() < 5)
-                    Thread.Sleep(1 + BackGroundKeyListener.TestModeRandom1_10() / 5);
-                Thread.Sleep(3 + BackGroundKeyListener.TestModeRandom1_10() / 4);
 
                 break;
+            case "(4)Dash_4모으기6_Key":
 
+                //keybd_event(LEFTKEY, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                if (BackGroundKeyListener.TestModeCodeSub2 == "M24_Ing" ||
+                    BackGroundKeyListener.TestModeCodeSub2 == "M4_Ing")
+                {
+                    if (BackGroundKeyListener.TestModeCodeSub2 == "M24_Ing")
+                    {
+                        keybd_event((byte)Keys.Down, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                        Thread.Sleep(1 + 1 * BackGroundKeyListener.TestModeRandom1_10());
+                    }
+                    Thread.Sleep(TestModeLockTime() + 2 * BackGroundKeyListener.TestModeRandom1_10() +
+            1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                }
+                else if (false)
+                {
+
+                    Thread.Sleep(320 + 4 * BackGroundKeyListener.TestModeRandom1_10() +
+                        1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                }
+                else
+                {
+                    keybd_event(LEFTKEY, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                    Thread.Sleep(490 + 2 * BackGroundKeyListener.TestModeRandom1_10() +
+                    1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                }
+                Thread.Sleep(1 + 1 * BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)Keys.D1, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(13 + 1 * BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)Keys.D1, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(11 + 1 * BackGroundKeyListener.TestModeRandom1_10());
+                    Thread.Sleep(230 + 2 * BackGroundKeyListener.TestModeRandom1_10() +
+                    1 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                
+                keybd_event(LEFTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(3 + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(BackGroundKeyListener.TestModeRandom1_10() / 4);
+                keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(47 + 4 * BackGroundKeyListener.TestModeRandom1_10());
+                //Thread.Sleep(26 + 7 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(23 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(13 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+
+                break;
+            #endregion 모으기
             #endregion
 
 
