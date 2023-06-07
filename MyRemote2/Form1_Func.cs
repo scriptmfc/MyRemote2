@@ -611,6 +611,14 @@ public static class Form1_Func
                 Thread.Sleep(37 + 2*BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
                 keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
                 break;
+            case "Keys_RightUpFast":
+                Console.WriteLine("Keys_rightupFast 진입");
+                keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+                Thread.Sleep(72 + 7 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                Thread.Sleep(43 + 2 * BackGroundKeyListener.TestModeRandom1_10() + BackGroundKeyListener.TestModeRandom1_10());
+                keybd_event(RIGHTKEY, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+                break;
             case "Keys_RightUp":
                 Console.WriteLine("Keys_rightup진입");
                 keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);

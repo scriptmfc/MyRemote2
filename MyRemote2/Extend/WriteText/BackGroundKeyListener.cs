@@ -41,7 +41,8 @@ namespace MyRemote2.Extend.WriteText
         public static bool TestMode20230531 = false;
         public static bool ReverseMode = false;
 
-        public static string TestModeCode = "GGS_M";
+        //public static string TestModeCode = "GGS_M";
+        public static string TestModeCode = "GGS_JO";
         //public static string TestModeCode = "GBV_YE";
         public static string TestModeCodeSub = "";
         public static string TestModeCodeSub2 = "";
@@ -411,7 +412,99 @@ namespace MyRemote2.Extend.WriteText
                 }
                 #endregion
             }
-            
+            else if (TestModeCode == "GGS_JO")
+            {
+                #region GGS_JO
+                switch (key)
+                {
+                    case Key.Q:
+
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "236";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "Keys_RightUpFast";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.A;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.W:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "214";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "Keys_LeftUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.A;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.E:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "214";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "Keys_LeftUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.S;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.R:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "214";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "Keys_LeftUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.D;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.T:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "236";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "Keys_RightUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.S;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.G:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "(2)모으기8_Key";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.D;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.H:
+                        break;
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "623";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "a";
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.Y:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "632146";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "Keys_RightUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.A;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.D0:
+
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "AllUp";
+                        listTmp.Add(itemTmp);
+
+                        break;
+                }
+                #endregion
+            }
+
 
             //Console.WriteLine(e + ":?? WriteTextWindow 키 확인");
             //  키가 눌렸는지 확인
