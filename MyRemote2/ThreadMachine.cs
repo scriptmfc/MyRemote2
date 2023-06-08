@@ -30,7 +30,7 @@ namespace MyRemote2
                     Form1_Func.MacroWork(Form1_Func.MacroItemList[i]);
                 }
                 
-                Console.WriteLine(i+ "실행 ThreadWorkForm1_FuncMacro");
+                Console.WriteLine(i+ "실행 ThreadWorkForm1_FuncMacro MacroEnum: "+ Form1_Func.MacroItemList[i].macroEnum);
             }
             Console.WriteLine("종료");
             

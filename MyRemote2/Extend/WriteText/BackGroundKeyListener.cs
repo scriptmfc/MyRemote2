@@ -42,8 +42,8 @@ namespace MyRemote2.Extend.WriteText
         public static bool ReverseMode = false;
 
         //public static string TestModeCode = "GGS_M";
-        public static string TestModeCode = "GGS_JO";
-        //public static string TestModeCode = "GBV_YE";
+        //public static string TestModeCode = "GGS_JO";
+        public static string TestModeCode = "GBV_YE";
         public static string TestModeCodeSub = "";
         public static string TestModeCodeSub2 = "";
         public static double TestModeTimeSpanValue = 0;//= new TimeSpan();
@@ -63,6 +63,8 @@ namespace MyRemote2.Extend.WriteText
                 key.Equals(Key.Y) ||
                 key.Equals(Key.G) ||
                 key.Equals(Key.H) ||
+                key.Equals(Key.B) ||
+                key.Equals(Key.N) ||
                 key.Equals(Key.D0))
 
             {
@@ -86,16 +88,19 @@ namespace MyRemote2.Extend.WriteText
                 {
                     KeyReleaseIfDownTestMode();
                 }
-                if (TestModeCodeSub == "MD")
+                if (TestModeCode == "GGS_M")
                 {
-                    TestModeCodeSub = "";
-                    if (key.Equals(Key.E))
+                    if (TestModeCodeSub == "MD")
                     {
-                        Form1_Func.StopMacro();
-                    }
-                    else
-                    {
-                        Form1_Func.StartMacro();
+                        TestModeCodeSub = "";
+                        if (key.Equals(Key.E))
+                        {
+                            Form1_Func.StopMacro();
+                        }
+                        else
+                        {
+                            Form1_Func.StartMacro();
+                        }
                     }
                 }
                 else
@@ -271,40 +276,71 @@ namespace MyRemote2.Extend.WriteText
                         break;
                     case Key.R:
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "22";
+                        itemTmp.TestModeKeyPressCode = "236";
                         listTmp.Add(itemTmp);
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "Keys_DownUp";
-                        itemTmp.TestModeKeyPressCode_Sub = Keys.Z;
+                        itemTmp.TestModeKeyPressCode = "Keys_RightUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.C;
                         listTmp.Add(itemTmp);
                         break;
                     case Key.T:
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "22";
+                        itemTmp.TestModeKeyPressCode = "x";
                         listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.Wait;
+                        itemTmp.waitdelay = 140;
+                        listTmp.Add(itemTmp);
+
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
                         itemTmp.TestModeKeyPressCode = "z";
                         listTmp.Add(itemTmp);
-                        break;
-                    case Key.F:
-                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "623";
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.Wait;
+                        itemTmp.waitdelay = 200;
                         listTmp.Add(itemTmp);
+
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "a";
+                        itemTmp.TestModeKeyPressCode = "c";
                         listTmp.Add(itemTmp);
                         break;
                     case Key.G:
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "z";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.Wait;
+                        itemTmp.waitdelay=140;
+                        listTmp.Add(itemTmp);
+
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "x";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.Wait;
+                        itemTmp.waitdelay = 200;
+                        listTmp.Add(itemTmp);
+
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "c";
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.H:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
                         itemTmp.TestModeKeyPressCode = "623";
                         listTmp.Add(itemTmp);
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "a";
+                        itemTmp.TestModeKeyPressCode = "Keys_RightUpDownUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.C;
                         listTmp.Add(itemTmp);
+
+
                         break;
                     case Key.Y:
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
@@ -318,6 +354,27 @@ namespace MyRemote2.Extend.WriteText
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
                         itemTmp.TestModeKeyPressCode = "Keys_RightUpDownUp";
                         itemTmp.TestModeKeyPressCode_Sub = Keys.C;
+                        listTmp.Add(itemTmp);
+                        break;
+                    case Key.B:
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "22";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "Keys_DownUp";
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.C;
+                        listTmp.Add(itemTmp);
+
+
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.Wait;
+                        itemTmp.waitdelay = 600;
+                        listTmp.Add(itemTmp);
+
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "c";
                         listTmp.Add(itemTmp);
                         break;
                     case Key.D0:
@@ -570,7 +627,9 @@ namespace MyRemote2.Extend.WriteText
             keysToCheckList.Add(Key.Y);
             keysToCheckList.Add(Key.G);
             keysToCheckList.Add(Key.H);
-            
+            keysToCheckList.Add(Key.B);
+            keysToCheckList.Add(Key.N);
+
             #endregion
             #region Setting Sort
             SkillKeyList.Add(Key.Q);
@@ -581,6 +640,8 @@ namespace MyRemote2.Extend.WriteText
             SkillKeyList.Add(Key.Y);
             SkillKeyList.Add(Key.G);
             SkillKeyList.Add(Key.H);
+            SkillKeyList.Add(Key.B);
+            SkillKeyList.Add(Key.N);
 
 
 
@@ -644,7 +705,9 @@ namespace MyRemote2.Extend.WriteText
                         {
                             if (key.Equals(Key.F20) ||
                                    key.Equals(Key.D4)||
-                                    key.Equals(Key.D5))
+                                    key.Equals(Key.D5)||
+                                    key.Equals(Key.D0))
+
 
                             {
                                 if(TestModeCodeSub=="MD")
@@ -662,8 +725,13 @@ namespace MyRemote2.Extend.WriteText
                                 {
                                     ReverseMode = true;
                                 }
-
-
+                                else if (key.Equals(Key.D0))
+                                {
+                                    KeyReleaseIfDownTestMode();
+                                }
+                                InputKeyList.Clear();
+                                Thread.Sleep(300);
+                                continue;
                             }
                             if (TestMode20230531) {
                                 if (TestModeCodeSub2 == "M4_Ing" ||
