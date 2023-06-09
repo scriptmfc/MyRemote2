@@ -70,6 +70,9 @@ namespace MyRemote2
             this.DebugMacroMainOptionComboBox = new System.Windows.Forms.ComboBox();
             this.Label_DebugMacroMainOption = new System.Windows.Forms.Label();
             this.Label_TestModeOnOFF = new System.Windows.Forms.Label();
+            this.MouseFunctionComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.DescriptionSettingButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -320,7 +323,7 @@ namespace MyRemote2
             // 
             // WriteTextContentInput
             // 
-            this.WriteTextContentInput.Location = new System.Drawing.Point(18, 66);
+            this.WriteTextContentInput.Location = new System.Drawing.Point(18, 40);
             this.WriteTextContentInput.Multiline = true;
             this.WriteTextContentInput.Name = "WriteTextContentInput";
             this.WriteTextContentInput.Size = new System.Drawing.Size(172, 79);
@@ -429,11 +432,48 @@ namespace MyRemote2
             this.Label_TestModeOnOFF.Text = "ON";
             this.Label_TestModeOnOFF.Click += new System.EventHandler(this.Label_TestModeOnOFF_Click);
             // 
+            // MouseFunctionComboBox
+            // 
+            this.MouseFunctionComboBox.FormattingEnabled = true;
+            this.MouseFunctionComboBox.Items.AddRange(new object[] {
+            "왼쪽클릭",
+            "오른쪽클릭",
+            "가운데클릭",
+            "Press",
+            "Release"});
+            this.MouseFunctionComboBox.Location = new System.Drawing.Point(147, 182);
+            this.MouseFunctionComboBox.Name = "MouseFunctionComboBox";
+            this.MouseFunctionComboBox.Size = new System.Drawing.Size(121, 20);
+            this.MouseFunctionComboBox.TabIndex = 33;
+            this.MouseFunctionComboBox.Text = "왼쪽클릭";
+            this.MouseFunctionComboBox.SelectedIndexChanged += new System.EventHandler(this.MouseFunctionComboBox_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(232, 245);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 34);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "현재 위치로\r\n+왼쪽클릭까지 : F7";
+            // 
+            // DescriptionSettingButton
+            // 
+            this.DescriptionSettingButton.Location = new System.Drawing.Point(59, 122);
+            this.DescriptionSettingButton.Name = "DescriptionSettingButton";
+            this.DescriptionSettingButton.Size = new System.Drawing.Size(82, 23);
+            this.DescriptionSettingButton.TabIndex = 35;
+            this.DescriptionSettingButton.Text = "설명 추가";
+            this.DescriptionSettingButton.UseVisualStyleBackColor = true;
+            this.DescriptionSettingButton.Click += new System.EventHandler(this.DescriptionSettingButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 501);
+            this.Controls.Add(this.DescriptionSettingButton);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.MouseFunctionComboBox);
             this.Controls.Add(this.Label_TestModeOnOFF);
             this.Controls.Add(this.Label_DebugMacroMainOption);
             this.Controls.Add(this.DebugMacroMainOptionComboBox);
@@ -517,6 +557,9 @@ namespace MyRemote2
         private ComboBox DebugMacroMainOptionComboBox;
         private Label Label_DebugMacroMainOption;
         private Label Label_TestModeOnOFF;
+        private ComboBox MouseFunctionComboBox;
+        private Label label5;
+        private Button DescriptionSettingButton;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }

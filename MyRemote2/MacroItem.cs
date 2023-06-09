@@ -18,11 +18,22 @@ public class MacroItem
 	/// </summary>
 	public List<Keys> press꾹Key =new List<Keys>();
 
+	/// <summary>
+	/// 마우스 포지션 용
+	/// </summary>
 	public int x;
 	public int y;
 
 	//단위 : ms
 	public int waitdelay;
+
+	//설명
+	public string descriptionForThisItem="";
+
+	/// <summary>
+	/// 기본 : 왼쪽클릭
+	/// </summary>
+	public MouseFunctionEnum_Remote mouseFunctionSort = MouseFunctionEnum_Remote.왼쪽클릭;
 
 	/// <summary>
 	/// 아마 write쓸 때 쓰는것 같은데
@@ -31,6 +42,9 @@ public class MacroItem
 
 	public string CustomMacroCode;
 
+	/// <summary>
+	/// 뭐지
+	/// </summary>
 	public List<Keys> shortKey = new List<Keys>();
 
 	/// <summary>

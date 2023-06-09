@@ -56,6 +56,7 @@ public static class Form1_Func
     public static int BASE_Wait_Delay=100;
 
     public static Keys CurrentMousePositionSettingKey = Keys.F6;
+    public static Keys CurrentMousePositionMoveAndClickSettingKey = Keys.F7;
     public static Key StartKey= Key.Scroll;
     public static Key StopKey= Key.Pause;
 
@@ -63,6 +64,10 @@ public static class Form1_Func
     public static bool KeyPress꾹Shift;
     public static bool KeyPress꾹Alt;
 
+    /// <summary>
+    /// Mouse지정할 Mode
+    /// </summary>
+    public static MouseFunctionEnum_Remote currentMouseMode;
     public static POINT GetMouseCurrentPosition()
     {
         POINT currentMousePosition;
@@ -131,7 +136,26 @@ public static class Form1_Func
                 MouseMove(item.x, item.y);
                 break;
             case MacroEnum.MouseClick:
-                MouseLeftClick();
+                switch (item.mouseFunctionSort) {
+                    case (MouseFunctionEnum_Remote.왼쪽클릭):
+                        MouseLeftClick();
+                        break;
+                    case (MouseFunctionEnum_Remote.오른쪽클릭):
+                        MouseRightClick();
+                        break;
+                    case (MouseFunctionEnum_Remote.Press):
+                        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0); // Simulate left button down
+                        
+                        break;
+                    case (MouseFunctionEnum_Remote.Release):
+                        
+                        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0); // Simulate left button up
+                        break;
+                    default:
+                        Console.WriteLine("ERR_ MacroEnum.MouseClick#$#$");
+                        break;
+
+                }
                 break;
             case MacroEnum.Wait:
                 Console.WriteLine("여기는 오면 안됨! Form1_Func.cs (MacroThread에서 직접처리)");

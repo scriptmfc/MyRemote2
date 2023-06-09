@@ -57,6 +57,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonFold\CommonEnums.cs" />
     <Compile Include="Extend\CustomMacroItemMaker.cs" />
     <Compile Include="Extend\WriteText\BackGroundKeyListener.cs" />
     <Compile Include="Extend\WriteText\SaveLoad.cs" />

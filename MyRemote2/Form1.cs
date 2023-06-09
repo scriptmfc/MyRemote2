@@ -88,7 +88,7 @@ namespace MyRemote2
                         listBox1.Items[i] = $"대기 : {Form1_Func.MacroItemList[i].waitdelay}ms";
                         break;
                     case MacroEnum.MouseClick:
-                        listBox1.Items[i] = "마우스 왼쪽 클릭";
+                        listBox1.Items[i] = $"마우스 : {Form1_Func.MacroItemList[i].mouseFunctionSort}";
                         break;
                     case MacroEnum.CustomMacro:
                         listBox1.Items[i] = $"CustomMacro : + [{Form1_Func.MacroItemList[i].CustomMacroCode}]";
@@ -98,7 +98,8 @@ namespace MyRemote2
                             "마우스 이동  " + "(" + Form1_Func.MacroItemList[i].x + "," + Form1_Func.MacroItemList[i].y + ")"; ;
                         break;
                 }
-
+                if (!string.IsNullOrEmpty(Form1_Func.MacroItemList[i].descriptionForThisItem))
+                    listBox1.Items[i] += $" [ {Form1_Func.MacroItemList[i].descriptionForThisItem} ]";
             }
         }
 
@@ -180,6 +181,48 @@ namespace MyRemote2
                 Form1.Instance.MouseYPos1.Text = Form1_Func.GetMouseCurrentPosition().Y.ToString();
                 Form1.Instance.button4_Click();
                 //Form1.Instance.Label4 = "현재 위치로 : "+F6;
+            }
+            if (e.KeyCode == Form1_Func.CurrentMousePositionMoveAndClickSettingKey)
+            {
+                Console.WriteLine("현재위치");
+                
+                
+                //Form1.Instance.Label4 = "현재 위치로 : "+F6;
+
+                listBox1.Items.Add("새로운 항목");
+
+                var item = new MacroItem();
+                Form1_Func.MacroItemList.Add(item);
+
+                
+                listBox1.SelectedIndex = listBox1.Items.Count - 1;
+
+                Form1.Instance.MouseXPos1.Text = Form1_Func.GetMouseCurrentPosition().X.ToString();
+                Form1.Instance.MouseYPos1.Text = Form1_Func.GetMouseCurrentPosition().Y.ToString();
+
+                string itemName = "마우스 이동  " + "(" + MouseXPos.Text + "," + MouseYPos.Text + ")";
+
+                Form1_Func.SelectItem.macroEnum = MacroEnum.MouseMove;
+
+                int.TryParse(MouseXPos.Text, out Form1_Func.SelectItem.x);
+                int.TryParse(MouseYPos.Text, out Form1_Func.SelectItem.y);
+
+                listBox1.Items[listBox1.SelectedIndex] = itemName;
+
+
+                listBox1.Items.Add("새로운 항목");
+
+                var item2 = new MacroItem();
+                Form1_Func.MacroItemList.Add(item2);
+
+                
+                listBox1.SelectedIndex = listBox1.Items.Count - 1;
+
+                Form1_Func.SelectItem.macroEnum = MacroEnum.MouseClick;
+
+                Form1_Func.currentMouseMode = MouseFunctionEnum_Remote.왼쪽클릭;
+
+                listBox1.Items[listBox1.SelectedIndex] = Form1_Func.currentMouseMode;
             }
         }
 
@@ -268,6 +311,11 @@ namespace MyRemote2
             listBox1.Items[listBox1.SelectedIndex] = itemName;
         }
 
+        void MouseMovePlusMouseLeftClilck()
+        {
+
+        }
+
         /// <summary>
         /// keys 는 System.Window.Forms.Keys
         /// </summary>
@@ -325,13 +373,13 @@ namespace MyRemote2
         /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
-            string itemName = "왼쪽 클릭";
+            //string itemName = "왼쪽 클릭";
 
             Form1_Func.SelectItem.macroEnum = MacroEnum.MouseClick;
 
-            
+            Form1_Func.SelectItem.mouseFunctionSort = Form1_Func.currentMouseMode;
 
-            listBox1.Items[listBox1.SelectedIndex] = itemName;
+            listBox1.Items[listBox1.SelectedIndex] = Form1_Func.currentMouseMode;
         }
 
 
@@ -414,7 +462,7 @@ namespace MyRemote2
 
         private void WriteTextContentInput_TextChanged(object sender, EventArgs e)
         {
-
+            UTIL.ConfirmUtil_NoFunction.NoFunction(WriteTextContentInput);
         }
 
         private void WriteTextWindowOpenBtn_Click(object sender, EventArgs e)
@@ -455,6 +503,12 @@ namespace MyRemote2
         void Init()
         {
             this.MouseMove += MainWindowMouseMove;
+            this.MouseClick += MainWindowMouseClick;
+        }
+
+        private void MainWindowMouseClick(object sender, EventArgs e)
+        {
+            ItemToListNameWhenLoad();
         }
         private void MainWindowMouseMove(object sender, EventArgs e)
         {
@@ -536,6 +590,41 @@ namespace MyRemote2
         private void Label_TestModeOnOFF_Click(object sender, EventArgs e)
         {
             UTIL.ConfirmUtil_NoFunction.NoFunction(Label_TestModeOnOFF);
+        }
+
+        private void MouseFunctionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Console.WriteLine(MouseFunctionComboBox.SelectedItem);
+            //Form1_Func.currentMouseMode = (MouseFunctionEnum_Remote)MouseFunctionComboBox.SelectedItem;
+            switch (MouseFunctionComboBox.SelectedItem)
+            {
+                case"Press":
+                    Form1_Func.currentMouseMode = MouseFunctionEnum_Remote.Press;
+                    break;
+                case "Release":
+                    Form1_Func.currentMouseMode = MouseFunctionEnum_Remote.Release;
+                    break;
+                case "왼쪽클릭":
+                    Form1_Func.currentMouseMode = MouseFunctionEnum_Remote.왼쪽클릭;
+                    break;
+                case "오른쪽클릭":
+                    Form1_Func.currentMouseMode = MouseFunctionEnum_Remote.오른쪽클릭;
+                    break;
+                case "가운데클릭":
+                    Form1_Func.currentMouseMode = MouseFunctionEnum_Remote.가운데클릭;
+                    break;
+                default:
+                    Console.WriteLine("ERR_ MouseFunctionComboBox_SelectedIndexChanged");
+                    break;
+            }
+        }
+
+        private void DescriptionSettingButton_Click(object sender, EventArgs e)
+        {
+            
+            if (Form1_Func.SelectItem != null)
+                Form1_Func.SelectItem.descriptionForThisItem = WriteTextContentInput.Text;
+
         }
     }
 }
