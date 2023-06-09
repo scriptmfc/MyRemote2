@@ -500,8 +500,8 @@ namespace MyRemote2
             Form1_Func.Init();
 
             //Test
-            UTIL.DisplayFold.WPF_Fold.WPFController.OpenWPF
-                (UTIL.DisplayFold.WPF_Fold.WPFController.WPFEnum.Simple_1);
+            //UTIL.DisplayFold.WPF_Fold.WPFController.OpenWPF
+              //  (UTIL.DisplayFold.WPF_Fold.WPFController.WPFEnum.Simple_1);
             //UTIL.DisplayFold.WPF_Fold.SimpleWPF a = new UTIL.DisplayFold.WPF_Fold.SimpleWPF();
             //this.Controls.Add(a);
             //
