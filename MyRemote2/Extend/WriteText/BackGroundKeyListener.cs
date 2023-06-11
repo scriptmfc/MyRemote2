@@ -318,7 +318,7 @@ namespace MyRemote2.Extend.WriteText
 
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "x";
+                        itemTmp.TestModeKeyPressCode = "z";
                         listTmp.Add(itemTmp);
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.Wait;
@@ -327,7 +327,16 @@ namespace MyRemote2.Extend.WriteText
 
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "c";
+                        itemTmp.TestModeKeyPressCode = "z";
+                        listTmp.Add(itemTmp);
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.Wait;
+                        itemTmp.waitdelay = 130;
+                        listTmp.Add(itemTmp);
+
+                        itemTmp = new MacroItem();
+                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        itemTmp.TestModeKeyPressCode = "z";
                         listTmp.Add(itemTmp);
                         break;
                     case Key.H:
@@ -677,6 +686,7 @@ namespace MyRemote2.Extend.WriteText
             int a =0;
             while (isRunning)
             {
+
                 Thread.Sleep(40); //minimum CPU usage
                 a++;
                 if (a % 30 == 0)
@@ -710,12 +720,25 @@ namespace MyRemote2.Extend.WriteText
 
 
                             {
-                                if(TestModeCodeSub=="MD")
+
+                               
+
+
+                                if (TestModeCodeSub=="MD")
                                     TestModeCodeSub = "";
                                 Console.Beep();
                                 if (key.Equals(Key.F20))
                                 {
                                     TestMode20230531 = !TestMode20230531;
+                                    string tmpONOFF;
+                                    if (TestMode20230531)
+                                        tmpONOFF = "ON";
+                                    else
+                                        tmpONOFF = "OFF";
+
+                                    //UTIL.DisplayFold.WPF_Fold.WPFController.SimpleTestSetting(
+                                    //UTIL.DisplayFold.WPF_Fold.WPFController.WPFEnum.Simple_1,
+                                    //tmpONOFF);
                                 }
                                 else if (key.Equals(Key.D4))
                                 {

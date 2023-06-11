@@ -499,9 +499,23 @@ namespace MyRemote2
             Init();
             Form1_Func.Init();
 
+            //UTIL.DisplayFold.WPF_Fold.WPFController.ShowWPF(
+              //  UTIL.DisplayFold.WPF_Fold.WPFController.WPFEnum.Simple_1);
+
+            
+            //UTIL.DisplayFold.WPF_Fold.SimpleWPF tmpsimple = new UTIL.DisplayFold.WPF_Fold.SimpleWPF();
+            //tmpsimple.
+
+
+
+            //WindowDraw.WindowDraw_Control con = new WindowDraw.WindowDraw_Control();
+
+            //con.Show();
+
+
             //Test
             //UTIL.DisplayFold.WPF_Fold.WPFController.OpenWPF
-              //  (UTIL.DisplayFold.WPF_Fold.WPFController.WPFEnum.Simple_1);
+            //  (UTIL.DisplayFold.WPF_Fold.WPFController.WPFEnum.Simple_1);
             //UTIL.DisplayFold.WPF_Fold.SimpleWPF a = new UTIL.DisplayFold.WPF_Fold.SimpleWPF();
             //this.Controls.Add(a);
             //
@@ -511,11 +525,15 @@ namespace MyRemote2
         {
             this.MouseMove += MainWindowMouseMove;
             this.MouseClick += MainWindowMouseClick;
+
+            UTIL.ConnectFold.ConnectFromTCP.Client.ConnectSimple();
         }
 
         private void MainWindowMouseClick(object sender, EventArgs e)
         {
             ItemToListNameWhenLoad();
+            //UTIL.ConnectFold.ConnectFromTCP.Client.MessageGet();
+            //UTIL.ConnectFold.ConnectFromTCP.Client.MessageSend("Test553");
         }
         private void MainWindowMouseMove(object sender, EventArgs e)
         {
