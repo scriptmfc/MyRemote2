@@ -41,7 +41,7 @@ namespace MyRemote2
             MacroPlusFold.MacroBox MacroBox;
             if (!MacroPlusFold.MacroPlus.MacroBoxDict.TryGetValue(thread_code, out MacroBox))
             {
-                Console.WriteLine(thread_code + "ERR_ Code 없음 ThreadWork_MacroPlus");
+                Console.WriteLine(thread_code + "ERR_ Code 없음 ThreadWork_MacroPlus"+ thread_code);
                 return;
             }
 
@@ -82,6 +82,13 @@ namespace MyRemote2
                 {
                     thread.Abort();
                 }
+                
+                
+                    ThreadSetting(code);
+                    // 스레드 생성 및 시작
+                    if (thread != null)
+                        thread.Start();
+                
             }
             else
             {
@@ -89,13 +96,6 @@ namespace MyRemote2
                 if (thread != null)
                     thread.Start();
 
-            }
-            if (!thread.IsAlive)
-            {
-                ThreadSetting(code);
-                // 스레드 생성 및 시작
-                if (thread!=null)
-                    thread.Start();
             }
         }
 
@@ -113,8 +113,17 @@ namespace MyRemote2
                     thread = new Thread(new ThreadStart(ThreadWork_MacroPlus));
                     break;
                 default:
-                    Console.WriteLine("ThreadSetting " + "ERR_ Code 없음 ThreadWork_MacroPlus");
-                    thread = null;
+                    if (MacroPlusFold.MacroPlus.MacroBoxDict.ContainsKey(code))
+                    {
+                        thread_code = code;
+                        thread = new Thread(new ThreadStart(ThreadWork_MacroPlus));
+                        thread.SetApartmentState(ApartmentState.STA);
+                    }
+                    else
+                    {
+                        Console.WriteLine("ThreadSetting " + "ERR_ Code 없음 ThreadWork_MacroPlus");
+                        thread = null;
+                    }
                     break;
             }
         }

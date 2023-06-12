@@ -42,6 +42,8 @@ namespace MyRemote2.MacroPlusFold
                     break;
                 case MacroEnum.WriteText:
                     WriteTextWork.WriteText(item.str);
+                    Console.WriteLine(item.str + ":???#@#");
+                    
                     break;
                 case MacroEnum.MouseMove:
                     MouseWork.MouseMove(item.x, item.y);
@@ -74,8 +76,9 @@ namespace MyRemote2.MacroPlusFold
                             }
                             break;
                         case MacroItem.WindowFunctionEnum.GetClipboardText:
-                            item.SetStr_FromClipboardGetText(
-                                WindowFunctionWork.GetClipboardGetText());
+                            //item.SetStr_FromClipboardGetText(
+                            //  WindowFunctionWork.GetClipboardGetText());
+                            MacroPlus.ClipBoardGetTextStr=WindowFunctionWork.GetClipboardGetText();
                             break;
                         default:
                             Console.WriteLine(item.macroEnum + ":MacroEnum 오류_WindowFunction_Default");

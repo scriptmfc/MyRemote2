@@ -5,17 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MyRemote2.MacroPlusFold.ModuleFold.DebugModuleFold.FormFold
+namespace MyRemote2.MacroPlusFold.ModuleFold.DebugModuleFold.UnityFold
 {
-    public static class SimpleConsoleDebug
+    public static class SimpleUnityDebug
     {
-        static readonly string scriptname = "SimpleConsoleDebug";
+        static readonly string scriptname = "SimpleUnityDebug";
 
         public static void SimpleDebugSetting()
         {
-            //NotYet
-            //Console.WriteLine("NotYet");
-            //return;
+            
             MacroPlusFold.MacroBox macrobox = new MacroBox();
 
             MacroItem item;
@@ -27,7 +25,7 @@ namespace MyRemote2.MacroPlusFold.ModuleFold.DebugModuleFold.FormFold
             item.windowFunctionEnum = MacroItem.WindowFunctionEnum.Copy;
             macrobox.MacroItemList.Add(item);
 
-            
+
 
             item = new MacroItem();
             item.macroEnum = MacroEnum.WindowFunction;
@@ -38,10 +36,10 @@ namespace MyRemote2.MacroPlusFold.ModuleFold.DebugModuleFold.FormFold
             item.macroEnum = MacroEnum.KeyPress;
             item.key = System.Windows.Forms.Keys.Down;
             macrobox.MacroItemList.Add(item);
-            
+
             item = new MacroItem();
             item.macroEnum = MacroEnum.WriteText;
-            item.str = "consoleUtil.ConsoleW($\"{";
+            item.str = "Debug.Log($\"{";
             macrobox.MacroItemList.Add(item);
 
             item = new MacroItem();
@@ -61,31 +59,14 @@ namespace MyRemote2.MacroPlusFold.ModuleFold.DebugModuleFold.FormFold
 
             item = new MacroItem();
             item.macroEnum = MacroEnum.WriteText;
-            item.str = "\",scriptname);";
+            item.str = "\");";
+            //item.str = "\",scriptname);";
             macrobox.MacroItemList.Add(item);
-            /*
-        item = new MacroItem();
-        item.macroEnum = MacroEnum.WindowFunction;
-        item.windowFunctionEnum = MacroItem.WindowFunctionEnum.ClipboardSetting;
-        string tmpStr = "consoleUtil.ConsoleW(" +
-            "$\"{"+MacroPlus.ClipBoardGetTextStr+"} : "+
-            MacroPlus.ClipBoardGetTextStr + "\",scriptname);";
-        item.SetClipboardSettingStr(tmpStr);
-        macrobox.MacroItemList.Add(item);
-
-        consoleUtil.ConsoleW($"{item}:item", scriptname);
-            */
 
 
 
-#if false
-            WindowRobotFold.WorkFold.WindowFunctionWork.WindowCopy();
-#endif
-            //WindowRobotFold.WorkFold.WindowFunctionWork.ClipboardPaste();
-
-            UTIL.CollectCon.Dict.Set_IfNotExistAdd(MacroPlus.MacroBoxDict, 
-                "SimpleDebugConsole", macrobox);
+            UTIL.CollectCon.Dict.Set_IfNotExistAdd(MacroPlus.MacroBoxDict,
+                "SimpleDebugUnity", macrobox);
         }
-
     }
 }

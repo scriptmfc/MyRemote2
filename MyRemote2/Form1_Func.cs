@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using MyRemote2;
 using MyRemote2.Extend.WriteText;
+using MyRemote2.MacroPlusFold;
 using MyRemote2.WindowRobotFold.WorkFold;
 
 public static class Form1_Func
@@ -26,6 +27,7 @@ public static class Form1_Func
     const byte VK_SHIFT = 0x10;
     // CONTROL 키의 가상 키 코드
     const byte VK_CONTROL = 0x11;
+
 
 
     // POINT 구조체 정의
@@ -90,6 +92,7 @@ public static class Form1_Func
     {
         consoleUtil.DebugON = true;
         consoleUtil.CONSOLEUTILSystemDebugON = true;
+        MacroPlus.Init();
     }
 
     public static void StartMacro()

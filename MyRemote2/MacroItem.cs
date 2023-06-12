@@ -54,6 +54,7 @@ public class MacroItem
 
 	/// <summary>
 	/// WindowFunctionEnum.GetClipboardText에서 가져온 거를 저장한 string
+	/// 이 역할을 MacroPlus.ClipBoardGetTextStr이 함
 	/// </summary>
 	private string str_FromClipboardGetText;
 
@@ -78,7 +79,7 @@ public class MacroItem
 
 
 	public string ClipboardSettingStr { get => clipboardSettingStr;}
-    public string Str_FromClipboardGetText { get => str_FromClipboardGetText;}
+    //public string Str_FromClipboardGetText { get => str_FromClipboardGetText;}
 
     public enum WindowFunctionEnum
     {

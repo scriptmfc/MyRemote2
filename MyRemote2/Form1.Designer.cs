@@ -410,6 +410,7 @@ namespace MyRemote2
             this.DebugMacroMainOptionComboBox.Size = new System.Drawing.Size(121, 20);
             this.DebugMacroMainOptionComboBox.TabIndex = 30;
             this.DebugMacroMainOptionComboBox.Text = "Form";
+            this.DebugMacroMainOptionComboBox.SelectedIndexChanged += new System.EventHandler(this.DebugMacroMainOptionComboBox_SelectedIndexChanged);
             // 
             // Label_DebugMacroMainOption
             // 

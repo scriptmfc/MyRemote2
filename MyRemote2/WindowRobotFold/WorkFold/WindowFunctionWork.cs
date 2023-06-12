@@ -115,7 +115,8 @@ namespace MyRemote2.WindowRobotFold.WorkFold
                 //IntPtr visualStudioHwnd = FindWindow("MyRemote2 (실행) - Microsoft Visual Studio", null);
                 //IntPtr visualStudioHwnd = FindWindow(null, "MyRemote2 (실행) - Microsoft Visual Studio");
 
-                if (!GetActiveWindowHandle().Contains("(실행) - Microsoft Visual Studio"))
+                //if (!GetActiveWindowHandle().Contains("(실행) - Microsoft Visual Studio"))
+                if (!GetActiveWindowHandle().Contains(" - Microsoft Visual Studio"))
                 {
                     Console.WriteLine("GetActiveWindowHandle은 Microsoft visual studio 가 아닙니다. ");
                     return;
@@ -159,8 +160,9 @@ namespace MyRemote2.WindowRobotFold.WorkFold
         public static void WindowCopy()
         {
             // 복사할 대상 창을 활성화합니다.
-            if (!GetActiveWindowHandle().Contains("(실행) - Microsoft Visual Studio"))
-            {
+            //if (!GetActiveWindowHandle().Contains("(실행) - Microsoft Visual Studio"))
+                if (!GetActiveWindowHandle().Contains(" - Microsoft Visual Studio"))
+                {
                 Console.WriteLine("GetActiveWindowHandle은 Microsoft visual studio 가 아닙니다. ");
                 return;
             }
@@ -178,6 +180,7 @@ namespace MyRemote2.WindowRobotFold.WorkFold
                 // Ctrl+C 키 조합을 시뮬레이트하여 복사를 실행합니다.
                 SendKeys.SendWait("^c");
                 Console.WriteLine("Succeed Copy");
+                
             }
             else
             {

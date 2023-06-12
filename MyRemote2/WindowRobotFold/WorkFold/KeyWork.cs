@@ -48,7 +48,7 @@ namespace MyRemote2.WindowRobotFold.WorkFold
             keybd_event((byte)key, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
         }
 
-        private static void ShiftPressKey(Keys key)
+        public static void ShiftPressKey(Keys key)
         {
             keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
             keybd_event((byte)key, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);

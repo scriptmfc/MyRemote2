@@ -616,6 +616,9 @@ namespace MyRemote2.Extend.WriteText
             keysToCheckList.Add(Key.Scroll);
             keysToCheckList.Add(Key.Pause);
 
+            keysToCheckList.Add(Key.F14);
+            keysToCheckList.Add(Key.F15);
+
             #region 기능
             keysToCheckList.Add(Key.F20);//ONOFF
             keysToCheckList.Add(Key.D4);//Left
@@ -711,6 +714,23 @@ namespace MyRemote2.Extend.WriteText
                 {
                     if (Keyboard.GetKeyStates(key).HasFlag(KeyStates.Down))
                     {
+                        if (key.Equals(Key.F14))
+                        {
+                            if (MacroPlusFold.MacroPlus.selectedEnvironMentMode
+                                == MacroPlusFold.MacroPlus.EnvironMentMode.CONSOLE)
+                            {
+                                ThreadMachine.StartThread("SimpleDebugConsole");
+                            }
+                            else if (MacroPlusFold.MacroPlus.selectedEnvironMentMode
+                                == MacroPlusFold.MacroPlus.EnvironMentMode.UNITY)
+                                {
+                                    ThreadMachine.StartThread("SimpleDebugUnity");
+                                }
+
+                        }
+
+
+
                         if (InputKeyList.Count == 0)
                         {
                             if (key.Equals(Key.F20) ||

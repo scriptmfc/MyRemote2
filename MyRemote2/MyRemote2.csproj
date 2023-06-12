@@ -82,6 +82,7 @@
     <Compile Include="MacroPlusFold\MacroWorkEXE.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\CopyPasteModule.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\DebugModuleFold\FormFold\SimpleConsoleDebug.cs" />
+    <Compile Include="MacroPlusFold\ModuleFold\DebugModuleFold\UnityFold\SimpleUnityDebug.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\TestModule_1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,8 +126,6 @@
   <ItemGroup>
     <Content Include="ForIcon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MacroPlusFold\ModuleFold\DebugModuleFold\UnityFold\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -212,6 +212,17 @@ namespace MyRemote2.WindowRobotFold.WorkFold
                     break;
             }
 
+
+            if (shiftOn)
+            {
+                Console.WriteLine(key + "Shift__ ");
+                KeyWork.ShiftPressKey(keys);
+            }
+            else
+            {
+                Console.WriteLine(key + "NonShift__ ");
+                KeyWork.OneKeyInput_Press_Release(keys);
+            }
         }
     }
 }

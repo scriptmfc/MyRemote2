@@ -651,5 +651,24 @@ namespace MyRemote2
                 Form1_Func.SelectItem.descriptionForThisItem = WriteTextContentInput.Text;
 
         }
+
+        private void DebugMacroMainOptionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (DebugMacroMainOptionComboBox.SelectedItem)
+            {
+                case "Form":
+                    MacroPlusFold.MacroPlus.selectedEnvironMentMode 
+                        = MacroPlusFold.MacroPlus.EnvironMentMode.CONSOLE;
+                    break;
+                case "Unity":
+                    MacroPlusFold.MacroPlus.selectedEnvironMentMode
+                        = MacroPlusFold.MacroPlus.EnvironMentMode.UNITY;
+                    break;
+                default:
+                    Console.WriteLine("ERR_ DebugMacroMainOptionComboBox_SelectedIndexChanged");
+                    break;
+            }
+            
+        }
     }
 }
