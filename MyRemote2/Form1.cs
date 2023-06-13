@@ -55,7 +55,8 @@ namespace MyRemote2
 
         void BackGroundKeyListenStart(object sender, EventArgs e)
         {
-            Extend.WriteText.BackGroundKeyListener.ListenStart(sender, e);
+            Extend.BackGroundKeyListenerMAIN.ListenStart(sender, e);
+            //Extend.WriteText.BackGroundKeyListener.ListenStart(sender, e);
         }
 
         /// <summary>
@@ -445,8 +446,9 @@ namespace MyRemote2
             {
                 if(Form1_Func.MacroItemList.Contains(Form1_Func.SelectItem))
                     Form1_Func.MacroItemList.Remove(Form1_Func.SelectItem);
-                listBox1.Items.Remove(listBox1.SelectedItem);
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
             }
+            ItemToListNameWhenLoad();
         }
 
 
@@ -493,7 +495,7 @@ namespace MyRemote2
                 Form1_Func.KeyPress꾹Control = false;
             }
         }
-
+        #region 시작 종료 관련
         private void Form1_Load(object sender, EventArgs e)
         {
             Init();
@@ -520,7 +522,7 @@ namespace MyRemote2
             //this.Controls.Add(a);
             //
         }
-
+        
         void Init()
         {
             this.MouseMove += MainWindowMouseMove;
@@ -529,12 +531,18 @@ namespace MyRemote2
             UTIL.ConnectFold.ConnectFromTCP.Client.ConnectSimple();
         }
 
+        private void Form1_Disposed(object sender, EventArgs e)
+        {
+            Extend.BackGroundKeyListenerMAIN.isRunning = false;
+            Extend.WriteText.BackGroundKeyListener.isRunning = false;
+        }
         private void MainWindowMouseClick(object sender, EventArgs e)
         {
             ItemToListNameWhenLoad();
             //UTIL.ConnectFold.ConnectFromTCP.Client.MessageGet();
             //UTIL.ConnectFold.ConnectFromTCP.Client.MessageSend("Test553");
         }
+        #endregion
         private void MainWindowMouseMove(object sender, EventArgs e)
         {
             string ReverseStr;
@@ -554,10 +562,6 @@ namespace MyRemote2
             }
         }
 
-        private void Form1_Disposed(object sender, EventArgs e)
-        {
-            Extend.WriteText.BackGroundKeyListener.isRunning = false;
-        }
 
         private void MacroListBoxUpButton_Click(object sender, EventArgs e)
         {

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonFold\CommonEnums.cs" />
+    <Compile Include="Extend\BackGroundKeyListenerMAIN.cs" />
     <Compile Include="Extend\CustomMacroItemMaker.cs" />
     <Compile Include="Extend\WriteText\BackGroundKeyListener.cs" />
     <Compile Include="Extend\WriteText\SaveLoad.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="MacroPlusFold\ModuleFold\CopyPasteModule.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\DebugModuleFold\FormFold\SimpleConsoleDebug.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\DebugModuleFold\UnityFold\SimpleUnityDebug.cs" />
+    <Compile Include="MacroPlusFold\ModuleFold\FastCodeModuleFold\FastCodeSimple.cs" />
     <Compile Include="MacroPlusFold\ModuleFold\TestModule_1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

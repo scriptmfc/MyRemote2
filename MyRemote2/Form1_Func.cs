@@ -66,6 +66,8 @@ public static class Form1_Func
     public static bool KeyPress꾹Shift;
     public static bool KeyPress꾹Alt;
 
+
+
     /// <summary>
     /// Mouse지정할 Mode
     /// </summary>
