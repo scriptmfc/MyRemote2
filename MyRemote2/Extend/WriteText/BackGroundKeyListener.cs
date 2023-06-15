@@ -355,14 +355,14 @@ namespace MyRemote2.Extend.WriteText
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
                         itemTmp.TestModeKeyPressCode = "236";
                         listTmp.Add(itemTmp);
-                        itemTmp = new MacroItem();
-                        itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
-                        itemTmp.TestModeKeyPressCode = "236";
-                        listTmp.Add(itemTmp);
+                        //itemTmp = new MacroItem();
+                        //itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
+                        //itemTmp.TestModeKeyPressCode = "236";
+                        //listTmp.Add(itemTmp);
                         itemTmp = new MacroItem();
                         itemTmp.macroEnum = MacroEnum.TestModeKeyPress;
                         itemTmp.TestModeKeyPressCode = "Keys_RightUpDownUp";
-                        itemTmp.TestModeKeyPressCode_Sub = Keys.C;
+                        itemTmp.TestModeKeyPressCode_Sub = Keys.S;
                         listTmp.Add(itemTmp);
                         break;
                     case Key.B:
