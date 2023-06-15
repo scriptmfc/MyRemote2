@@ -59,6 +59,7 @@ public static class Form1_Func
 
     public static Keys CurrentMousePositionSettingKey = Keys.F6;
     public static Keys CurrentMousePositionMoveAndClickSettingKey = Keys.F7;
+    public static Keys CurrentSelectItemMousePositionMove = Keys.F8;
     public static Key StartKey= Key.Scroll;
     public static Key StopKey= Key.Pause;
 

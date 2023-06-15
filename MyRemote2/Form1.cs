@@ -17,6 +17,7 @@ namespace MyRemote2
 {
     public partial class Form1 : Form
     {
+        static readonly string scriptname = "Form1";
         public static Form1 Instance;
 
         private bool StartBtnChangeReady;
@@ -109,8 +110,13 @@ namespace MyRemote2
             }
             int index = 0;
             int.TryParse(InsertIndexTextBox.Text, out index);
+            consoleUtil.ConsoleW(index + ":index", scriptname);
+
             if (index > 2)
+            {
+                if(listBox1.Items.Count>index)
                 listBox1.SelectedIndex = index;
+            }
         }
 
         public  void BackGroundKeyExe(Key key)
@@ -134,16 +140,16 @@ namespace MyRemote2
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            Console.WriteLine(e+":??");
+            Console.WriteLine(e + ":??");
             // F7 키가 눌렸는지 확인
 
             if (StartBtnChangeReady)
             {
                 Console.WriteLine("StartBtnChangeReady가 true");
-                Console.WriteLine(e.KeyData+":e.keydata");
+                Console.WriteLine(e.KeyData + ":e.keydata");
                 Console.WriteLine(Keys.OemCloseBrackets.ToString() + ":Keys.OemBackslash.ToString()");
                 //Oem5키는 \인것 같다.
-                if (e.KeyData==Keys.OemCloseBrackets)
+                if (e.KeyData == Keys.OemCloseBrackets)
                 {
                     MyRemote2.Extend.WriteText.BackGroundKeyListener.InputKeyList.Add(Key.OemCloseBrackets);
                     Form1_Func.StartKey = Key.OemCloseBrackets;
@@ -152,16 +158,16 @@ namespace MyRemote2
                     StartBtn.Text = "시작 : ]";
                 }
 
-                
+
 
                 return;
             }
 
             if (MacroKeyInputReady)
             {
-                
+
                 KeyPressSetting(e.KeyData);
-                Console.WriteLine(e.KeyData+"키 지정");
+                Console.WriteLine(e.KeyData + "키 지정");
                 MacroKeyInputReady = false;
                 return;
             }
@@ -195,8 +201,8 @@ namespace MyRemote2
             if (e.KeyCode == Form1_Func.CurrentMousePositionMoveAndClickSettingKey)
             {
                 Console.WriteLine("현재위치");
-                
-                
+
+
                 //Form1.Instance.Label4 = "현재 위치로 : "+F6;
 
                 listBox1.Items.Add("새로운 항목");
@@ -204,7 +210,7 @@ namespace MyRemote2
                 var item = new MacroItem();
                 Form1_Func.MacroItemList.Add(item);
 
-                
+
                 listBox1.SelectedIndex = listBox1.Items.Count - 1;
 
                 Form1.Instance.MouseXPos1.Text = Form1_Func.GetMouseCurrentPosition().X.ToString();
@@ -225,7 +231,7 @@ namespace MyRemote2
                 var item2 = new MacroItem();
                 Form1_Func.MacroItemList.Add(item2);
 
-                
+
                 listBox1.SelectedIndex = listBox1.Items.Count - 1;
 
                 Form1_Func.SelectItem.macroEnum = MacroEnum.MouseClick;
@@ -233,6 +239,19 @@ namespace MyRemote2
                 Form1_Func.currentMouseMode = MouseFunctionEnum_Remote.왼쪽클릭;
 
                 listBox1.Items[listBox1.SelectedIndex] = Form1_Func.currentMouseMode;
+            }
+            if (e.KeyCode == Form1_Func.CurrentSelectItemMousePositionMove)
+            {
+                if (Form1_Func.SelectItem != null)
+                {
+                    if (Form1_Func.SelectItem.macroEnum.Equals(MacroEnum.MouseMove))
+                    {
+
+                        WindowRobotFold.WorkFold.MouseWork.MouseMove(
+                            Form1_Func.SelectItem.x, Form1_Func.SelectItem.y);
+                    }
+                }
+
             }
         }
 
@@ -460,7 +479,10 @@ namespace MyRemote2
             {
                 if(Form1_Func.MacroItemList.Contains(Form1_Func.SelectItem))
                     Form1_Func.MacroItemList.Remove(Form1_Func.SelectItem);
+
+                if(listBox1.SelectedItem!=null)
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                
             }
             ItemToListNameWhenLoad("");
         }

@@ -38,6 +38,7 @@ namespace MyRemote2
             this.MacroItemDeleteBtn = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.IndexViewButton = new System.Windows.Forms.Button();
             this.MacroListBoxDownButton = new System.Windows.Forms.Button();
             this.MacroListBoxUpButton = new System.Windows.Forms.Button();
             this.StartKeyChangeBtn = new System.Windows.Forms.Button();
@@ -75,7 +76,7 @@ namespace MyRemote2
             this.DescriptionSettingButton = new System.Windows.Forms.Button();
             this.InsertButton = new System.Windows.Forms.Button();
             this.InsertIndexTextBox = new System.Windows.Forms.TextBox();
-            this.IndexViewButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,6 +132,16 @@ namespace MyRemote2
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(391, 319);
             this.panel1.TabIndex = 1;
+            // 
+            // IndexViewButton
+            // 
+            this.IndexViewButton.Location = new System.Drawing.Point(277, 289);
+            this.IndexViewButton.Name = "IndexViewButton";
+            this.IndexViewButton.Size = new System.Drawing.Size(82, 23);
+            this.IndexViewButton.TabIndex = 17;
+            this.IndexViewButton.Text = "IndexView";
+            this.IndexViewButton.UseVisualStyleBackColor = true;
+            this.IndexViewButton.Click += new System.EventHandler(this.IndexViewButton_Click);
             // 
             // MacroListBoxDownButton
             // 
@@ -488,21 +499,20 @@ namespace MyRemote2
             this.InsertIndexTextBox.Size = new System.Drawing.Size(75, 21);
             this.InsertIndexTextBox.TabIndex = 37;
             // 
-            // IndexViewButton
+            // label6
             // 
-            this.IndexViewButton.Location = new System.Drawing.Point(277, 289);
-            this.IndexViewButton.Name = "IndexViewButton";
-            this.IndexViewButton.Size = new System.Drawing.Size(82, 23);
-            this.IndexViewButton.TabIndex = 17;
-            this.IndexViewButton.Text = "IndexView";
-            this.IndexViewButton.UseVisualStyleBackColor = true;
-            this.IndexViewButton.Click += new System.EventHandler(this.IndexViewButton_Click);
+            this.label6.Location = new System.Drawing.Point(231, 279);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(133, 30);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "현재 item의 클릭한 위치로 마우스 이동 : F8";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 501);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.InsertIndexTextBox);
             this.Controls.Add(this.InsertButton);
             this.Controls.Add(this.DescriptionSettingButton);
@@ -597,6 +607,7 @@ namespace MyRemote2
         private Button InsertButton;
         private TextBox InsertIndexTextBox;
         private Button IndexViewButton;
+        private Label label6;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }
