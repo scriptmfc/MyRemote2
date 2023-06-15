@@ -59,11 +59,14 @@ namespace MyRemote2
             //Extend.WriteText.BackGroundKeyListener.ListenStart(sender, e);
         }
 
+
         /// <summary>
         /// listBox1 의 Item 들을 Form1_Func.MacroItemList에 맞게 업데이트한다.
         /// </summary>
-        public void ItemToListNameWhenLoad()
+        public void ItemToListNameWhenLoad(string subcode)
         {
+            
+
             listBox1.Items.Clear();
             for (int i = 0; i < Form1_Func.MacroItemList.Count; i++)
             {
@@ -101,7 +104,13 @@ namespace MyRemote2
                 }
                 if (!string.IsNullOrEmpty(Form1_Func.MacroItemList[i].descriptionForThisItem))
                     listBox1.Items[i] += $" [ {Form1_Func.MacroItemList[i].descriptionForThisItem} ]";
+                if (subcode == "indexView")
+                    listBox1.Items[i] += $" [{i}:index]";
             }
+            int index = 0;
+            int.TryParse(InsertIndexTextBox.Text, out index);
+            if (index > 2)
+                listBox1.SelectedIndex = index;
         }
 
         public  void BackGroundKeyExe(Key key)
@@ -362,6 +371,11 @@ namespace MyRemote2
             
         }
 
+        /// <summary>
+        /// 수정하기 클릭
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -448,7 +462,7 @@ namespace MyRemote2
                     Form1_Func.MacroItemList.Remove(Form1_Func.SelectItem);
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
             }
-            ItemToListNameWhenLoad();
+            ItemToListNameWhenLoad("");
         }
 
 
@@ -538,7 +552,7 @@ namespace MyRemote2
         }
         private void MainWindowMouseClick(object sender, EventArgs e)
         {
-            ItemToListNameWhenLoad();
+            //ItemToListNameWhenLoad();
             //UTIL.ConnectFold.ConnectFromTCP.Client.MessageGet();
             //UTIL.ConnectFold.ConnectFromTCP.Client.MessageSend("Test553");
         }
@@ -572,7 +586,7 @@ namespace MyRemote2
                 var tmp = Form1_Func.MacroItemList[listBox1.SelectedIndex-1];
                 Form1_Func.MacroItemList[listBox1.SelectedIndex - 1] = Form1_Func.MacroItemList[listBox1.SelectedIndex];
                 Form1_Func.MacroItemList[listBox1.SelectedIndex] = tmp;
-                ItemToListNameWhenLoad();
+                ItemToListNameWhenLoad("");
             }
             
         }
@@ -587,7 +601,7 @@ namespace MyRemote2
                 var tmp = Form1_Func.MacroItemList[listBox1.SelectedIndex + 1];
                 Form1_Func.MacroItemList[listBox1.SelectedIndex + 1] = Form1_Func.MacroItemList[listBox1.SelectedIndex];
                 Form1_Func.MacroItemList[listBox1.SelectedIndex] = tmp;
-                ItemToListNameWhenLoad();
+                ItemToListNameWhenLoad("");
             }
         }
 
@@ -672,6 +686,44 @@ namespace MyRemote2
                     Console.WriteLine("ERR_ DebugMacroMainOptionComboBox_SelectedIndexChanged");
                     break;
             }
+            
+        }
+
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+            int index;
+
+            if (!int.TryParse(InsertIndexTextBox.Text,out index))
+                return;
+            if (index < 2)
+                return;
+
+            listBox1.Items.Add("새로운 항목(insert)");
+
+            var item = new MacroItem();
+            Form1_Func.MacroItemList.Add(item);
+
+            var tmp = Form1_Func.MacroItemList[Form1_Func.MacroItemList.Count - 1];
+
+            for(int i = Form1_Func.MacroItemList.Count-1; i> index; i--)
+            {
+                Form1_Func.MacroItemList[i] = Form1_Func.MacroItemList[i - 1];
+                    Console.WriteLine(i + ": 확인 i");
+            }
+            Form1_Func.MacroItemList[index] = tmp;
+            Console.WriteLine(index + ": 확인 index");
+
+
+            ItemToListNameWhenLoad("");
+            // 첫 번째 항목 선택
+            listBox1.SelectedIndex = index;
+        }
+
+        private void IndexViewButton_Click(object sender, EventArgs e)
+        {
+            
+
+            ItemToListNameWhenLoad("indexView");
             
         }
     }

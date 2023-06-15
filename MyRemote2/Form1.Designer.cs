@@ -73,6 +73,9 @@ namespace MyRemote2
             this.MouseFunctionComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.DescriptionSettingButton = new System.Windows.Forms.Button();
+            this.InsertButton = new System.Windows.Forms.Button();
+            this.InsertIndexTextBox = new System.Windows.Forms.TextBox();
+            this.IndexViewButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +121,7 @@ namespace MyRemote2
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.IndexViewButton);
             this.panel1.Controls.Add(this.MacroListBoxDownButton);
             this.panel1.Controls.Add(this.MacroListBoxUpButton);
             this.panel1.Controls.Add(this.StartKeyChangeBtn);
@@ -467,11 +471,40 @@ namespace MyRemote2
             this.DescriptionSettingButton.UseVisualStyleBackColor = true;
             this.DescriptionSettingButton.Click += new System.EventHandler(this.DescriptionSettingButton_Click);
             // 
+            // InsertButton
+            // 
+            this.InsertButton.Location = new System.Drawing.Point(289, 122);
+            this.InsertButton.Name = "InsertButton";
+            this.InsertButton.Size = new System.Drawing.Size(75, 23);
+            this.InsertButton.TabIndex = 36;
+            this.InsertButton.Text = "Insert";
+            this.InsertButton.UseVisualStyleBackColor = true;
+            this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
+            // 
+            // InsertIndexTextBox
+            // 
+            this.InsertIndexTextBox.Location = new System.Drawing.Point(289, 95);
+            this.InsertIndexTextBox.Name = "InsertIndexTextBox";
+            this.InsertIndexTextBox.Size = new System.Drawing.Size(75, 21);
+            this.InsertIndexTextBox.TabIndex = 37;
+            // 
+            // IndexViewButton
+            // 
+            this.IndexViewButton.Location = new System.Drawing.Point(277, 289);
+            this.IndexViewButton.Name = "IndexViewButton";
+            this.IndexViewButton.Size = new System.Drawing.Size(82, 23);
+            this.IndexViewButton.TabIndex = 17;
+            this.IndexViewButton.Text = "IndexView";
+            this.IndexViewButton.UseVisualStyleBackColor = true;
+            this.IndexViewButton.Click += new System.EventHandler(this.IndexViewButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 501);
+            this.Controls.Add(this.InsertIndexTextBox);
+            this.Controls.Add(this.InsertButton);
             this.Controls.Add(this.DescriptionSettingButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.MouseFunctionComboBox);
@@ -561,6 +594,9 @@ namespace MyRemote2
         private ComboBox MouseFunctionComboBox;
         private Label label5;
         private Button DescriptionSettingButton;
+        private Button InsertButton;
+        private TextBox InsertIndexTextBox;
+        private Button IndexViewButton;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }
