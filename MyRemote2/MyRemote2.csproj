@@ -60,6 +60,9 @@
     <Compile Include="CommonFold\CommonEnums.cs" />
     <Compile Include="Extend\BackGroundKeyListenerMAIN.cs" />
     <Compile Include="Extend\CustomMacroItemMaker.cs" />
+    <Compile Include="Extend\ImageSearchFold\ImageSearch.cs" />
+    <Compile Include="Extend\ImageSearchFold\ImageSearchModule.cs" />
+    <Compile Include="Extend\ImageSearchFold\LocationSetting.cs" />
     <Compile Include="Extend\WriteText\BackGroundKeyListener.cs" />
     <Compile Include="Extend\WriteText\SaveLoad.cs" />
     <Compile Include="Extend\WriteText\ThisFunction.cs" />
