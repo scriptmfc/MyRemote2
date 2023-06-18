@@ -40,7 +40,11 @@ public class MacroItem
 	/// </summary>
     public string str;
 
+	/// <summary>
+	/// CustomMacro용
+	/// </summary>
 	public string CustomMacroCode;
+	public string CustomMacroCode2;
 
 	/// <summary>
 	/// 뭐지

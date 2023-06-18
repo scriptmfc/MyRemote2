@@ -251,80 +251,13 @@ public static class Form1_Func
             case MacroEnum.CustomMacro:
 
                 //if (item.CustomMacroCode == "test_Champion")
-                    if(true)
+                if(item.CustomMacroCode =="LoadAndRun")
                 {
-                    //ShiftPressKey(Keys.Down);
-                    //ShiftPressKey(Keys.Down);
-                    //ShiftPressKey(Keys.Down);
-                    //PressKey(Keys.Oemcomma);
-                    //PressKey(Keys.Down);
-                    //PressKey(Keys.End);
-
-                    PressKey(Keys.End);
-                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    Thread.Sleep(300);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    Thread.Sleep(150);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                    Thread.Sleep(200);
-
-                    PressKey(Keys.Oemcomma);
-                    PressKey(Keys.Down);
-                    PressKey(Keys.Down);
-                    PressKey(Keys.Down);
-                    /*
-                    PressKey(Keys.End);
-                    Thread.Sleep(70);
-                    PressKey(Keys.Oemcomma);
-                    Thread.Sleep(70);
-                    PressKey(Keys.Down);
-                    Thread.Sleep(70);
-                    PressKey(Keys.Down); 
-                    Thread.Sleep(70);
-                    PressKey(Keys.Home);
-                    Thread.Sleep(70);
-                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    Thread.Sleep(150);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                    Thread.Sleep(200);
-                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                    Thread.Sleep(70);
-                    PressKey(Keys.Delete); Thread.Sleep(70);
-
-                    PressKey(Keys.Delete); Thread.Sleep(70);
-
-                    Thread.Sleep(70);
-                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    Thread.Sleep(150);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                    Thread.Sleep(200);
-                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-
-                    PressKey(Keys.Delete); Thread.Sleep(70);
-
-                    PressKey(Keys.Delete); Thread.Sleep(70);
-
-                    Thread.Sleep(70);
-                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
-                    Thread.Sleep(150);
-                    keybd_event((byte)Keys.End, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-                    Thread.Sleep(200);
-                    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-
-                    PressKey(Keys.Delete); Thread.Sleep(70);
-
-                    PressKey(Keys.Delete); Thread.Sleep(70);
-                    */
-                }
-
-                //if (item.CustomMacroCode == "testClipboard")
-                {
-                    Console.WriteLine("ffasda123123sd아직 설정 xxx");
-                    //WindowFunctionWork.ClipboardSetting("test333");
-                    //WindowFunctionWork.ClipboardPaste();
+                    if (!string.IsNullOrEmpty(item.CustomMacroCode2))
+                    {
+                        MyRemote2.SaveLoad.LoadData(item.CustomMacroCode2);
+                        Form1_Func.StartMacro();
+                    }
                 }
                 break;
             default:
