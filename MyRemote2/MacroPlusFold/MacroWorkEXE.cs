@@ -10,9 +10,12 @@ namespace MyRemote2.MacroPlusFold
 {
     public static class MacroWorkEXE
     {
+        static readonly string scriptname = "MacroWorkEXE";
 
         public static void Process(MacroItem item)
         {
+            
+
             switch (item.macroEnum)
             {
                 case MacroEnum.KeyPress:
@@ -20,7 +23,7 @@ namespace MyRemote2.MacroPlusFold
                     {
                         KeyWork.OneKeyInput_Press_Release(item.key);
                     }
-                    else if (item.press꾹Key.Count == 1)
+                    else if (item.press꾹Key.Count <= 3)
                     {
                         Console.WriteLine("아직 안했음-------");
                         //PressContinueKey(item.press꾹Key[0]);
@@ -28,15 +31,41 @@ namespace MyRemote2.MacroPlusFold
                         //ReleaseKey(item.press꾹Key[0]);
                         //=>안되는 듯?
 
-                        if (item.press꾹Key[0] == Keys.Shift)
+
+                        bool ShiftPress =false;
+                        bool ControlPress = false;
+                        bool AltPress = false;
+
+                        for (int i = 0; i < item.press꾹Key.Count; i++)
+                        {
+                            var tmpItem = item.press꾹Key[i];
+                            if (tmpItem == Keys.Shift)
+                            {
+                                ShiftPress = true;
+                            }
+                            else if(tmpItem == Keys.Control)
+                            {
+                                ControlPress = true;
+                            }
+                            else if (tmpItem == Keys.Alt)
+                            {
+                                AltPress = true;
+                            }
+                        }
+                        if (ShiftPress&&!AltPress&&!ControlPress)//Shift만
                         {
                             //KeyWork.MultiKey_Input_Press_Release(item.press꾹Key.a)
                             //ShiftPressKey(item.key);
                         }
-                        else if (item.press꾹Key[0] == Keys.Control)
+                        else if (!ShiftPress && AltPress && !ControlPress)//Alt만
                         {
                             //ControlPressKey(item.key);
                         }
+                        else if (!ShiftPress && !AltPress && ControlPress)//Control만
+                        {
+                            //ControlPressKey(item.key);
+                        }
+
 
                     }
                     break;
@@ -55,6 +84,9 @@ namespace MyRemote2.MacroPlusFold
                     Console.WriteLine("여기는 오면 안됨! Form1_Func.cs (MacroThread에서 직접처리)");
                     break;
                 case MacroEnum.None:
+                    break;
+                case MacroEnum.ImageSearch:
+                    consoleUtil.ConsoleW($"{MacroEnum.ImageSearch} : MacroEnum.ImageSearch 아직 안함", scriptname);
                     break;
                 case MacroEnum.WindowFunction:
                     switch (item.windowFunctionEnum)

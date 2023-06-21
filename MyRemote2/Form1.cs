@@ -563,8 +563,9 @@ namespace MyRemote2
         {
             this.MouseMove += MainWindowMouseMove;
             this.MouseClick += MainWindowMouseClick;
+            UTIL.ConnectFold.ConnectTCPIP.Client.ConnectSimple();
 
-            UTIL.ConnectFold.ConnectFromTCP.Client.ConnectSimple();
+            
         }
 
         private void Form1_Disposed(object sender, EventArgs e)

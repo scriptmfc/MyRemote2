@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 //using System.Windows.Forms
 
@@ -98,7 +99,27 @@ public class MacroItem
 		macroEnum = MacroEnum.None;
 	}
 
+	public class ImageSearchSetting
+    {
+		/// <summary>
+		/// Base이미지에서 찾으려고
+		/// </summary>
+		public Bitmap captured_region_bitmap;
 
+		/// <summary>
+		/// 찾을 이미지
+		/// </summary>
+		public Bitmap target_bitmap;
+
+		public int Threshold;
+
+		public enum SearchStrategy
+		{
+			
+        }
+
+
+    }
 }
 
 public enum MacroEnum
@@ -111,5 +132,6 @@ public enum MacroEnum
 	WindowFunction,
 	CustomMacro,
 	TestModeKeyPress,
+	ImageSearch,
 	None
 }

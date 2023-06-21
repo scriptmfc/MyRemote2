@@ -62,6 +62,7 @@
     <Compile Include="Extend\CustomMacroItemMaker.cs" />
     <Compile Include="Extend\ImageSearchFold\ImageSearch.cs" />
     <Compile Include="Extend\ImageSearchFold\ImageSearchModule.cs" />
+    <Compile Include="Extend\ImageSearchFold\ImageSearch_Fundamental.cs" />
     <Compile Include="Extend\ImageSearchFold\LocationSetting.cs" />
     <Compile Include="Extend\WriteText\BackGroundKeyListener.cs" />
     <Compile Include="Extend\WriteText\SaveLoad.cs" />
