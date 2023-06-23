@@ -64,6 +64,8 @@
     <Compile Include="Extend\ImageSearchFold\ImageSearchModule.cs" />
     <Compile Include="Extend\ImageSearchFold\ImageSearch_Fundamental.cs" />
     <Compile Include="Extend\ImageSearchFold\LocationSetting.cs" />
+    <Compile Include="Extend\TESTEST\TestWebclient.cs" />
+    <Compile Include="Extend\TESTEST\TestWebServer.cs" />
     <Compile Include="Extend\WriteText\BackGroundKeyListener.cs" />
     <Compile Include="Extend\WriteText\SaveLoad.cs" />
     <Compile Include="Extend\WriteText\ThisFunction.cs" />

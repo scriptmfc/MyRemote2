@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -563,10 +564,42 @@ namespace MyRemote2
         {
             this.MouseMove += MainWindowMouseMove;
             this.MouseClick += MainWindowMouseClick;
-            UTIL.ConnectFold.ConnectTCPIP.Client.ConnectSimple();
+            //UTIL.ConnectFold.ConnectTCPIP.Client.ConnectSimple();
 
-            
+            //UTIL.ConnectFold.WebSocketFold.WebSocketServer.Start();
+
+
+            //ccctestst();
+
+
+
         }
+
+        async void ccctestst()
+        {
+            await Extend.TESTEST.TestWebServer.Start();
+            
+            //consoleUtil.ConsoleW($" ccctestst", scriptname);
+            //string str = await UTIL.ConnectFold.WebSocketFold.WebSocketServer.CheckStatusAsync();
+            //consoleUtil.ConsoleW($"{str} : str", scriptname);
+        }
+
+        async void ccctestst22()
+        {
+            
+            if(Extend.TESTEST.TestWebclient.CheckStatus()!=WebSocketState.Open
+                &&
+                Extend.TESTEST.TestWebclient.CheckStatus() != WebSocketState.Connecting)
+            await Extend.TESTEST.TestWebclient.Connect();
+            else
+            {
+                await Extend.TESTEST.TestWebclient.SendMessage("asdsad");
+            }
+            //consoleUtil.ConsoleW($" ccctestst", scriptname);
+            //string str = await UTIL.ConnectFold.WebSocketFold.WebSocketServer.CheckStatusAsync();
+            //consoleUtil.ConsoleW($"{str} : str", scriptname);
+        }
+
 
         private void Form1_Disposed(object sender, EventArgs e)
         {
@@ -575,6 +608,10 @@ namespace MyRemote2
         }
         private void MainWindowMouseClick(object sender, EventArgs e)
         {
+            //ccctestst22();
+
+            //UTIL.ConnectFold.WebSocketFold.UTILWebSocketClient.Connect();
+            //UTIL.ConnectFold.WebSocketFold.WebSocketServer.CheckStatusAsync();
             //ItemToListNameWhenLoad();
             //UTIL.ConnectFold.ConnectFromTCP.Client.MessageGet();
             //UTIL.ConnectFold.ConnectFromTCP.Client.MessageSend("Test553");
