@@ -77,6 +77,8 @@ namespace MyRemote2
             this.InsertButton = new System.Windows.Forms.Button();
             this.InsertIndexTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.CustomMacroCode_1_TextBox = new System.Windows.Forms.TextBox();
+            this.CustomMacroCode_2_TextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -507,11 +509,27 @@ namespace MyRemote2
             this.label6.TabIndex = 38;
             this.label6.Text = "현재 item의 클릭한 위치로 마우스 이동 : F8";
             // 
+            // CustomMacroCode_1_TextBox
+            // 
+            this.CustomMacroCode_1_TextBox.Location = new System.Drawing.Point(501, 443);
+            this.CustomMacroCode_1_TextBox.Name = "CustomMacroCode_1_TextBox";
+            this.CustomMacroCode_1_TextBox.Size = new System.Drawing.Size(157, 21);
+            this.CustomMacroCode_1_TextBox.TabIndex = 39;
+            // 
+            // CustomMacroCode_2_TextBox
+            // 
+            this.CustomMacroCode_2_TextBox.Location = new System.Drawing.Point(501, 468);
+            this.CustomMacroCode_2_TextBox.Name = "CustomMacroCode_2_TextBox";
+            this.CustomMacroCode_2_TextBox.Size = new System.Drawing.Size(157, 21);
+            this.CustomMacroCode_2_TextBox.TabIndex = 40;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 501);
+            this.Controls.Add(this.CustomMacroCode_2_TextBox);
+            this.Controls.Add(this.CustomMacroCode_1_TextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.InsertIndexTextBox);
             this.Controls.Add(this.InsertButton);
@@ -608,6 +626,8 @@ namespace MyRemote2
         private TextBox InsertIndexTextBox;
         private Button IndexViewButton;
         private Label label6;
+        private TextBox CustomMacroCode_1_TextBox;
+        private TextBox CustomMacroCode_2_TextBox;
 
         public Label Label4 { get => label4; set => label4 = value; }
         public TextBox MouseXPos1 { get => MouseXPos; set => MouseXPos = value; }

@@ -685,7 +685,8 @@ namespace MyRemote2
 
             Form1_Func.SelectItem.macroEnum = MacroEnum.CustomMacro;
 
-
+            Form1_Func.SelectItem.CustomMacroCode = CustomMacroCode_1_TextBox.Text;
+            Form1_Func.SelectItem.CustomMacroCode2 = CustomMacroCode_2_TextBox.Text;
 
             listBox1.Items[listBox1.SelectedIndex] = itemName;
         }

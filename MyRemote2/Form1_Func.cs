@@ -255,6 +255,7 @@ public static class Form1_Func
                 {
                     if (!string.IsNullOrEmpty(item.CustomMacroCode2))
                     {
+                        //.txt안붙여도됨
                         MyRemote2.SaveLoad.LoadData(item.CustomMacroCode2);
                         Form1_Func.StartMacro();
                     }
