@@ -30,8 +30,8 @@ namespace MyRemote2.Extend.WriteText
             if (key == Key.Scroll)
             {
                 // 특정 메서드 호출
-                Console.WriteLine("ddd^$*@&*#$");
-                //WriteTextExe();
+                Console.WriteLine("Scroll눌러서 writeTextExe함$#&$");
+                WriteTextExe();
             }
         }
 
