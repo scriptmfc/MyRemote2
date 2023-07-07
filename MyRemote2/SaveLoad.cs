@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MyRemote2
 {
@@ -20,7 +21,9 @@ namespace MyRemote2
             {
                 string json = File.ReadAllText(filepath);
                 Form1_Func.MacroItemList = JsonConvert.DeserializeObject<List<MacroItem>>(json);
-                Form1.Instance.ItemToListNameWhenLoad("");
+                Form1.Instance.Invoke((MethodInvoker)delegate {
+                    Form1.Instance.ItemToListNameWhenLoad("");
+                });
 
             }
         }

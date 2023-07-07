@@ -97,7 +97,7 @@ namespace MyRemote2
                         listBox1.Items[i] = $"마우스 : {Form1_Func.MacroItemList[i].mouseFunctionSort}";
                         break;
                     case MacroEnum.CustomMacro:
-                        listBox1.Items[i] = $"CustomMacro : + [{Form1_Func.MacroItemList[i].CustomMacroCode}]";
+                        listBox1.Items[i] = $"CustomMacro : + [{Form1_Func.MacroItemList[i].CustomMacroCode}] + [{Form1_Func.MacroItemList[i].CustomMacroCode2}]";
                         break;
                     case MacroEnum.MouseMove:
                         listBox1.Items[i] =

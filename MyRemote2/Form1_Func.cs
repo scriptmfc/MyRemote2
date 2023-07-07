@@ -103,6 +103,31 @@ public static class Form1_Func
         ThreadMachine.StartThread("Form1_FuncMacro");
     }
 
+    public static void DelayStartMacro()
+    {
+        System.Threading.Timer timer = null;
+        timer = new System.Threading.Timer((state) =>
+        {
+            StartMacro();
+            timer.Dispose();
+        }, null, (int)(1.0f * 1000), System.Threading.Timeout.Infinite);
+    }
+
+    /*
+    static void DelayStartMacro()
+    {
+        if (StartKey == Key.Scroll)
+        {
+            KeyPress(Keys.Scroll);
+            StartMacro();
+            consoleUtil.ConsoleW($"{StartKey} : 키 작동 확인...DelayStart", scriptname);
+        }
+        else
+        {
+            consoleUtil.ConsoleW($"{StartKey} : Startkey가 Scroll인 경우에만 작동..", scriptname);
+        }
+    }*/
+
     public static void StopMacro()
     {
         ThreadMachine.StopThread();
@@ -257,7 +282,8 @@ public static class Form1_Func
                     {
                         //.txt안붙여도됨
                         MyRemote2.SaveLoad.LoadData(item.CustomMacroCode2);
-                        Form1_Func.StartMacro();
+                        //Form1_Func.StartMacro();
+                        DelayStartMacro();
                     }
                 }
                 break;
